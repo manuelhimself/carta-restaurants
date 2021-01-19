@@ -3,115 +3,111 @@
 class Plat {
 
 	private $conn;
+	private $idPlat;
+	private $nom;
+    private $descripcio;
+    private $preu;
+    private $idSeccio;
 
-	// Properties
-	private $id;
-	private $username;
-	private $privileges;
 
-	// Constructor
 	public function __construct($db) {
 		$this->conn = $db;
-	}
+    }
+    
 
-	// Get users
 	public function read() {
-		$query = "SELECT * FROM users";
-
+		$query = "SELECT * FROM Plat";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
-		
 		return $stmt->get_result();
 	}
 
-	// Get user
-	public function readById() {
-		$query = "SELECT * FROM
-			users
-			WHERE id = ? LIMIT 1";
 
+	public function readById() {
+		$query = "SELECT * FROM Plat WHERE idPlat = ? LIMIT 1";
 		$stmt = $this->conn->prepare($query);
-		$stmt->bind_param('i', $this->id);
+		$stmt->bind_param('i', $this->idPlat);
 		$stmt->execute();
 		$result = $stmt->get_result();
-
 		return $result->fetch_assoc();
 	}
 
 	// Create user
 	public function create() {
-		$query = "INSERT INTO
-			users (username, privileges)
-			VALUES (?, ?)";
-
-		$stmt = $this->conn->prepare($query);
-		$stmt->bind_param('ss', $this->username, $this->privileges);
-
+		$query = "INSERT INTO Plat (idPlat, nom, descripcio, preu, Seccio_idSeccio) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $doublePreu = doubleval($this->preu);
+		$stmt->bind_param('issdi', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio);
 		if ($stmt->execute()) {
 		 	return true;
 		}
 		return false;
-	}
+    }
+    
 
-	// Update user
 	public function update() {
-		$query = "UPDATE
-			users
-			SET 
-				username = ?, 
-				privileges = ?
-			WHERE id = ?";
-
-		$stmt = $this->conn->prepare($query);
-		$stmt->bind_param('ssi', $this->username, $this->privileges, $this->id);
-
+		$query = "UPDATE Plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
+        $stmt = $this->conn->prepare($query);
+        $doublePreu = doubleval($this->preu);
+		$stmt->bind_param('issdii', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio, $this->idPlat);
 		if ($stmt->execute()) {
 		 	return true;
 		}
 		return false;
-	}
+    }
+    
 
-	// Delete user
 	public function delete() {
-		$query = "DELETE FROM
-			users
-			WHERE
-				id = ?";
-
+		$query = "DELETE FROM Plat WHERE idPlat = ?";
 		$stmt = $this->conn->prepare($query);
-		$stmt->bind_param('i', $this->id);
-
+		$stmt->bind_param('i', $this->idPlat);
 		if ($stmt->execute()) {
 		 	return true;
 		}
 		return false;
+    }
+    
+
+	public function getIdPlat() {
+		return $this->idPlat;
 	}
 
-	// Get
-	public function getId() {
-		return $this->id;
+	public function getNom() {
+		return $this->nom;
 	}
 
-	public function getUsername() {
-		return $this->username;
+	public function getDescripcio() {
+		return $this->descripcio;
+    }
+    
+    public function getPreu() {
+		return $this->preu;
+    }
+    
+    public function getIdSeccio() {
+		return $this->idSeccio;
+    }
+    
+
+	public function setIdPlat($idPlat) {
+		$this->idPlat = $idPlat;
 	}
 
-	public function getPrivileges() {
-		return $this->privileges;
+	public function setNom($nom) {
+		$this->nom = $nom;
 	}
 
-	// Set
-	public function setId($id) {
-		$this->id = $id;
-	}
+	public function setDescripcio($descripcio) {
+		$this->descripcio = $descripcio;
+    }
+    
+    public function setPreu($preu){
+        $this->preu = $preu;
+    }
 
-	public function setUsername($username) {
-		$this->username = $username;
-	}
-
-	public function setPrivileges($privileges) {
-		$this->privileges = $privileges;
-	}
+    public function setIdSeccio($idSeccio){
+        $this->idSeccio = $idSeccio;
+    }
 
 }
 
