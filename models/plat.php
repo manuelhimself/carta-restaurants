@@ -32,7 +32,14 @@ class Plat {
 		return $result->fetch_assoc();
 	}
 
-	// Create user
+	public function readBySeccio() {
+		$query = "SELECT * FROM Plat WHERE Seccio_idSeccio = ?";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bind_param('i', $this->idSeccio);
+		$stmt->execute();
+		return $stmt->get_result();
+	}
+
 	public function create() {
 		$query = "INSERT INTO Plat (idPlat, nom, descripcio, preu, Seccio_idSeccio) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
