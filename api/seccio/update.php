@@ -1,22 +1,24 @@
-<?php
+<?php 
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: DELETE');
+header('Access-Control-Allow-Methods: PUT');
 
 include_once '../../config/database.php';
-include_once '../../models/plat.php';
+include_once '../../models/seccio.php';
 
 $db = new DataBase();
 $dbConn = $db->connect();
 
-$plat = new Plat($dbConn);
+$seccio = new Seccio($dbConn);
 
 $properties = json_decode(file_get_contents("php://input"));
 
-$plat->setIdPlat($properties->idPlat);
+$seccio->setIdSeccio($properties->idSeccio);
+$seccio->setNom($properties->nom);
+$seccio->setIdCarta($properties->idCarta);
 
-if ($plat->delete()) {
+if ($seccio->update()) {
 	echo json_encode(array('result' => '1'));
 } else {
 	echo json_encode(array('result' => '0'));
