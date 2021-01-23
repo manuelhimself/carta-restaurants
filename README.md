@@ -1,2 +1,2 @@
 # carta-restaurants
-Projecte final de DAW
+projecte final de DAW
