@@ -5,18 +5,18 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: DELETE');
 
 include_once '../../models/config/database.php';
-include_once '../../models/seccio.php';
+include_once '../../models/carta.php';
 
 $db = new DataBase();
 $dbConn = $db->connect();
 
-$seccio = new Seccio($dbConn);
+$carta = new Carta($dbConn);
 
 $properties = json_decode(file_get_contents("php://input"));
 
-$seccio->setIdSeccio($properties->idSeccio);
+$carta->setIdCarta($properties->idCarta);
 
-if ($seccio->delete()) {
+if ($carta->delete()) {
 	echo json_encode(array('result' => '1'));
 } else {
 	echo json_encode(array('result' => '0'));

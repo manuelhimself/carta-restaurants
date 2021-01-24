@@ -5,7 +5,7 @@ class DataBase
     private $host = "127.0.0.1";
     private $username = "root";
     private $password = "";
-    private $db_name = "projecterestaurants";
+    private $db_name = "restaurants";
 
     public function connect()
     {

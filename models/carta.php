@@ -1,13 +1,11 @@
 <?php 
 
-class Plat {
+class Carta {
 
 	private $conn;
-	private $idPlat;
+	private $idCarta;
 	private $nom;
-    private $descripcio;
-    private $preu;
-    private $idSeccio;
+    private $actiu;
 
 
 	public function __construct($db) {
@@ -16,7 +14,7 @@ class Plat {
     
 
 	public function read() {
-		$query = "SELECT * FROM Plat";
+		$query = "SELECT * FROM Carta";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt->get_result();
@@ -24,27 +22,18 @@ class Plat {
 
 
 	public function readById() {
-		$query = "SELECT * FROM Plat WHERE idPlat = ? LIMIT 1";
+		$query = "SELECT * FROM Carta WHERE idCarta = ? LIMIT 1";
 		$stmt = $this->conn->prepare($query);
-		$stmt->bind_param('i', $this->idPlat);
+		$stmt->bind_param('i', $this->idCarta);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		return $result->fetch_assoc();
 	}
 
-	public function readBySeccio() {
-		$query = "SELECT * FROM Plat WHERE Seccio_idSeccio = ?";
-		$stmt = $this->conn->prepare($query);
-		$stmt->bind_param('i', $this->idSeccio);
-		$stmt->execute();
-		return $stmt->get_result();
-	}
-
 	public function create() {
-		$query = "INSERT INTO Plat (idPlat, nom, descripcio, preu, Seccio_idSeccio) VALUES (?, ?, ?, ?, ?)";
+		$query = "INSERT INTO Carta (idCarta, nom, actiu) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $doublePreu = doubleval($this->preu);
-		$stmt->bind_param('issdi', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio);
+		$stmt->bind_param('isi', $this->idCarta, $this->nom,$this->actiu);
 		if ($stmt->execute()) {
 		 	return true;
 		}
@@ -53,6 +42,17 @@ class Plat {
     
 
 	public function update() {
+		$query = "UPDATE Plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
+        $stmt = $this->conn->prepare($query);
+        $doublePreu = doubleval($this->preu);
+		$stmt->bind_param('issdii', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio, $this->idPlat);
+		if ($stmt->execute()) {
+		 	return true;
+		}
+		return false;
+	}
+	
+	public function updateEstatActiu() {
 		$query = "UPDATE Plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
         $stmt = $this->conn->prepare($query);
         $doublePreu = doubleval($this->preu);
@@ -75,45 +75,28 @@ class Plat {
     }
     
 
-	public function getIdPlat() {
-		return $this->idPlat;
+	public function getIdCarta() {
+		return $this->idCarta;
 	}
 
 	public function getNom() {
 		return $this->nom;
-	}
-
-	public function getDescripcio() {
-		return $this->descripcio;
     }
     
-    public function getPreu() {
-		return $this->preu;
+    public function getActiu() {
+		return $this->actiu;
     }
     
-    public function getIdSeccio() {
-		return $this->idSeccio;
-    }
-    
-
-	public function setIdPlat($idPlat) {
-		$this->idPlat = $idPlat;
+	public function setIdCarta($idCarta) {
+		$this->idCarta = $idCarta;
 	}
 
 	public function setNom($nom) {
 		$this->nom = $nom;
 	}
 
-	public function setDescripcio($descripcio) {
-		$this->descripcio = $descripcio;
-    }
-    
-    public function setPreu($preu){
-        $this->preu = $preu;
-    }
-
-    public function setIdSeccio($idSeccio){
-        $this->idSeccio = $idSeccio;
+	public function setActiu($actiu) {
+		$this->actiu = $actiu;
     }
 
 }

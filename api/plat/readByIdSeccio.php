@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
 
-include_once '../../config/database.php';
+include_once '../../models/config/database.php';
 include_once '../../models/plat.php';
 
 $db = new DataBase();

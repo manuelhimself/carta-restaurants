@@ -5,21 +5,21 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
 
 include_once '../../models/config/database.php';
-include_once '../../models/plat.php';
+include_once '../../models/carta.php';
 
 $db = new DataBase();
 $dbConn = $db->connect();
 
-$plat = new Plat($dbConn);
+$carta = new Carta($dbConn);
 
-if (isset($_GET['idPlat'])) {
-	$plat->setIdPlat($_GET['idPlat']);
+if (isset($_GET['idCarta'])) {
+	$carta->setIdCarta($_GET['idCarta']);
 } else {
 	die();
 }
 
-$_plat = $plat->readById();
+$_carta = $carta->readById();
 
-echo json_encode($_plat);
+echo json_encode($_carta);
 
 ?>
