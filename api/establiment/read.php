@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: PUT');
 
-include_once '../../models/database.php';
+include_once '../../models/config/database.php';
 include_once '../../models/establiment.php';
 
 //DB
@@ -21,7 +21,7 @@ $establiments_arr = array();
 while ($row = $result->fetch_assoc()){
     $establiment_item = array(
         'id' => $row['id'],
-        'nom' => $row['com'],
+        'nom' => $row['nom'],
         'correu_electronic' => $row['correu_electronic'],
         'num_comensals' => $row['num_comensals'],
         'telefon' => $row['telefon'],

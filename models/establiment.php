@@ -11,22 +11,20 @@ class establiment {
   private $num_comensals;
   private $telefon;
   private $poblacio_id;
-private $password;
+  private $password;
 
   //Constructor
   public function __construct($db){
     $this->conn = $db;
   }
 
-  //Get establiment by id
+  //Get establiments
   public function read() {
     $query = "SELECT * FROM
                 establiment";
     $stmt = $this->conn->prepare($query);
     $stmt->execute();
-    $result = $stmt->get_result();
-
-    return $result->fetch_assoc();
+    return $stmt->get_result();
   }
 
   //Get establiment by id
