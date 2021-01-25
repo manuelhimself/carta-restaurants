@@ -25,7 +25,7 @@ while ($row = $result->fetch_assoc()){
         'correu_electronic' => $row['correu_electronic'],
         'num_comensals' => $row['num_comensals'],
         'telefon' => $row['telefon'],
-        'poblacio_id' => $row['poblacio_id'],
+        'poblacio_id' => $row['Poblacio_id'],
         'password' => $row['password'],
     );
     array_push($establiments_arr, $establiment_item);

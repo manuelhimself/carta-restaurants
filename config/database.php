@@ -2,10 +2,10 @@
 
 class DataBase
 {
-    private $host = "51.103.34.143";
+    private $host = "127.0.0.1";
     private $username = "root";
-    private $password = "password";
-    private $db_name = "restaurant";
+    private $password = "";
+    private $db_name = "restaurat";
 
     public function connect()
     {

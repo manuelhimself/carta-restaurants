@@ -13,7 +13,7 @@ $dbConn = $db->connect();
 
 //Establiment object
 $establiment = new establiment($dbConn);
-$result = $establiment->readByNom();
+$result = $establiment->read();
 
 //Establiments array;
 $establiments_arr = array();

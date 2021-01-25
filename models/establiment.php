@@ -2,34 +2,45 @@
 
 class establiment {
 
-    private $conn;
+  private $conn;
 
-    //Properties
-    private $id;
-    private $nom;
-    private $correu_electronic;
-    private $num_comensals;
-    private $telefon;
-    private $poblacio_id;
-    private $password;
+  //Properties
+  private $id;
+  private $nom;
+  private $correu_electronic;
+  private $num_comensals;
+  private $telefon;
+  private $poblacio_id;
+private $password;
 
-    //Constructor
-    public function __construct($db){
-        $this->conn = $db;
-    }
+  //Constructor
+  public function __construct($db){
+    $this->conn = $db;
+  }
 
-    //Get establiment by id
-    public function readById() {
-        $query = "SELECT * FROM
-                    establiment
+  //Get establiment by id
+  public function read() {
+    $query = "SELECT * FROM
+                establiment";
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    return $result->fetch_assoc();
+  }
+
+  //Get establiment by id
+  public function readById() {
+    $query = "SELECT * FROM
+                establiment
                     WHERE id = ? LIMIT 1";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('i', $this->id);
-        $stmt->execute();
-        $result = $stmt->get_result();
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param('i', $this->id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        return $result->fetch_assoc();
-    }
+    return $result->fetch_assoc();
+  }
 
   //Get establiment by name
   public function readByNom() {
@@ -47,7 +58,7 @@ class establiment {
   //Create user
   public function create(){
       $query = "INSERT INTO establiment (nom, correu_electronic, 
-      num_comensals, telefon, poblacio_id, password)
+      num_comensals, telefon, Poblacio_id, password)
       VALUES (?, ?, ?, ?, ?, ?)";
 
       $stmt = $this->conn->prepare($query);
@@ -65,14 +76,13 @@ class establiment {
 				correu_electronic = ?,
         num_comensals = ?,
         telefon = ?,
-        poblacio_id = ?,
+        Poblacio_id = ?,
         password = ?
 
 			WHERE id = ?";
 
 		$stmt = $this->conn->prepare($query);
-    $stmt->bind_param('ssiiisi', $this->nom, $this->correu_electronic,
-    $this->num_comensals, $this->telefon, $this->poblacio_id, $this->password $this->id);
+    $stmt->bind_param('ssiiisi', $this->nom, $this->correu_electronic, $this->num_comensals, $this->telefon, $this->poblacio_id, $this->password, $this->id);
 
 		if ($stmt->execute()) {
 		 	return true;
@@ -83,7 +93,7 @@ class establiment {
   // Delete user
 
   public function delete(){
-    $query = "DELETE FROM establiment WHERE id = ?"
+    $query = "DELETE FROM establiment WHERE id = ?";
 
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param('i', $this->id);
