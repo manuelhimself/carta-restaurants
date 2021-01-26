@@ -32,6 +32,6 @@ while ($row = $result->fetch_assoc()){
 }
 
 //Return JSON
-json_encode($establiments_arr);
+echo json_encode($establiments_arr);
 
 ?>
