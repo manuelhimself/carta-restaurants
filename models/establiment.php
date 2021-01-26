@@ -12,6 +12,7 @@ class establiment {
   private $telefon;
   private $poblacio_id;
   private $password;
+  private $descripcio;
 
   //Constructor
   public function __construct($db){
@@ -48,20 +49,19 @@ class establiment {
       $stmt = $this->conn->prepare($query);
       $stmt->bind_param('s', $this->nom);
       $stmt->execute();
-      $result = $stmt->get_result();
 
-      return $result->fetch_assoc();
+      return $stmt->get_result();
   }
 
   //Create user
   public function create(){
       $query = "INSERT INTO establiment (nom, correu_electronic, 
-      num_comensals, telefon, Poblacio_id, password)
-      VALUES (?, ?, ?, ?, ?, ?)";
+      num_comensals, telefon, Poblacio_id, password, descripcio)
+      VALUES (?, ?, ?, ?, ?, ?, ?)";
 
       $stmt = $this->conn->prepare($query);
-      $stmt->bind_param('ssiiis', $this->nom, $this->correu_electronic, 
-      $this->num_comensals, $this->telefon, $this->poblacio_id, $this->password);
+      $stmt->bind_param('ssiiiss', $this->nom, $this->correu_electronic, 
+      $this->num_comensals, $this->telefon, $this->poblacio_id, $this->password, $this->descripcio);
   }
 
   // Update user
@@ -75,12 +75,13 @@ class establiment {
         num_comensals = ?,
         telefon = ?,
         Poblacio_id = ?,
-        password = ?
+        password = ?,
+        descripcio = ?
 
 			WHERE id = ?";
 
 		$stmt = $this->conn->prepare($query);
-    $stmt->bind_param('ssiiisi', $this->nom, $this->correu_electronic, $this->num_comensals, $this->telefon, $this->poblacio_id, $this->password, $this->id);
+    $stmt->bind_param('ssiiissi', $this->nom, $this->correu_electronic, $this->num_comensals, $this->telefon, $this->poblacio_id, $this->password, $this->descripcio, $this->id);
 
 		if ($stmt->execute()) {
 		 	return true;
@@ -130,14 +131,19 @@ class establiment {
   }
 
   //poblacio_id
-  public function getpoblacio_id(){
+  public function getPoblacio_id(){
     return $this->poblacio_id;
   }
 
   //password
-  public function getpassword(){
+  public function getPassword(){
      return $this->password;
   }
+
+  //password
+  public function getDescripcio(){
+    return $this->descripcio;
+ }
 
 
   //SETTERS
@@ -167,14 +173,19 @@ class establiment {
 		$this->telefon = $telefon;
   }
     
-  //
+  //poblacio_id
   public function setPoblacio_id($poblacio_id) {
 		$this->poblacio_id = $poblacio_id;
   }
     
-  //id
+  //password
   public function setPassword($password) {
 		$this->password = $password;
+  }
+  
+  //descripcio
+  public function setDescripcio($descripcio) {
+		$this->descripcio = $descripcio;
 	}
 }
 
