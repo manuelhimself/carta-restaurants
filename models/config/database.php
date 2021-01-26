@@ -7,6 +7,8 @@ class DataBase
     private $password = "";
     private $db_name = "restaurants";
 
+
+
     public function connect()
     {
         $con = new mysqli($this->host, $this->username, $this->password, $this->db_name);
