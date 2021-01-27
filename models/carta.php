@@ -14,7 +14,7 @@ class Carta {
     
 
 	public function read() {
-		$query = "SELECT * FROM Carta";
+		$query = "SELECT * FROM carta";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt->get_result();
@@ -22,7 +22,7 @@ class Carta {
 
 
 	public function readById() {
-		$query = "SELECT * FROM Carta WHERE idCarta = ? LIMIT 1";
+		$query = "SELECT * FROM carta WHERE idCarta = ? LIMIT 1";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bind_param('i', $this->idCarta);
 		$stmt->execute();
@@ -31,7 +31,7 @@ class Carta {
 	}
 
 	public function create() {
-		$query = "INSERT INTO Carta (idCarta, nom, actiu) VALUES (?, ?, ?)";
+		$query = "INSERT INTO carta (idCarta, nom, actiu) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 		$stmt->bind_param('isi', $this->idCarta, $this->nom,$this->actiu);
 		if ($stmt->execute()) {
@@ -42,7 +42,7 @@ class Carta {
     
 
 	public function update() {
-		$query = "UPDATE Plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
+		$query = "UPDATE plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
         $stmt = $this->conn->prepare($query);
         $doublePreu = doubleval($this->preu);
 		$stmt->bind_param('issdii', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio, $this->idPlat);
@@ -53,7 +53,7 @@ class Carta {
 	}
 	
 	public function updateEstatActiu() {
-		$query = "UPDATE Plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
+		$query = "UPDATE plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
         $stmt = $this->conn->prepare($query);
         $doublePreu = doubleval($this->preu);
 		$stmt->bind_param('issdii', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio, $this->idPlat);
@@ -65,7 +65,7 @@ class Carta {
     
 
 	public function delete() {
-		$query = "DELETE FROM Plat WHERE idPlat = ?";
+		$query = "DELETE FROM plat WHERE idPlat = ?";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bind_param('i', $this->idPlat);
 		if ($stmt->execute()) {
