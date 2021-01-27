@@ -68,9 +68,10 @@ $(document).ready(function() {
                     var cardBody = $("<div/>", {class: "card-body"});
                     var cardH4 = $("<h4/>", {class: "card-title",text: nom});
                     var cardP = $("<p/>", {class: "card-text",text: idCarta + " " + idSeccio});
-                    var cardA1 = $("<button/>",{type: "button", class:"editarSeccio btn btn-primary", id: "edS"+idSeccio, text:"Editar"});
-                    var cardA2 = $("<button/>",{type: "button", class:"eliminarSeccio btn btn-secondary", id: "elS"+idSeccio, text:"Eliminar"});
-                    cardBody.append(cardH4, cardP,cardA1,cardA2);
+                    var cardA1 = $("<button/>",{type: "button", class:"editarSeccioNom btn btn-primary", id: "edS"+idSeccio, idCarta: idCarta, text:"Editar Nom"});
+                    var cardA2 = $("<button/>",{type: "button", class:"editarPlats btn btn-secondary", id: "edP"+idSeccio, text:"Editar Plats"});
+                    var cardA3 = $("<button/>",{type: "button", class:"eliminarSeccio btn btn-info", id: "elS"+idSeccio, idCarta: idCarta, text:"Eliminar"});
+                    cardBody.append(cardH4, cardP,cardA1,cardA2,cardA3);
                     cardDIV.append(cardBody);
                     colDIV.append(cardDIV);
                     rowDIV.append(colDIV);
@@ -87,32 +88,6 @@ $(document).ready(function() {
         xhttp.send();
     }
 
-    function idCartaSeccio(idS){
-        var idCarta = -1;
-        console.log("1");
-        var xhttp = new XMLHttpRequest();
-        console.log("2");
-        console.log("3");
-        xhttp.open("GET", "../../api/seccio/readByIdSeccio.php?idSeccio="+idS, false);
-        console.log("4");
-        xhttp.send();
-        console.log("5");
-        xhttp.onreadystatechange = function() {
-            console.log("6");
-            console.log("readystate: " + this.readyState);
-            if (this.readyState == 4 && this.status == 200) {
-                console.log("7");
-                var seccions = JSON.parse(this.responseText);
-                console.log(seccions);
-                console.log("8");
-                var idCarta = seccions.Carta_idCarta;
-                console.log("idCarta= " + idCarta)
-                console.log("9");
-            }
-        };
-        return idCarta;
-    }
-
     cartes();
     
     $(document).on("click",".editarCarta",function () {
@@ -123,12 +98,9 @@ $(document).ready(function() {
 
     $(document).on("click",".eliminarSeccio",function () {
         var idBoto = $(this).attr("id");
-        console.log(idBoto);
         var idSeccio = idBoto.substr(3,idBoto.length);
-        console.log(idSeccio);
-        //eliminarSeccio(idSeccio);
-        var idCarta = idCartaSeccio(idSeccio);
-        console.log(idCarta);
-        //mostrarSeccions(idCarta);
+        var idCarta = $(this).attr("idCarta");
+        eliminarSeccio(idSeccio);
+        mostrarSeccions(idCarta);
     });
 });
