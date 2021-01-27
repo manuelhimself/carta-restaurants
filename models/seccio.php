@@ -68,6 +68,16 @@ class Seccio {
 		 	return true;
 		}
 		return false;
+	}
+	
+	public function delete1() {
+		$query = "DELETE FROM seccio WHERE idSeccio = ?";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bind_param('i', $this->idSeccio);
+		if ($stmt->execute()) {
+		 	return true;
+		}
+		return false;
     }
     
 
