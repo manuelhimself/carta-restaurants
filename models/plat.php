@@ -16,7 +16,7 @@ class Plat {
     
 
 	public function read() {
-		$query = "SELECT * FROM Plat";
+		$query = "SELECT * FROM plat";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt->get_result();
@@ -24,7 +24,7 @@ class Plat {
 
 
 	public function readById() {
-		$query = "SELECT * FROM Plat WHERE idPlat = ? LIMIT 1";
+		$query = "SELECT * FROM plat WHERE idPlat = ? LIMIT 1";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bind_param('i', $this->idPlat);
 		$stmt->execute();
@@ -33,7 +33,7 @@ class Plat {
 	}
 
 	public function readBySeccio() {
-		$query = "SELECT * FROM Plat WHERE Seccio_idSeccio = ?";
+		$query = "SELECT * FROM plat WHERE Seccio_idSeccio = ?";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bind_param('i', $this->idSeccio);
 		$stmt->execute();
@@ -41,7 +41,7 @@ class Plat {
 	}
 
 	public function create() {
-		$query = "INSERT INTO Plat (idPlat, nom, descripcio, preu, Seccio_idSeccio) VALUES (?, ?, ?, ?, ?)";
+		$query = "INSERT INTO plat (idPlat, nom, descripcio, preu, Seccio_idSeccio) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         $doublePreu = doubleval($this->preu);
 		$stmt->bind_param('issdi', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio);
@@ -53,7 +53,7 @@ class Plat {
     
 
 	public function update() {
-		$query = "UPDATE Plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
+		$query = "UPDATE plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
         $stmt = $this->conn->prepare($query);
         $doublePreu = doubleval($this->preu);
 		$stmt->bind_param('issdii', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio, $this->idPlat);
@@ -65,7 +65,7 @@ class Plat {
     
 
 	public function delete() {
-		$query = "DELETE FROM Plat WHERE idPlat = ?";
+		$query = "DELETE FROM plat WHERE idPlat = ?";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bind_param('i', $this->idPlat);
 		if ($stmt->execute()) {
