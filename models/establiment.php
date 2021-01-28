@@ -30,15 +30,13 @@ class establiment {
 
   //Get establiment by id
   public function readById() {
-    $query = "SELECT * FROM
-                establiment
-                    WHERE id = ? LIMIT 1";
+    $query = "SELECT categoria.nom AS nom_categoria, establiment.* FROM categoria, categoria_establiment, establiment 
+    WHERE categoria_establiment.Categoria_id = categoria.id AND categoria_establiment.Establiment_id = establiment.id AND establiment.id = ?";
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param('i', $this->id);
     $stmt->execute();
-    $result = $stmt->get_result();
-
-    return $result->fetch_assoc();
+    
+    return $stmt->get_result();
   }
 
   //Get establiment by name

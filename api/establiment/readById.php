@@ -20,9 +20,30 @@ if (isset($_REQUEST['id'])) {
 	die();
 }
 
+//Establiments array;
+$json = array();
+
+$categories_arr = array();
+
 $result = $establiment->readById();
 
+while ($row = $result->fetch_assoc()){
+    $establiment_item = array(
+        'id' => $row['id'],
+        'nom' => $row['nom'],
+        'correu_electronic' => $row['correu_electronic'],
+        'num_comensals' => $row['num_comensals'],
+        'telefon' => $row['telefon'],
+		'poblacio_id' => $row['Poblacio_id'],
+		'password' => $row['password'],
+		'descripcio' => $row['descripcio']
+    );
+    array_push($categories_arr, $row['nom_categoria']);
+}
+
+$establiment_item['categories'] = $categories_arr;
+
 //Return JSON
-echo json_encode($result);
+echo json_encode($establiment_item);
 
 ?>
