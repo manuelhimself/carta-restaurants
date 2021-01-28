@@ -20,19 +20,14 @@ if (isset($_REQUEST['id'])) {
 	die();
 }
 
-if (isset($_REQUEST['nom'])) {
-	$establiment->setNom($_REQUEST['nom']);
-} else {
-	die();
-}
-
 //Establiments array;
 $json = array();
 
+$categories_arr = array();
 
 $result = $establiment->readById();
 
-while ($row = $result->fetch_assoc()){
+while ($row = $result->fetch_array()){
     $establiment_item = array(
         'id' => $row['id'],
         'nom' => $row['nom'],
@@ -43,15 +38,12 @@ while ($row = $result->fetch_assoc()){
 		'password' => $row['password'],
 		'descripcio' => $row['descripcio']
     );
-    array_push($establiments_arr, $establiment_item);
+    array_push($categories_arr, $row['nom_categoria']);
 }
 
-//Return JSON
-echo json_encode($establiments_arr);
-
-?>
+$establiment_item['categories'] = $categories_arr;
 
 //Return JSON
-echo json_encode($result);
+echo json_encode($establiment_item);
 
 ?>
