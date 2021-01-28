@@ -27,5 +27,6 @@ $(document).ready(function() {
         var poblacioId = establiment.PoblacioId;
 
 
+
     }
 });
