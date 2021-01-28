@@ -27,7 +27,7 @@ $categories_arr = array();
 
 $result = $establiment->readById();
 
-while ($row = $result->fetch_array()){
+while ($row = $result->fetch_assoc()){
     $establiment_item = array(
         'id' => $row['id'],
         'nom' => $row['nom'],
