@@ -2,8 +2,7 @@
 // Headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Methods: GET');
+header('Access-Control-Allow-Methods: POST, GET');
 
 include_once '../../models/config/database.php';
 include_once '../../models/establiment.php';
@@ -43,6 +42,6 @@ while ($row = $result->fetch_assoc()){
 $establiment_item['categories'] = $categories_arr;
 
 //Return JSON
-echo json_encode($result);
+echo json_encode($establiment_item);
 
 ?>
