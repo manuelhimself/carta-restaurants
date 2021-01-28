@@ -2,7 +2,7 @@
 // Headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
+//header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Methods: GET');
 
 include_once '../../models/config/database.php';
@@ -15,8 +15,8 @@ $dbConn = $db->connect();
 //Establiment object
 $establiment = new establiment($dbConn);
 
-if (isset($_REQUEST['id'])) {
-	$establiment->setId($_REQUEST['id']);
+if (isset($_GET['id'])) {
+	$establiment->setId($_GET['id']);
 } else {
 	die();
 }
