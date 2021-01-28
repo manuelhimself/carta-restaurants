@@ -20,7 +20,36 @@ if (isset($_REQUEST['id'])) {
 	die();
 }
 
+if (isset($_REQUEST['nom'])) {
+	$establiment->setNom($_REQUEST['nom']);
+} else {
+	die();
+}
+
+//Establiments array;
+$json = array();
+
+
 $result = $establiment->readById();
+
+while ($row = $result->fetch_assoc()){
+    $establiment_item = array(
+        'id' => $row['id'],
+        'nom' => $row['nom'],
+        'correu_electronic' => $row['correu_electronic'],
+        'num_comensals' => $row['num_comensals'],
+        'telefon' => $row['telefon'],
+		'poblacio_id' => $row['Poblacio_id'],
+		'password' => $row['password'],
+		'descripcio' => $row['descripcio']
+    );
+    array_push($establiments_arr, $establiment_item);
+}
+
+//Return JSON
+echo json_encode($establiments_arr);
+
+?>
 
 //Return JSON
 echo json_encode($result);

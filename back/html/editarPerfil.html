@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" href="../../images/icon/icon.png">
+    <script src="../js/editaPerfil.js"></script>
+
+    <title>Edita perfil</title>
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-dark sticky-top">
+        <!--Logo-->
+        <a class="navbar-brand" href="admin.restaurat.me/back/html/editarPerfil.html">
+            <img id="logo" src="../../images/icon/icon.png" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!--Links-->
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.restaurat.me/perfil">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.restaurat.me/carta">Carta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.restaurat.me/reserva">Reserves</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color:#880101; color: white;"><a href="admin.restaurat.me/login">Inicia Sessió</a></button>
+            </form>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="preview col-md-6">
+
+                        <div class="preview-pic tab-content">
+                            <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+                            <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
+                            <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
+                            <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
+                            <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+                        </div>
+                        <ul class="preview-thumbnail nav nav-tabs">
+                            <li class="active">
+                                <a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a>
+                            </li>
+                            <li>
+                                <a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a>
+                            </li>
+                            <li>
+                                <a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a>
+                            </li>
+                            <li>
+                                <a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="details col-md-6">
+                        <div class="establiment-title-div">
+                            <h3 class="establiment-title">men's shoes fashion</h3><span id="edita-title">Edita</span>
+                        </div>
+                        <div class="establiment-description-div">
+                            <p class="establiment-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum eligendi assumenda dolorum quasi maiores, ipsa possimus soluta neque impedit labore nulla quas. Corporis architecto qui at numquam tempora rerum quam.</p>
+                            <span id="edita-description">Edita</span>
+                        </div>
+                        <div class="action">
+                            <button class="add-to-cart btn btn-default" type="button">Edita perfil</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Modals-->
+    <!-- Modal Edita nom -->
+    <div id="modalEditaNom" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <!-- header modal -->
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edita nom de l'establiment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+
+
+                <!-- body modal -->
+
+
+                <div class="modal-body">
+                    <form role="form" name="formEdita" action="edita.php" method="get">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nom:</label>
+                                <input id="input-nom" type="text" class="form-control" placeholder="nom" name="nom">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <!-- footer modal -->
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                    <button id="bSubmit" type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edita Descripció -->
+    <div id="modalEditaDescripcio" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <!-- header modal -->
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edita descripció de l'establiment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+
+
+                <!-- body modal -->
+
+
+                <div class="modal-body">
+                    <form role="form" name="formEdita" action="edita.php" method="get">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Descripció:</label>
+                                <input id="input-nom" type="text" class="form-control" placeholder="nom" name="nom">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <!-- footer modal -->
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                    <button id="bSubmit" type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edita Altres -->
+    <div id="modalEditaAltres" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <!-- header modal -->
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edita establiment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+
+
+                <!-- body modal -->
+
+
+                <div class="modal-body">
+                    <form role="form" name="formEdita" action="edita.php" method="get">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Localitat:</label>
+                                <select name="localitat" id="localitat"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nombre de comensals:</label>
+                                <input type="number" id="nComensals" name="nComensals">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Especialitats:</label>
+                                <select name="especialitats" id="especialitats"></select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <!-- footer modal -->
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                    <button id="bSubmit" type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
