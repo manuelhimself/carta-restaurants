@@ -26,7 +26,7 @@ while ($row = $result->fetch_assoc()){
         'num_comensals' => $row['num_comensals'],
         'telefon' => $row['telefon'],
         'poblacio_id' => $row['Poblacio_id'],
-        'password' => $row['password'],
+        'password' => $row['password']
     );
     array_push($establiments_arr, $establiment_item);
 }

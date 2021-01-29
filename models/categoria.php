@@ -1,5 +1,8 @@
 <?php
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 class categoria{
 
     private $conn;
@@ -7,6 +10,7 @@ class categoria{
     //Properties
     private $id;
     private $nom;
+<<<<<<< Updated upstream
     private $idEstabliment;
 
     //Constructor
@@ -27,6 +31,23 @@ class categoria{
     }
 
 
+=======
+
+    //Constructor
+    public function __construct($db){
+        $this->conn = $db;
+    }
+
+    //Get establiments
+    public function read() {
+        $query = "SELECT * FROM
+                categoria";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
+>>>>>>> Stashed changes
     //GETTERS
 
     //id
@@ -51,6 +72,10 @@ class categoria{
     public function setNom($nom) {
         $this->nom = $nom;
     }
+<<<<<<< Updated upstream
 
 }
 ?>
+=======
+}
+>>>>>>> Stashed changes
