@@ -11,7 +11,7 @@ $(document).ready(function() {
     function getEstabliment(id) {
         var establiment = -1;
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "../../api/establiment/readById.php?id=" + id, false);
+        xhttp.open("POST", "../../api/establiment/readById.php?id=" + id, true);
         xhttp.send();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
