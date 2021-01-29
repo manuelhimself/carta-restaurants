@@ -14,8 +14,8 @@ $seccio = new Seccio($dbConn);
 
 $seccions = array();
 
-if (isset($_GET['idCarta'])) {
-    $seccio->setIdCarta($_GET['idCarta']);
+if (isset($_REQUEST['idCarta'])) {
+    $seccio->setIdCarta($_REQUEST['idCarta']);
     $result = $seccio->readByIdCarta();
     while ($row = $result->fetch_assoc()) {
         $seccioActual = array(

@@ -12,8 +12,8 @@ $dbConn = $db->connect();
 
 $seccio = new Seccio($dbConn);
 
-if (isset($_GET['idSeccio'])) {
-    $seccio->setIdSeccio($_GET['idSeccio']);
+if (isset($_REQUEST['idSeccio'])) {
+    $seccio->setIdSeccio($_REQUEST['idSeccio']);
     $seccio->delete1();
 } else {
 	die();

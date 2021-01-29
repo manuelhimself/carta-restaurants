@@ -51,7 +51,6 @@ class Seccio {
 	public function update() {
 		$query = "UPDATE seccio SET  idSeccio = ?, nom = ?, carta_idCarta = ? WHERE idSeccio = ?";
         $stmt = $this->conn->prepare($query);
-        $doublePreu = doubleval($this->preu);
 		$stmt->bind_param('isii', $this->idSeccio, $this->nom,$this->idCarta,$this->idSeccio);
 		if ($stmt->execute()) {
 		 	return true;

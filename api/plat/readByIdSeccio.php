@@ -14,8 +14,8 @@ $plat = new Plat($dbConn);
 
 $plats = array();
 
-if (isset($_GET['idSeccio'])) {
-    $plat->setIdSeccio($_GET['idSeccio']);
+if (isset($_REQUEST['idSeccio'])) {
+    $plat->setIdSeccio($_REQUEST['idSeccio']);
     $result = $plat->readBySeccio();
     while ($row = $result->fetch_assoc()) {
         $platActual = array(

@@ -12,8 +12,8 @@ $dbConn = $db->connect();
 
 $carta = new Carta($dbConn);
 
-if (isset($_GET['idCarta'])) {
-	$carta->setIdCarta($_GET['idCarta']);
+if (isset($_REQUEST['idCarta'])) {
+	$carta->setIdCarta($_REQUEST['idCarta']);
 } else {
 	die();
 }

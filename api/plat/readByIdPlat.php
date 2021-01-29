@@ -12,8 +12,8 @@ $dbConn = $db->connect();
 
 $plat = new Plat($dbConn);
 
-if (isset($_GET['idPlat'])) {
-	$plat->setIdPlat($_GET['idPlat']);
+if (isset($_REQUEST['idPlat'])) {
+	$plat->setIdPlat($_REQUEST['idPlat']);
 } else {
 	die();
 }

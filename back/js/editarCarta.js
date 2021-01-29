@@ -82,7 +82,7 @@ $(document).ready(function () {
         xhttp.send();
     }
 
-    function eliminarSeccio(idS,idC) {
+    function eliminarSeccio(idS, idC) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -90,6 +90,17 @@ $(document).ready(function () {
             }
         };
         xhttp.open("GET", "../../api/seccio/delete1.php?idSeccio=" + idS, false);
+        xhttp.send();
+    }
+
+    function actualitzarNomSeccio(idC, idS, nomSeccio) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                mostrarSeccions(idC);
+            }
+        };
+        xhttp.open("GET", "../../api/seccio/update.php?idSeccio=" + idS + "&idCarta=" + idC + "&nomSeccio=" + nomSeccio, false);
         xhttp.send();
     }
 
@@ -105,6 +116,17 @@ $(document).ready(function () {
         var idBoto = $(this).attr("id");
         var idSeccio = idBoto.substr(3, idBoto.length);
         var idCarta = $(this).attr("idCarta");
-        eliminarSeccio(idSeccio,idCarta);
+        eliminarSeccio(idSeccio, idCarta);
+    });
+
+    $(document).on("click", ".editarSeccioNom", function () {
+        var idBoto = $(this).attr("id");
+        var idSeccio = idBoto.substr(3, idBoto.length);
+        var idCarta = $(this).attr("idCarta");
+        $("#myModal").modal("toggle");
+        $(document).on("click", ".editaNomModal", function () {
+            var nomSeccio = $("#nomSeccioForm").val();
+            actualitzarNomSeccio(idCarta, idSeccio, nomSeccio);
+        });
     });
 });

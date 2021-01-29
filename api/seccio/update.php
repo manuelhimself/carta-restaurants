@@ -12,16 +12,13 @@ $dbConn = $db->connect();
 
 $seccio = new Seccio($dbConn);
 
-$properties = json_decode(file_get_contents("php://input"));
-
-$seccio->setIdSeccio($properties->idSeccio);
-$seccio->setNom($properties->nom);
-$seccio->setIdCarta($properties->idCarta);
-
-if ($seccio->update()) {
-	echo json_encode(array('result' => '1'));
+if (isset($_REQUEST['idSeccio'])&&isset($_REQUEST['nomSeccio'])&&isset($_REQUEST['idCarta'])) {
+	$seccio->setIdSeccio($_REQUEST['idSeccio']);
+	$seccio->setIdCarta($_REQUEST['idCarta']);
+	$seccio->setNom($_REQUEST['nomSeccio']);
+    $seccio->update();
 } else {
-	echo json_encode(array('result' => '0'));
+	die();
 }
 
 ?>
