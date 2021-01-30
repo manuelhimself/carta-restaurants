@@ -2,7 +2,7 @@
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: GET');
 
 include_once '../../models/config/database.php';
 include_once '../../models/carta.php';
@@ -12,18 +12,11 @@ $dbConn = $db->connect();
 
 $carta = new Carta($dbConn);
 
-
-$properties = json_decode(file_get_contents("php://input"));
-
-
-$carta->setIdCarta($properties->idCarta);
-$carta->setNom($properties->nom);
-$carta->setActiu($properties->actiu);
-
-if ($carta->create()) {
-	echo json_encode(array('result' => '1'));
+if (isset($_REQUEST['nomCarta'])) {
+    $carta->setNom($_REQUEST['nomCarta']);
+    $carta->create();
 } else {
-	echo json_encode(array('result' => '0'));
+	die();
 }
 
 ?>

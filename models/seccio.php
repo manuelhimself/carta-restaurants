@@ -38,9 +38,9 @@ class Seccio {
 	}
 
 	public function create() {
-		$query = "INSERT INTO seccio (idSeccio, nom, carta_idCarta) VALUES (?, ?, ?)";
+		$query = "INSERT INTO seccio (nom, carta_idCarta) VALUES (?, ?)";
         $stmt = $this->conn->prepare($query);
-		$stmt->bind_param('isi', $this->idSeccio, $this->nom,$this->idCarta);
+		$stmt->bind_param('si', $this->nom,$this->idCarta);
 		if ($stmt->execute()) {
 		 	return true;
 		}

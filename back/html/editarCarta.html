@@ -26,7 +26,7 @@
 
 <body>
     <div class="container">
-        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal fade" id="modal1" role="dialog">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -41,7 +41,50 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary editaNomModal" data-dismiss="modal">Desa</button>
+                        <button type="button" class="btn btn-primary nomModal" data-dismiss="modal">Desa</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal fade" id="modal2" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Afegir carta</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            Nom carta: <input type="text" name="nomCarta" id="nomCartaForm">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="bAfegirCarta" data-dismiss="modal">Afegir</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal3" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Afegir secció</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            Nom secció: <input type="text" name="nomSeccio" id="nomS">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="bAfegir" data-dismiss="modal">Desa</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
                     </div>
                 </div>
@@ -49,6 +92,8 @@
             </div>
         </div>
         <h1>Editar Carta</h1>
+        <br>
+        <button type="button" id="afegirCarta" class="btn btn-primary">Afegir carta</button>
         <br>
 
         <div class="container">

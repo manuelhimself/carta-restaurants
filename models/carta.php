@@ -31,9 +31,9 @@ class Carta {
 	}
 
 	public function create() {
-		$query = "INSERT INTO carta (idCarta, nom, actiu) VALUES (?, ?, ?)";
+		$query = "INSERT INTO carta (nom) VALUES (?)";
         $stmt = $this->conn->prepare($query);
-		$stmt->bind_param('isi', $this->idCarta, $this->nom,$this->actiu);
+		$stmt->bind_param('s', $this->nom);
 		if ($stmt->execute()) {
 		 	return true;
 		}
@@ -72,7 +72,18 @@ class Carta {
 		 	return true;
 		}
 		return false;
+	}
+	
+	public function delete1() {
+		$query = "DELETE FROM carta WHERE idCarta = ?";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bind_param('i', $this->idCarta);
+		if ($stmt->execute()) {
+		 	return true;
+		}
+		return false;
     }
+    
     
 
 	public function getIdCarta() {
