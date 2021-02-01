@@ -6,8 +6,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-$nom = $_POST["usuari"];
-$psswd = $_POST["password"];
+$nom = $_REQUEST["usuari"];
+$psswd = $_REQUEST["password"];
 
 $sql = "SELECT nom, password FROM establiment WHERE nom = '" . $nom . "' and password='".$psswd."';";
 
@@ -22,10 +22,10 @@ if ($counter==1){
 				}
 			}
 		$_SESSION['restaurant'] = $id;
-		header("location: addEstb.html");
+		header("location: .html");
 	
 } else {
-	header("location: iniciSesio.html");
+	echo "L'usuari o la contrasenya no coincideixen";
 }
 
 ?>

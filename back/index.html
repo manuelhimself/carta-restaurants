@@ -12,7 +12,7 @@
 <body>
    <div class="container">
     <h2 >Inici de sessió</h2>
-    <form action="autentificacio.php" method="POST">
+    <div>
         <div class="form-group col-md-6">
           <label>Usuari : </label>
           <input type="text" class="form-control" id="nom" aria-describedby="emailHelp" name="usuari">
@@ -21,11 +21,29 @@
           <label>Contrasenya : </label>
           <input type="password" class="form-control" id="password" name="password">
         </div>
-        <button type="submit" id='inici' class="btn btn-primary">Inicia sessió</button>
+        <button id='inici' class="btn btn-primary" onclick="logIn();">Inicia sessió</button>
         <a href="addEstb.html"><input type="button" class="btn btn-primary" value="Registrar-se"/></a>
         <span id="m1"></span>
-      </form>  
+      </div>  
    </div>
-      
+      <script>
+        
+        function logIn() {
+          var u = $("#nom").val();
+          var p = $("#password").val();
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  console.log(this.responseText);
+                  var resposta = this.responseText;
+                  console.log(resposta);
+                  $("#m1").html(resposta);
+              }
+          };
+          xhttp.open("GET", "autentificacio.php?usuari="+u+"&password="+p, true);
+          xhttp.send();
+        }
+
+      </script>
 </body>
 </html>
