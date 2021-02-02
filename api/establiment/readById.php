@@ -36,10 +36,10 @@ while ($row = $result->fetch_assoc()){
 		'poblacio_id' => $row['Poblacio_id'],
 		'descripcio' => $row['descripcio']
     );
-    array_push($categories_arr, $row['id_categoria']);
+    echo $row['id_categoria'];
+    //array_push($categories_arr, $row['id_categoria']);
 }
 
-echo $categories_arr;
 //$establiment_item['categories'] = $categories_arr;
 
 //Return JSON
