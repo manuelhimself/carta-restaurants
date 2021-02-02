@@ -36,7 +36,7 @@ class establiment {
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param('i', $this->id);
     $stmt->execute();
-    return $stmt->rowCount();
+    return $stmt->num_rows;
     //return $stmt->get_result();
   }
 
