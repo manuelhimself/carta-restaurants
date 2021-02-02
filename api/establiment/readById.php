@@ -24,9 +24,11 @@ if (isset($_REQUEST['id'])) {
 //Establiments array;
 $categories_arr = array();
 
-$result = $establiment->readById();
 
-while ($row = $result->fetch_assoc()){
+$result = $establiment->readById();
+echo json_encode($result);
+
+/*while ($row = $result->fetch_assoc()){
     $establiment_item = array(
         'id' => $row['id'],
         'nom' => $row['nom'],
@@ -38,10 +40,9 @@ while ($row = $result->fetch_assoc()){
     );
     array_push($categories_arr, $row['id_categoria']);
 }
-
+*/
 //$establiment_item['categories'] = $categories_arr;
 
 //Return JSON
-echo json_encode($establiment_item);
 //echo json_encode ("hola");
 ?>
