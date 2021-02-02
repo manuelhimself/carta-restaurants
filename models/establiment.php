@@ -36,8 +36,7 @@ class establiment {
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param('i', $this->id);
     $stmt->execute();
-    return $stmt->num_rows;
-    //return $stmt->get_result();
+    return $stmt->get_result();
   }
 
   //Get establiment by name
