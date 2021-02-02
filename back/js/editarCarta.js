@@ -4,8 +4,9 @@ $(document).ready(function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                $("#cartes").html(this.responseText);
                 var cartes = JSON.parse(this.responseText);
+                var p = $("<p/>")
+                $("#cartes").html(p);
                 var i = 0;
                 for (c in cartes) {
 
@@ -23,11 +24,11 @@ $(document).ready(function () {
                     var cardDIV = $("<div/>", { class: "card", id: idCarta });
                     var cardBody = $("<div/>", { class: "card-body" });
                     var cardIcon =  $("<i/>",{ class: "fa fa-trash"});
-                    var cardH4 = $("<h4/>", { class: "card-title", text: nom });
+                    var cardH1 = $("<h1/>", { class: "card-title", text: nom });
                     var cardA1 = $("<button/>", { type: "button", class: "editarCarta btn", id: "edC" + idCarta, text: "Mostra seccions" });
                     var cardA2 = $("<a/>", {class: "eliminarCarta btn", id: "elC" + idCarta});
                     cardA2.append(cardIcon);
-                    cardBody.append(cardH4, cardA1, cardA2);
+                    cardBody.append(cardH1, cardA1, cardA2);
                     cardDIV.append(cardBody);
                     colDIV.append(cardDIV);
                     rowDIV.append(colDIV);
@@ -45,11 +46,12 @@ $(document).ready(function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                $("#seccions").html(this.responseText);
                 var seccions = JSON.parse(this.responseText);
+                var divHead = $("<div/>");
                 var botoAfegirSeccio = $("<button/>", { type: "button", class: "btn", id: "afegirSeccio", idCarta: idC, text: "Afegir secció" });
-                var titol = $("<h1/>",{text: "Seccions"});
-                $("#seccions").append(titol,botoAfegirSeccio);
+                var titol = $("<h1/>",{text: "Seccions", id: "titol"});
+                divHead.append(titol,botoAfegirSeccio);
+                $("#seccions").html(divHead);
                 var i = 0;
                 for (s in seccions) {
 
@@ -68,7 +70,8 @@ $(document).ready(function () {
                     var colDIV = $("<div/>", { class: "col-md-10" });
                     var cardDIV = $("<div/>", { class: "card" });
                     var cardBody = $("<div/>", { class: "card-body" });
-                    var cardH4 = $("<h4/>", { class: "card-title", text: nom });
+                    var divH1 = $("<div>",{ class: "divH1"});
+                    var cardH1 = $("<h1/>", { class: "card-title", text: nom });
                     var cardIcon1 =  $("<i/>",{ class: "fa fa-trash"});
                     var cardA1 = $("<button/>", { type: "button", class: "editarSeccioNom btn", id: "edS" + idSeccio, idCarta: idCarta, text: "Editar Nom" });
                     var cardA2 = $("<button/>", { type: "button", class: "editarPlats btn", id: "edP" + idSeccio, text: "Editar Plats" });
@@ -88,7 +91,8 @@ $(document).ready(function () {
                     li3.append(cardA3);
                     list.append(li1, li2, li3);
                     groupButton.append(list);
-                    cardBody.append(cardH4, groupButton);
+                    divH1.append(cardH1);
+                    cardBody.append(divH1, groupButton);
                     cardDIV.append(cardBody);
                     colDIV.append(cardDIV);
                     rowDIV.append(colDIV);
@@ -120,6 +124,9 @@ $(document).ready(function () {
         $("h4").css("float", "left");
         $("ul").css("list-style-type", "none");
         $("li").css("margin-top","5%");
+        $(".divH1").css("width","80%");
+        $(".divH1").css("float","left");
+        $(".divH1").css("text-align","center");
     }
 
     function eliminarSeccio(idS, idC) {
