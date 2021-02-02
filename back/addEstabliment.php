@@ -31,6 +31,7 @@ if($conn->query($sql) === TRUE){
 
       if ($conn->query($cat) === TRUE) {
         echo "New record created successfully";
+        header("location: index.html");
       } else {
         echo "Error: " . $cat . "<br>" . $conn->error;
       }

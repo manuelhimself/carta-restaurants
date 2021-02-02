@@ -14,8 +14,8 @@
     <h2 >Inici de sessió</h2>
     <div>
         <div class="form-group col-md-6">
-          <label>Usuari : </label>
-          <input type="text" class="form-control" id="nom" aria-describedby="emailHelp" name="usuari">
+          <label>Email : </label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
         </div>
         <div class="form-group col-md-6">
           <label>Contrasenya : </label>
@@ -23,13 +23,13 @@
         </div>
         <button id='inici' class="btn btn-primary" onclick="logIn();">Inicia sessió</button>
         <a href="addEstb.html"><input type="button" class="btn btn-primary" value="Registrar-se"/></a>
-        <span id="m1"></span>
       </div>  
+      <span id="m1"></span>
    </div>
       <script>
         
         function logIn() {
-          var u = $("#nom").val();
+          var u = $("#email").val();
           var p = $("#password").val();
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
@@ -37,10 +37,11 @@
                   console.log(this.responseText);
                   var resposta = this.responseText;
                   console.log(resposta);
+                  $("#m1").css('color','red');
                   $("#m1").html(resposta);
               }
           };
-          xhttp.open("GET", "autentificacio.php?usuari="+u+"&password="+p, true);
+          xhttp.open("GET", "autentificacio.php?email="+u+"&password="+p, true);
           xhttp.send();
         }
 

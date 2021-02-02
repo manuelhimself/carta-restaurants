@@ -6,15 +6,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-$nom = $_REQUEST["usuari"];
+$email = $_REQUEST["email"];
 $psswd = $_REQUEST["password"];
 
-$sql = "SELECT nom, password FROM establiment WHERE nom = '" . $nom . "' and password='".$psswd."';";
+$sql = "SELECT nom, password FROM establiment WHERE correu_electronic = '" . $email . "' and password='".$psswd."';";
 
 $query=mysqli_query($conn,$sql);
 $counter=mysqli_num_rows($query);
 if ($counter==1){
-		$sqly = "SELECT id FROM establiment WHERE nom = '" . $nom . "' and password='".$psswd."';";
+		$sqly = "SELECT id FROM establiment WHERE correu_electronic = '" . $email . "' and password='".$psswd."';";
 		$resultat = $conn->query($sqly);
     		if ($resultat){
         		while($row = $resultat->fetch_array()){
@@ -22,10 +22,13 @@ if ($counter==1){
 				}
 			}
 		$_SESSION['restaurant'] = $id;
-		header("location: .html");
-	
+		//header("Location: addEstb.html");
+		echo '<script type="text/javascript">'
+   			, 'window.location.replace("addEstb.html");'
+   			, '</script>';
 } else {
-	echo "L'usuari o la contrasenya no coincideixen";
+		echo "Email o contrasenya introduïts no valids";
+		
 }
 
 ?>
