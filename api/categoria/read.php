@@ -17,7 +17,7 @@ $categories = array();
 
 while ($row = $result->fetch_assoc()) {
 	$categoriaActual = array(
-		'idCategoria' => $row['idCategoria'],
+		'id' => $row['id'],
 		'nom' => $row['nom']
 	);
 	array_push($categories, $categoriaActual);

@@ -42,6 +42,6 @@ while ($row = $result->fetch_assoc()){
 $establiment_item['categories'] = $categories_arr;
 
 //Return JSON
-echo json_encode($establiment_item);
-
+//echo json_encode($establiment_item);
+echo json_encode ("hola");
 ?>
