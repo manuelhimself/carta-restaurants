@@ -5,9 +5,18 @@ $(document).ready(function() {
     getEstabliment(1);
     getPoblacions();
     getCategories();
-    console.log(establiment);
-    console.log(poblacions);
-    console.log(categories);
+
+    function editaNom() {
+
+    }
+
+    function editaDescripcio() {
+
+    }
+
+    function editaPerfil() {
+
+    }
 
     function getEstabliment(id) {
         var xhttp = new XMLHttpRequest();
@@ -53,10 +62,12 @@ $(document).ready(function() {
             );
             img.attr("alt", "Restaurant Image");
             if (i != 1) {
-                img.addClass("smallPic");
+                img.addClass("col-md-3 col-sm-6");
+                $("#smallPics").append(img);
+            } else {
+                img.addClass("col");
+                $("#bigPic").append(img);
             }
-            img.addClass("img-fluid");
-            $("#imglink" + i).append(img);
         }
 
         $("#descripcioEstabliment").text(establiment.descripcio);
