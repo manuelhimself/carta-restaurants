@@ -27,14 +27,6 @@ $categories_arr = array();
 $result = $establiment->readById();
 
 while ($row = $result->fetch_assoc()){
-    echo $row['id'];
-    echo $row['nom'];
-    echo $row['correu_electronic'];
-    echo $row['num_comensals'];
-    echo $row['telefon'];
-	echo $row['Poblacio_id'];
-    echo $row['descripcio'];
-    
     $establiment_item = array(
         'id' => $row['id'],
         'nom' => $row['nom'],
@@ -47,6 +39,7 @@ while ($row = $result->fetch_assoc()){
     array_push($categories_arr, $row['id_categoria']);
 }
 
+echo $categories_arr;
 //$establiment_item['categories'] = $categories_arr;
 
 //Return JSON
