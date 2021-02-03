@@ -1,11 +1,15 @@
-.btn {
+.realBtn {
   background-color: #A33E3E;
   color: white;
 }
-.btn :hover {
+.realBtn :hover {
   transition: 0.5s;
   color: lightslategray;
   background-color: #713b3b;
+}
+
+.btn-link {
+  color: #A33E3E;
 }
 
 #edita-perfil {

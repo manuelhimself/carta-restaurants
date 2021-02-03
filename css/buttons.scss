@@ -1,4 +1,4 @@
-.btn {
+.realBtn {
     background-color: $my-red;
     color: white;
      :hover {
@@ -6,6 +6,10 @@
         color: lightslategray;
         background-color: $my-dark-red;
     }
+}
+
+.btn-link {
+    color: $my-red;
 }
 
 #edita-perfil {

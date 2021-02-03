@@ -6,8 +6,14 @@ $(document).ready(function() {
     getPoblacions();
     getCategories();
 
-    function editaNom() {
+    $("#edita-nom").click(function() {
+        $("#modalEditaNom").modal("toggle");
+    });
 
+    function editaNom() {
+        $("#edita-nom").click(function() {
+            $("#modalEditaNom").modal("toggle");
+        });
     }
 
     function editaDescripcio() {
@@ -25,7 +31,7 @@ $(document).ready(function() {
                 establiment = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", "../../api/establiment/readById.php?id=" + id, false);
+        xhttp.open("POST", "http://api.restaurat.me/establiment/readById.php?id=" + id, false);
         xhttp.send();
     }
 
@@ -36,7 +42,7 @@ $(document).ready(function() {
                 poblacions = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", "../../api/poblacio/read.php", false);
+        xhttp.open("POST", "http://api.restaurat.me/api/poblacio/readById.php", false);
         xhttp.send();
     }
 
@@ -47,7 +53,7 @@ $(document).ready(function() {
                 categories = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", "../../api/categoria/read.php", false);
+        xhttp.open("POST", "http://api.restaurat.me/api/categoria/readById.php", false);
         xhttp.send();
     }
 
