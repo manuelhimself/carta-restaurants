@@ -1,6 +1,6 @@
 <?php 
 
-header('Access-Control-Allow-Origin: http://admin.restaurat.me/*'); 
+header('Access-Control-Allow-Origin: https://admin.restaurat.me'); 
 header('Access-Control-Allow-Credentials', 'true');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: PUT');
