@@ -6,6 +6,8 @@ $(document).ready(function() {
     getPoblacions();
     getCategories();
 
+    console.log(api);
+
     $("#edita-nom").click(function() {
         $("#modalEditaNom").modal("toggle");
     });
@@ -31,7 +33,7 @@ $(document).ready(function() {
                 establiment = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", "https://api.restaurat.me/establiment/readById.php?id=" + id, false);
+        xhttp.open("POST", api + "/establiment/readById.php?id=" + id, false);
         xhttp.send();
     }
 
@@ -42,7 +44,7 @@ $(document).ready(function() {
                 poblacions = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", "https://api.restaurat.me/poblacio/read.php", false);
+        xhttp.open("POST", api + "/poblacio/read.php", false);
         xhttp.send();
     }
 
@@ -53,7 +55,7 @@ $(document).ready(function() {
                 categories = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", "https://api.restaurat.me/categoria/read.php", false);
+        xhttp.open("POST", api + "/categoria/read.php", false);
         xhttp.send();
     }
 
