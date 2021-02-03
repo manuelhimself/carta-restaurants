@@ -1,8 +1,7 @@
 <?php
 // Headers
 // Headers
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: https://admin.restaurat.me'); 
+header('Access-Control-Allow-Origin: *');  
 header('Access-Control-Allow-Credentials', 'true');
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization");
@@ -43,6 +42,7 @@ while ($row = $result->fetch_assoc()){
     array_push($establiments_arr, $establiment_item);
 }
 
+header('Content-Type: application/json');
 //Return JSON
 echo json_encode($establiments_arr);
 
