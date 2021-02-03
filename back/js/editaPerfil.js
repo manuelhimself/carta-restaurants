@@ -42,7 +42,7 @@ $(document).ready(function() {
                 poblacions = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", "http://api.restaurat.me/api/poblacio/readById.php", false);
+        xhttp.open("POST", "http://api.restaurat.me/api/poblacio/read.php", false);
         xhttp.send();
     }
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
                 categories = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", "http://api.restaurat.me/api/categoria/readById.php", false);
+        xhttp.open("POST", "http://api.restaurat.me/api/categoria/read.php", false);
         xhttp.send();
     }
 
