@@ -1,3 +1,4 @@
 
-models/config/database.php
 *.jpg
+api/config/database.php
+api/config/database.php
