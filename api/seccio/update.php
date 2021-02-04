@@ -12,9 +12,8 @@ $dbConn = $db->connect();
 
 $seccio = new Seccio($dbConn);
 
-if (isset($_REQUEST['idSeccio'])&&isset($_REQUEST['nomSeccio'])&&isset($_REQUEST['idCarta'])) {
+if (isset($_REQUEST['idSeccio'])&&isset($_REQUEST['nomSeccio'])) {
 	$seccio->setIdSeccio($_REQUEST['idSeccio']);
-	$seccio->setIdCarta($_REQUEST['idCarta']);
 	$seccio->setNom($_REQUEST['nomSeccio']);
     $seccio->update();
 } else {

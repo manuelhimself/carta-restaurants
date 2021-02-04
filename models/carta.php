@@ -42,21 +42,29 @@ class Carta {
     
 
 	public function update() {
-		$query = "UPDATE plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
+		$query = "UPDATE carta SET nom = ? WHERE idCarta = ?";
         $stmt = $this->conn->prepare($query);
-        $doublePreu = doubleval($this->preu);
-		$stmt->bind_param('issdii', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio, $this->idPlat);
+		$stmt->bind_param('si', $this->nom, $this->idCarta);
 		if ($stmt->execute()) {
 		 	return true;
 		}
 		return false;
 	}
 	
-	public function updateEstatActiu() {
-		$query = "UPDATE plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
+	public function updateEstatActivar() {
+		$query = "UPDATE carta SET  actiu = 1 WHERE idCarta = ?";
         $stmt = $this->conn->prepare($query);
-        $doublePreu = doubleval($this->preu);
-		$stmt->bind_param('issdii', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio, $this->idPlat);
+		$stmt->bind_param('i', $this->idCarta);
+		if ($stmt->execute()) {
+		 	return true;
+		}
+		return false;
+	}
+	
+	public function updateEstatDesactivar() {
+		$query = "UPDATE carta SET  actiu = 0 WHERE idCarta = ?";
+        $stmt = $this->conn->prepare($query);
+		$stmt->bind_param('i', $this->idCarta);
 		if ($stmt->execute()) {
 		 	return true;
 		}

@@ -49,9 +49,9 @@ class Seccio {
     
 
 	public function update() {
-		$query = "UPDATE seccio SET  idSeccio = ?, nom = ?, carta_idCarta = ? WHERE idSeccio = ?";
+		$query = "UPDATE seccio SET nom = ? WHERE idSeccio = ?";
         $stmt = $this->conn->prepare($query);
-		$stmt->bind_param('isii', $this->idSeccio, $this->nom,$this->idCarta,$this->idSeccio);
+		$stmt->bind_param('si', $this->nom, $this->idSeccio);
 		if ($stmt->execute()) {
 		 	return true;
 		}
