@@ -12,12 +12,23 @@ $dbConn = $db->connect();
 
 $carta = new Carta($dbConn);
 
-if (isset($_REQUEST['nomCarta']) && isset($_REQUEST['idEstabliment'])) {
-    $carta->setNom($_REQUEST['nomCarta']);
+$cartes = array();
+
+if (isset($_REQUEST['idEstabliment'])) {
     $carta->setIdEstabliment($_REQUEST['idEstabliment']);
-    $carta->create();
+    $result = $carta->readByIdEstabliment();
+    while ($row = $result->fetch_assoc()) {
+        $cartaActual = array(
+            'idCarta' => $row['idCarta'],
+		    'nom' => $row['nom'],
+            'actiu' => $row['actiu']
+        );
+        array_push($cartes, $cartaActual);
+    }
 } else {
 	die();
 }
+
+echo json_encode($cartes);
 
 ?>

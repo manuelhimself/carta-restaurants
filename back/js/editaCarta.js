@@ -3,6 +3,7 @@ $(document).ready(function () {
     var carta;
     var seccions;
     var cartes;
+    var idEstabliment = 4;
     mostrarCartes();
 
     function getCarta(id) {
@@ -23,7 +24,7 @@ $(document).ready(function () {
                 cartes = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", "../../api/carta/read.php?", false);
+        xhttp.open("POST", "../../api/carta/readByIdEstabliment.php?idEstabliment=" + idEstabliment, false);
         xhttp.send();
     }
 
@@ -39,8 +40,9 @@ $(document).ready(function () {
     }
 
     function mostrarCartes() {
-        $("#cartes").empty();
-        getCartes();
+        $("#cartes").empty()
+        var idEstabliment = idEstabliment;
+        getCartes(idEstabliment);
         for (var i = 0; i < cartes.length; i++) {
             var nom = cartes[i].nom;
             var id = cartes[i].idCarta;
@@ -59,9 +61,9 @@ $(document).ready(function () {
             var cardA2 = $("<a/>", { class: "eliminarCarta btn", id: "elC" + id });
             var cardA3 = $("<button/>", { type: "button", class: "editarNomCarta btn", id: "edN" + id, text: "Editar Nom" });
             var divForm = $("<div/>", { class: "form-check form-switch" });
-            var inputCheck = $("<input/>", { class: "form-check-input", type: "checkbox", id: "chk" + id });
+            var inputCheck = $("<input/>", { class: "form-check-input estatCarta", type: "checkbox", id: "chk" + id });
             var labelCheck = $("<label/>", { class: "form-check-label", for: "chk" + id, text: "Activar/Desactivar" });
-            /*var cardA4 = $("<button/>", { type: "button", class: "activarCarta btn", id: "actC" + idCarta, text: "Activar/Desactivar Carta" });*/
+
             divForm.append(inputCheck, labelCheck);
             cardA3.append(cardIcon1);
             cardA2.append(cardIcon);
@@ -71,6 +73,7 @@ $(document).ready(function () {
             rowDIV.append(colDIV);
         }
         aplicarEstilCartes();
+        actualitzarCheckCartes();
     }
 
     function aplicarEstilCartes() {
@@ -180,8 +183,7 @@ $(document).ready(function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var id = "#"+idSeccio+ " div div div div h1";
-                console.log(id);
+                var id = "#" + idSeccio + " div div div div h1";
                 $(id).text(nomSeccio);
             }
         };
@@ -193,8 +195,7 @@ $(document).ready(function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var id = "#"+idCarta+ " div h1";
-                console.log(id);
+                var id = "#" + idCarta + " div h1";
                 $(id).html(nomCarta);
             }
         };
@@ -202,14 +203,14 @@ $(document).ready(function () {
         xhttp.send();
     }
 
-    function afegirCarta(nomCarta) {
+    function afegirCarta(nomCarta, idE) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 mostrarCartes();
             }
         };
-        xhttp.open("POST", "../../api/carta/create.php?nomCarta=" + nomCarta, true);
+        xhttp.open("POST", "../../api/carta/create.php?nomCarta=" + nomCarta + "&idEstabliment=" + idE, true);
         xhttp.send();
     }
 
@@ -224,11 +225,33 @@ $(document).ready(function () {
         xhttp.send();
     }
 
+    function desactivarAltresCartes(idC) {
+        var id;
+        for (var j = 0; j < cartes.length; j++) {
+            if (cartes[j].idCarta != idC) {
+                id = cartes[j].idCarta;
+                desactivarCarta(id);
+            }
+        }
+    }
+
+    function actualitzarCheckCartes() {
+        var idCarta;
+        for (var i = 0; i < cartes.length; i++) {
+            idCarta = cartes[i].idCarta;
+            if (cartes[i].actiu == 0) {
+                $("#chk" + idCarta).prop("checked", false);
+            } else {
+                $("#chk" + idCarta).prop("checked", true);
+            }
+        }
+    }
+
     function activarCarta(idCarta) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                mostrarCartes();
+
             }
         };
         xhttp.open("POST", "../../api/carta/activate.php?idCarta=" + idCarta, true);
@@ -239,7 +262,7 @@ $(document).ready(function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                mostrarCartes();
+
             }
         };
         xhttp.open("POST", "../../api/carta/desactivate.php?idCarta=" + idCarta, true);
@@ -270,7 +293,7 @@ $(document).ready(function () {
             actualitzarNomSeccio(idSeccio, nomSeccio);
         });
     });
-    
+
     $(document).on("click", ".editarNomCarta", function () {
         var idBoto = $(this).attr("id");
         var idCarta = idBoto.substr(3, idBoto.length);
@@ -281,7 +304,7 @@ $(document).ready(function () {
             idCarta = $("#idCartaForm").val();
             actualitzarNomCarta(idCarta, nomCarta);
         });
-    });   
+    });
 
     $(document).on("click", ".eliminarCarta", function () {
         var idBoto = $(this).attr("id");
@@ -296,7 +319,7 @@ $(document).ready(function () {
 
     $(document).on("click", "#bAfegirCarta", function () {
         var nomCarta = $("#nomCartaForm").val();
-        afegirCarta(nomCarta);
+        afegirCarta(nomCarta, idEstabliment);
         $("#seccions").empty();
     });
 
@@ -310,10 +333,30 @@ $(document).ready(function () {
         afegirSeccio(nomSeccio, idCarta);
     });
 
-    $(document).on("change", ".activarCarta", function () {
+    /*$(document).on("change", ".estatCarta", function () {
         var idBoto = $(this).attr("id");
-        var idCarta = idBoto.substr(4, idBoto.length);
-        activarCarta(idCarta);
+        var idCarta = idBoto.substr(3, idBoto.length);
+        getCarta(idCarta);
+        if(carta.actiu == 1){
+            desactivarCarta(idCarta);
+        }else{
+            activarCarta(idCarta);
+            desactivarAltresCartes(idCarta);
+        }
+        //$('.estatCarta').not(this).prop('checked', false);
+    });*/
+
+    $(document).on("change", ".estatCarta", function () {
+        var idBoto = $(this).attr("id");
+        var idCarta = idBoto.substr(3, idBoto.length);
+        getCarta(idCarta);
+        if (carta.actiu == 1) {
+            desactivarCarta(idCarta);
+        } else {
+            activarCarta(idCarta);
+            desactivarAltresCartes(idCarta);
+            $('.estatCarta').not(this).prop('checked', false);
+        }
     });
 
 });

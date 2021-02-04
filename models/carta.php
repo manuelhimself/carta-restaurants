@@ -5,7 +5,8 @@ class Carta {
 	private $conn;
 	private $idCarta;
 	private $nom;
-    private $actiu;
+	private $actiu;
+	private $idEstabliment;
 
 
 	public function __construct($db) {
@@ -30,16 +31,31 @@ class Carta {
 		return $result->fetch_assoc();
 	}
 
+	public function readByIdEstabliment() {
+		$query = "SELECT carta.nom, carta.idCarta, carta.actiu from carta, carta_establiment where carta.idCarta = carta_establiment.Carta_idCarta and carta_establiment.Establiment_id = ?;";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bind_param('i', $this->idEstabliment);
+		$stmt->execute();
+		return $stmt->get_result();
+	}
+
 	public function create() {
 		$query = "INSERT INTO carta (nom) VALUES (?)";
         $stmt = $this->conn->prepare($query);
 		$stmt->bind_param('s', $this->nom);
 		if ($stmt->execute()) {
-		 	return true;
+			$idCarta = $this->conn->insert_id;
+			echo $idCarta;
+			$query = "INSERT INTO carta_establiment (Carta_idCarta, Establiment_id) VALUES (?,?)";
+			$stmt = $this->conn->prepare($query);
+			$stmt->bind_param('ii', $idCarta,$this->idEstabliment);
+			if ($stmt->execute()) {
+				 return true;
+			}
+			return false;
 		}
 		return false;
-    }
-    
+	}
 
 	public function update() {
 		$query = "UPDATE carta SET nom = ? WHERE idCarta = ?";
@@ -104,7 +120,12 @@ class Carta {
     
     public function getActiu() {
 		return $this->actiu;
-    }
+	}
+	
+	public function getIdEstabliment() {
+		return $this->idEstabliment;
+	}
+
     
 	public function setIdCarta($idCarta) {
 		$this->idCarta = $idCarta;
@@ -116,8 +137,10 @@ class Carta {
 
 	public function setActiu($actiu) {
 		$this->actiu = $actiu;
+	}
+	
+	public function setIdEstabliment($idEstabliment) {
+		$this->idEstabliment = $idEstabliment;
     }
 
 }
-
-?>
