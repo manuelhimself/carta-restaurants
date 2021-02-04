@@ -1,11 +1,11 @@
 <?php 
 
-header('Access-Control-Allow-Origin: https://admin.restaurat.me'); 
+header('Access-Control-Allow-Origin: *'); 
 header('Access-Control-Allow-Credentials', 'true');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
 
-include_once '../../models/config/database.php';
+include_once '../../config/database.php';
 include_once '../../models/seccio.php';
 
 $db = new DataBase();
