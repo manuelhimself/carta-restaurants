@@ -22,13 +22,10 @@ if ($counter==1){
 				}
 			}
 		session_start();
-		$_SESSION['restaurant'] = $id;
-		//header("Location: addEstb.html");
-		echo '<script type="text/javascript">'
-   			, 'window.location.replace("reserves.html");'
-   			, '</script>';
+		$_SESSION['establiment'] = $id;
+		echo "OK";
 } else {
-		echo "Email o contrasenya introduïts no valids";
+		echo "ERROR";
 		
 }
 

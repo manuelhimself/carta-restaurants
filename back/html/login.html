@@ -34,11 +34,14 @@
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                  console.log(this.responseText);
                   var resposta = this.responseText;
-                  console.log(resposta);
                   $("#m1").css('color','red');
-                  $("#m1").html(resposta);
+                  if(resposta=="ERROR"){
+                    $("#m1").html("Email o contrasenya introduïts no valids");
+                  }
+                  else{
+                    window.location.replace("reserves.html");
+                  }
               }
           };
           xhttp.open("GET", "autentificacio.php?email="+u+"&password="+p, true);
