@@ -1,0 +1,28 @@
+<?php 
+
+header('Access-Control-Allow-Origin: https://admin.restaurat.me'); 
+header('Access-Control-Allow-Credentials', 'true');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Methods: PUT');
+
+include_once '../../models/config/database.php';
+include_once '../../models/seccio.php';
+
+$db = new DataBase();
+$dbConn = $db->connect();
+
+$seccio = new Seccio($dbConn);
+
+$properties = json_decode(file_get_contents("php://input"));
+
+$seccio->setIdSeccio($properties->idSeccio);
+$seccio->setNom($properties->nom);
+$seccio->setIdCarta($properties->idCarta);
+
+if ($seccio->update()) {
+	echo json_encode(array('result' => '1'));
+} else {
+	echo json_encode(array('result' => '0'));
+}
+
+?>
