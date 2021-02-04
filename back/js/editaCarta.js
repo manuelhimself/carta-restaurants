@@ -279,14 +279,19 @@ $(document).ready(function () {
         var idBoto = $(this).attr("id");
         var idSeccio = idBoto.substr(3, idBoto.length);
         var idCarta = $(this).attr("idCarta");
-        eliminarSeccio(idSeccio, idCarta);
+        $("#modal6").modal("toggle");
+        $(document).on("click", ".esborrarSeccio", function () {
+            eliminarSeccio(idSeccio, idCarta);
+        });
     });
 
     $(document).on("click", ".editarSeccioNom", function () {
         var idBoto = $(this).attr("id");
         var idSeccio = idBoto.substr(3, idBoto.length);
+        var nomS = $("#"+idSeccio+" div div div div h1").text();
         $("#modal1").modal("toggle");
         $("#idSeccioForm").val(idSeccio);
+        $("#nomSeccioForm").val(nomS);
         $(document).on("click", ".nomModal", function () {
             var nomSeccio = $("#nomSeccioForm").val();
             idSeccio = $("#idSeccioForm").val();
@@ -297,7 +302,9 @@ $(document).ready(function () {
     $(document).on("click", ".editarNomCarta", function () {
         var idBoto = $(this).attr("id");
         var idCarta = idBoto.substr(3, idBoto.length);
+        var nomC = $("#"+idCarta+" div h1").text();
         $("#modal4").modal("toggle");
+        $("#nomC").val(nomC);
         $("#idCartaForm").val(idCarta);
         $(document).on("click", ".bModificarCarta", function () {
             var nomCarta = $("#nomC").val();
@@ -309,8 +316,11 @@ $(document).ready(function () {
     $(document).on("click", ".eliminarCarta", function () {
         var idBoto = $(this).attr("id");
         var idCarta = idBoto.substr(3, idBoto.length);
-        eliminarCarta(idCarta);
-        $("#seccions").empty();
+        $("#modal5").modal("toggle");
+        $(document).on("click", ".esborrarCarta", function () {
+            eliminarCarta(idCarta);
+            $("#seccions").empty();
+        });
     });
 
     $(document).on("click", "#afegirCarta", function () {
@@ -332,19 +342,6 @@ $(document).ready(function () {
         var idCarta = $("#afegirSeccio").attr("idCarta");
         afegirSeccio(nomSeccio, idCarta);
     });
-
-    /*$(document).on("change", ".estatCarta", function () {
-        var idBoto = $(this).attr("id");
-        var idCarta = idBoto.substr(3, idBoto.length);
-        getCarta(idCarta);
-        if(carta.actiu == 1){
-            desactivarCarta(idCarta);
-        }else{
-            activarCarta(idCarta);
-            desactivarAltresCartes(idCarta);
-        }
-        //$('.estatCarta').not(this).prop('checked', false);
-    });*/
 
     $(document).on("change", ".estatCarta", function () {
         var idBoto = $(this).attr("id");
