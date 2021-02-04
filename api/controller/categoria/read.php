@@ -1,26 +1,12 @@
 <?php 
 
-<<<<<<< Updated upstream
-header('Access-Control-Allow-Origin: https://admin.restaurat.me'); 
-header('Access-Control-Allow-Credentials', 'true');
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization");
-
-include_once '../../models/config/database.php';
-=======
-<<<<<<<< Updated upstream:api/controller/categoria/read.php
 header('Access-Control-Allow-Origin: *'); 
 header('Access-Control-Allow-Credentials', 'true');
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization");
-========
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: GET, POST');
->>>>>>>> Stashed changes:api/categoria/read.php
+header('Access-Control-Allow-Methods: DELETE');
 
 include_once '../../config/database.php';
->>>>>>> Stashed changes
 include_once '../../models/categoria.php';
 
 $db = new DataBase();
@@ -33,11 +19,7 @@ $categories = array();
 
 while ($row = $result->fetch_assoc()) {
 	$categoriaActual = array(
-<<<<<<< Updated upstream
-		'id' => $row['id'],
-=======
 		'idCategoria' => $row['idCategoria'],
->>>>>>> Stashed changes
 		'nom' => $row['nom']
 	);
 	array_push($categories, $categoriaActual);

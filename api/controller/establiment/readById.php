@@ -1,20 +1,12 @@
 <?php
 // Headers
-<<<<<<< Updated upstream
-header('Access-Control-Allow-Origin: *');  
+header('Access-Control-Allow-Origin: *'); 
 header('Access-Control-Allow-Credentials', 'true');
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization");
-
-include_once '../../models/config/database.php';
-=======
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Methods: GET');
+header('Access-Control-Allow-Methods: DELETE');
 
 include_once '../../config/database.php';
->>>>>>> Stashed changes
 include_once '../../models/establiment.php';
 
 //DB
@@ -50,13 +42,6 @@ while ($row = $result->fetch_assoc()){
 
 $establiment_item['categories'] = $categories_arr;
 
-<<<<<<< Updated upstream
-header('Content-Type: application/json');
-//Return JSON
-echo json_encode ($establiment_item);
-=======
 //Return JSON
 echo json_encode($establiment_item);
-
->>>>>>> Stashed changes
 ?>
