@@ -3,7 +3,9 @@ $(document).ready(function () {
     var carta;
     var seccions;
     var cartes;
-    var idEstabliment = 4;
+    var idEstabliment = 1;
+    var idC;
+    var idS;
     mostrarCartes();
 
     function getCarta(id) {
@@ -277,54 +279,59 @@ $(document).ready(function () {
 
     $(document).on("click", ".eliminarSeccio", function () {
         var idBoto = $(this).attr("id");
-        var idSeccio = idBoto.substr(3, idBoto.length);
-        var idCarta = $(this).attr("idCarta");
+        idS = idBoto.substr(3, idBoto.length);
+        idC = $(this).attr("idCarta");
         $("#modal6").modal("toggle");
-        $(document).on("click", ".esborrarSeccio", function () {
-            eliminarSeccio(idSeccio, idCarta);
-        });
+    });
+
+    $(document).on("click", "#esborrarSeccio", function () {
+        eliminarSeccio(idS, idC);
     });
 
     $(document).on("click", ".editarSeccioNom", function () {
         var idBoto = $(this).attr("id");
         var idSeccio = idBoto.substr(3, idBoto.length);
-        var nomS = $("#"+idSeccio+" div div div div h1").text();
+        var nomS = $("#" + idSeccio + " div div div div h1").text();
         $("#modal1").modal("toggle");
         $("#idSeccioForm").val(idSeccio);
         $("#nomSeccioForm").val(nomS);
-        $(document).on("click", ".nomModal", function () {
-            var nomSeccio = $("#nomSeccioForm").val();
-            idSeccio = $("#idSeccioForm").val();
-            actualitzarNomSeccio(idSeccio, nomSeccio);
-        });
+    });
+
+    $(document).on("click", ".nomModal", function () {
+        var nomSeccio = $("#nomSeccioForm").val();
+        var idSeccio = $("#idSeccioForm").val();
+        actualitzarNomSeccio(idSeccio, nomSeccio);
     });
 
     $(document).on("click", ".editarNomCarta", function () {
         var idBoto = $(this).attr("id");
         var idCarta = idBoto.substr(3, idBoto.length);
-        var nomC = $("#"+idCarta+" div h1").text();
+        var nomC = $("#" + idCarta + " div h1").text();
         $("#modal4").modal("toggle");
         $("#nomC").val(nomC);
         $("#idCartaForm").val(idCarta);
-        $(document).on("click", ".bModificarCarta", function () {
-            var nomCarta = $("#nomC").val();
-            idCarta = $("#idCartaForm").val();
-            actualitzarNomCarta(idCarta, nomCarta);
-        });
+    });
+
+    $(document).on("click", ".bModificarCarta", function () {
+        var nomCarta = $("#nomC").val();
+        var idCarta = $("#idCartaForm").val();
+        actualitzarNomCarta(idCarta, nomCarta);
     });
 
     $(document).on("click", ".eliminarCarta", function () {
         var idBoto = $(this).attr("id");
-        var idCarta = idBoto.substr(3, idBoto.length);
+        idC = idBoto.substr(3, idBoto.length);
         $("#modal5").modal("toggle");
-        $(document).on("click", ".esborrarCarta", function () {
-            eliminarCarta(idCarta);
-            $("#seccions").empty();
-        });
+    });
+
+    $(document).on("click", "#esborrarCarta", function () {
+        eliminarCarta(idC);
+        $("#seccions").empty();
     });
 
     $(document).on("click", "#afegirCarta", function () {
         $("#modal2").modal("toggle");
+        $("#nomCartaForm").val("");
     });
 
     $(document).on("click", "#bAfegirCarta", function () {
@@ -335,6 +342,7 @@ $(document).ready(function () {
 
     $(document).on("click", "#afegirSeccio", function () {
         $("#modal3").modal("toggle");
+        $("#nomS").val("");
     });
 
     $(document).on("click", "#bAfegir", function () {
