@@ -1,0 +1,37 @@
+.realBtn {
+  background-color: #A33E3E;
+  color: white;
+}
+.realBtn :hover {
+  transition: 0.5s;
+  color: lightslategray;
+  background-color: #713b3b;
+}
+
+.btn-link {
+  color: #A33E3E;
+}
+
+#edita-perfil {
+  margin-right: 10px !important;
+}
+
+#logo {
+  height: 60px;
+}
+
+.editClick {
+  color: #A33E3E;
+}
+.editClick :hover {
+  color: #713b3b;
+  transition: 0.5s;
+}
+
+#perfilContainer {
+  margin-top: 60px;
+}
+
+#perfilCard {
+  margin-top: 15px;
+}

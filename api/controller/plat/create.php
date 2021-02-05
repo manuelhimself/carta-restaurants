@@ -1,24 +1,12 @@
 <?php 
 
-<<<<<<< Updated upstream
-header('Access-Control-Allow-Origin: https://admin.restaurat.me'); 
-header('Access-Control-Allow-Credentials', 'true');
-header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
-
-include_once '../../models/config/database.php';
-=======
-<<<<<<<< Updated upstream:api/controller/plat/create.php
 header('Access-Control-Allow-Origin: *'); 
 header('Access-Control-Allow-Credentials', 'true');
-========
 header('Access-Control-Allow-Origin: *');
->>>>>>>> Stashed changes:api/plat/create.php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: DELETE');
 
 include_once '../../config/database.php';
->>>>>>> Stashed changes
 include_once '../../models/plat.php';
 
 $db = new DataBase();
