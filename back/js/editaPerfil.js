@@ -6,12 +6,6 @@ $(document).ready(function() {
     getPoblacions();
     getCategories();
 
-    console.log(api);
-
-    $("#edita-nom").click(function() {
-        $("#modalEditaNom").modal("toggle");
-    });
-
     function editaNom() {
         $("#edita-nom").click(function() {
             $("#modalEditaNom").modal("toggle");
@@ -66,7 +60,7 @@ $(document).ready(function() {
             img.attr("id", "pic" + i);
             img.attr(
                 "src",
-                "../../images/establiment/" + establiment.id + "/" + i + ".jpg"
+                "../images/establiment/" + establiment.id + "-" + i + ".jpg"
             );
             img.attr("alt", "Restaurant Image");
             if (i != 1) {
