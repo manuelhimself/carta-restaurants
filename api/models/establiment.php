@@ -78,22 +78,53 @@ class establiment
 
   // Update user
 
-  public function update()
+  public function updateNom()
   {
     $query = "UPDATE
 			establiment
 			SET 
-				nom = ?, 
-				correu_electronic = ?,
-        num_comensals = ?,
-        telefon = ?,
-        Poblacio_id = ?,
-        descripcio = ?
-
+				nom = ?
 			WHERE id = ?";
 
     $stmt = $this->conn->prepare($query);
-    $stmt->bind_param('ssiiissi', $this->nom, $this->correu_electronic, $this->num_comensals, $this->telefon, $this->poblacio_id, $this->password, $this->descripcio, $this->id);
+    $stmt->bind_param('si', $this->nom, $this->id);
+
+    if ($stmt->execute()) {
+      return true;
+    }
+    return false;
+  }
+
+  public function updateDescripcio()
+  {
+    $query = "UPDATE
+			establiment
+			SET 
+        descripcio = ?
+			WHERE id = ?";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param('si', $this->descripcio, $this->id);
+
+    if ($stmt->execute()) {
+      return true;
+    }
+    return false;
+  }
+
+  public function updateOthers()
+  {
+    $query = "UPDATE
+			establiment
+			SET 
+				correu_electronic = ?,
+        num_comensals = ?,
+        telefon = ?,
+        Poblacio_id = ?
+			WHERE id = ?";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param('siiisi', $this->correu_electronic, $this->num_comensals, $this->telefon, $this->poblacio_id, $this->password,  $this->id);
 
     if ($stmt->execute()) {
       return true;

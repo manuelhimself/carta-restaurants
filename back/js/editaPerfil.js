@@ -8,31 +8,47 @@ $(document).ready(function() {
 
 
     //Update profile functions
-    function updateEstabliment() {
+    function updateNom() {
         var pobId = getPoblacioId();
         var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {}
+        }
         xhttp.open("POST", api + "/establiment/update.php?id=" + establiment.id +
-            "&nom=" + $("#input-nom").text() +
-            "&correu_electronic=" + $("#correu_electronic").text() +
-            "&num_comensals=" + $("#nComensals").text() +
-            "&telefon=" + $("#telefon").text() +
-            "&poblacioId=" + pobId, false);
+            "&nom=" + $("#input-nom").text(), true);
+        xhttp.send();
+    }
+
+    function updateNom() {
+        var pobId = getPoblacioId();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {}
+        }
+        xhttp.open("POST", api + "/establiment/update.php?id=" + establiment.id +
+            "&descripcio=" + $("#input-descripcio").text(), true);
         xhttp.send();
     }
 
     function updateCategories() {
         var categories = getCategories();
         var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {}
+        }
         for (var i = 0; i < categories.length; i++) {
             xhttp.open("POST", api + "/establiment_categoria/insert.php?Establiment_id=" + establiment.id +
-                "&CategoriaId=" + categories[i], false);
+                "&CategoriaId=" + categories[i], true);
             xhttp.send();
         }
     }
 
     function deleteCategories() {
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", api + "/establiment_categoria/delete.php?Establiment_id=" + establiment.id, false);
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {}
+        }
+        xhttp.open("POST", api + "/establiment_categoria/delete.php?Establiment_id=" + establiment.id, true);
         xhttp.send();
     }
 
@@ -157,7 +173,7 @@ $(document).ready(function() {
 
     //Execution
     placeEstablimentVars();
-    $("#bEditaNom").click(updateEstabliment());
-    $("#bEditaDescripcio").click(updateEstabliment());
-    $("#bEditaPerfil").click(editaPerfil());
+    $("#bEditaNom").on("click", updateEstabliment());
+    $("#bEditaDescripcio").on("click", updateEstabliment());
+    //$("#bEditaPerfil").on("click", editaPerfil());
 });
