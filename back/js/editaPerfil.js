@@ -4,21 +4,64 @@ $(document).ready(function() {
     var categories;
     getEstabliment(1);
     getPoblacions();
-    getCategories();
+    getCategoriesFromDB();
 
-    function editaNom() {
-        $("#edita-nom").click(function() {
-            $("#modalEditaNom").modal("toggle");
-        });
+
+    //Update profile functions
+    function updateEstabliment() {
+        var pobId = getPoblacioId();
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", api + "/establiment/update.php?id=" + establiment.id +
+            "&nom=" + $("#input-nom").text() +
+            "&correu_electronic=" + $("#correu_electronic").text() +
+            "&num_comensals=" + $("#nComensals").text() +
+            "&telefon=" + $("#telefon").text() +
+            "&poblacioId=" + pobId, false);
+        xhttp.send();
     }
 
-    function editaDescripcio() {
+    function updateCategories() {
+        var categories = getCategories();
+        var xhttp = new XMLHttpRequest();
+        for (var i = 0; i < categories.length; i++) {
+            xhttp.open("POST", api + "/establiment_categoria/insert.php?Establiment_id=" + establiment.id +
+                "&CategoriaId=" + categories[i], false);
+            xhttp.send();
+        }
+    }
 
+    function deleteCategories() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", api + "/establiment_categoria/delete.php?Establiment_id=" + establiment.id, false);
+        xhttp.send();
     }
 
     function editaPerfil() {
-
+        deleteCategories();
+        updateCategories();
+        updateEstabliment();
     }
+
+    function getPoblacioId() {
+        var optionId = $("#localitat").children("option:selected").attr("id");
+        optionId = optionId.replace("poblacio", '');
+        return optionId;
+    }
+
+    function getCategories() {
+        var checkedboxes = new Array();
+        for (var i = 1; i < categories.length + 1; i++) {
+            var checkbox = $("#boxCateg" + i);
+            var checkboxId = checkbox.attr("id").replace("boxCateg", "");
+            if (checkbox.attr("checked")) {
+                checkedboxes.push(checkboxId);
+            }
+        }
+        return checkedboxes;
+    }
+
+
+    //Inicializer functions
 
     function getEstabliment(id) {
         var xhttp = new XMLHttpRequest();
@@ -42,7 +85,7 @@ $(document).ready(function() {
         xhttp.send();
     }
 
-    function getCategories() {
+    function getCategoriesFromDB() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -74,9 +117,10 @@ $(document).ready(function() {
 
         $("#descripcioEstabliment").text(establiment.descripcio);
         $("#input-nom").val(establiment.nom);
-        $("#input-desripcio").val(establiment.descripcio);
+        $("#input-descripcio").val(establiment.descripcio);
         $("#nComensals").val(establiment.num_comensals);
         $("#correu_electronic").val(establiment.correu_electronic);
+        $("#telefon").val(establiment.telefon);
 
         for (var i = 0; i < poblacions.length; i++) {
             var option = $("<option/>", {
@@ -87,23 +131,33 @@ $(document).ready(function() {
             $("#localitat").append(option);
         }
 
+
         for (var i = 0; i < categories.length; i++) {
+            var label = $("<label/>", { for: "boxCateg" + categories[i].id });
+            label.html(categories[i].nom);
             var checkbox = $("<input/>", {
                 type: "checkbox",
-                id: "boxCateg" + categories.id,
-                name: "boxCateg" + categories.id,
-                value: categories.id,
+                id: "boxCateg" + categories[i].id,
+                name: "boxCateg" + categories[i].id,
+                value: categories[i].id,
+                class: "checkbox"
             });
+
             for (var j = 0; j < establiment.categories.length; j++) {
-                if (categories[i].id == establiment.categories[j].id) {
+                if (categories[i].id == establiment.categories[j]) {
                     checkbox.attr("checked", "yes");
                 }
             }
-            var label = $("<label/>", { for: "boxCateg" + categories.id });
-            label.html(categories.nom);
-            checkbox.append(label);
-            $("#especialitats").append(checkbox);
+
+
+            $("#especialitats").append(checkbox, label, "<br>");
         }
+
     }
+
+    //Execution
     placeEstablimentVars();
+    $("#bEditaNom").click(updateEstabliment());
+    $("#bEditaDescripcio").click(updateEstabliment());
+    $("#bEditaPerfil").click(editaPerfil());
 });

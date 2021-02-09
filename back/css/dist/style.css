@@ -35,3 +35,32 @@
 #perfilCard {
   margin-top: 15px;
 }
+
+#images {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.row {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+img {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+#bigPic,
+#smallPics {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+#bigPic {
+  margin-bottom: 5px;
+}
+
+.checkbox {
+  margin-right: 3px;
+}
