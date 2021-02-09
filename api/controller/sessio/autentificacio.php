@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost", "root", "", "restaurants");
+$conn = new mysqli("localhost", "root", "", "restaurat");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

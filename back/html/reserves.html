@@ -25,10 +25,47 @@
     <script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" href="../images/icon/icon.png">
+    <script type="text/javascript" src="../js/api.js"></script>
+    <script type="text/javascript" src="../js/editaPerfil.js"></script>
 
 
 </head>
+ <!--Navbar-->
+ <nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-dark sticky-top">
+    <!--Logo-->
+    <a class="navbar-brand" href="admin.restaurat.me/back/html/editarPerfil.html">
+      <img id="logo" src="../images/icon/icon.png" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!--Links-->
+        <li class="nav-item">
+          <a class="nav-link" href="admin.restaurat.me/perfil">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="admin.restaurat.me/carta">Carta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="admin.restaurat.me/reserva">Reserves</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a href="admin.restaurat.me/login" class="btn my-2 my-sm-0 realBtn">Inicia Sessió</a>
+      </form>
+    </div>
 
+  </nav>
 <body>
     <h1>Reserves</h1>
     <div class="row">
@@ -94,7 +131,7 @@
 
                 }
             };
-            xhttp.open("POST", "reserves.php?data=" + d, false);
+            xhttp.open("POST", "/api/controller/reserves/reserves.php?data=" + d, false);
             xhttp.send();
         }
 
@@ -110,7 +147,7 @@
             .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.json("graficReserves.php", function (data) {
+        d3.json("/api/controller/reserves/graficReserves.php", function (data) {
             data.sort(function (b, a) {
                 return a.Value - b.Value;
             });

@@ -13,7 +13,7 @@ if(isset ($_SESSION ['establiment'])){
     echo 'inci de sesio no valid';
 }
 
-$conn = new mysqli("localhost","root","","restaurants");
+$conn = new mysqli("localhost","root","","restaurat");
 $query = "SELECT usuari.nom, reserva.hora, reserva.data, reserva.num_comensals 
 FROM restaurants.usuari, restaurants.reserva, restaurants.establiment 
 where reserva.Establiment_id = establiment.id and usuari.idUsuari = reserva.Usuari_idUsuari and establiment.id = ? and reserva.data = ?;";

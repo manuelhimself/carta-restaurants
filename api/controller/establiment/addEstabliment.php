@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost", "root", "", "restaurants");
+$conn = new mysqli("localhost", "root", "", "restaurat");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -31,13 +31,16 @@ if($conn->query($sql) === TRUE){
 
       if ($conn->query($cat) === TRUE) {
         echo "New record created successfully";
-        header("location: index.html");
+        header("location: /back/html/login.html");
       } else {
-        echo "Error: " . $cat . "<br>" . $conn->error;
+        echo "error a l'registre intenteu de nou";
       }
 
   }
 } else {
-  printf("Errormessage: %s\n", $conn->error);
+      echo "<script> 
+      alert('There are no fields to generate a report'); 
+      window.location.href='/back/html/registrer.html'; 
+      </script>"; 
 }
 ?>
