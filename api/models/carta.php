@@ -45,7 +45,6 @@ class Carta {
 		$stmt->bind_param('s', $this->nom);
 		if ($stmt->execute()) {
 			$idCarta = $this->conn->insert_id;
-			echo $idCarta;
 			$query = "INSERT INTO carta_establiment (Carta_idCarta, Establiment_id) VALUES (?,?)";
 			$stmt = $this->conn->prepare($query);
 			$stmt->bind_param('ii', $idCarta,$this->idEstabliment);
