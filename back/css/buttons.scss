@@ -1,0 +1,17 @@
+.realBtn {
+    background-color: $my-red;
+    color: white;
+     :hover {
+        transition: 0.5s;
+        color: lightslategray;
+        background-color: $my-dark-red;
+    }
+}
+
+.btn-link {
+    color: $my-red;
+}
+
+#edita-perfil {
+    margin-right: 10px !important;
+}
