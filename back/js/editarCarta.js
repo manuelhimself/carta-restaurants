@@ -11,7 +11,7 @@ $(document).ready(function() {
                 for (c in cartes) {
 
                     if (i % 2 == 0) {
-                        var rowDIV = $("<div/>", {class: "row"});
+                        var rowDIV = $("<div/>", { class: "row" });
                         $("#cards").append(rowDIV);
                     }
                     i++;
@@ -20,29 +20,29 @@ $(document).ready(function() {
                     var idCarta = cartes[c].idCarta;
                     var actiu = cartes[c].actiu;
 
-                    var colDIV = $("<div/>", {class: "col-md-4"});
-                    var cardIMG = $("<img/>",{class:"card-img-top", src:"", alt:"card image", style:"width:100%"});
-                    var cardDIV = $("<div/>", {class: "card", id: idCarta});
-                    var cardBody = $("<div/>", {class: "card-body"});
-                    var cardH4 = $("<h4/>", {class: "card-title",text: nom});
-                    var cardP = $("<p/>", {class: "card-text",text: nom});
-                    var cardA1 = $("<button/>",{type: "button", class:"editarCarta btn btn-primary", id: "edC"+idCarta, text:"Editar"});
-                    var cardA2 = $("<button/>",{type: "button", class:"eliminarCarta btn btn-secondary", id: "elC"+idCarta, text:"Eliminar"});
+                    var colDIV = $("<div/>", { class: "col-md-4" });
+                    var cardIMG = $("<img/>", { class: "card-img-top", src: "", alt: "card image", style: "width:100%" });
+                    var cardDIV = $("<div/>", { class: "card", id: idCarta });
+                    var cardBody = $("<div/>", { class: "card-body" });
+                    var cardH4 = $("<h4/>", { class: "card-title", text: nom });
+                    var cardP = $("<p/>", { class: "card-text", text: nom });
+                    var cardA1 = $("<button/>", { type: "button", class: "editarCarta btn btn-primary", id: "edC" + idCarta, text: "Editar" });
+                    var cardA2 = $("<button/>", { type: "button", class: "eliminarCarta btn btn-secondary", id: "elC" + idCarta, text: "Eliminar" });
                     cardDIV.append(cardIMG);
-                    cardBody.append(cardH4, cardP,cardA1,cardA2);
+                    cardBody.append(cardH4, cardP, cardA1, cardA2);
                     cardDIV.append(cardBody);
                     colDIV.append(cardDIV);
                     rowDIV.append(colDIV);
                 }
             }
         };
-        xhttp.open("GET", "../../api/carta/read.php", true);
+        xhttp.open("GET", api + "/carta/read.php", true);
         xhttp.send();
     }
 
 
 
-    function mostrarSeccions(idC){
+    function mostrarSeccions(idC) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -63,37 +63,37 @@ $(document).ready(function() {
                     var idSeccio = seccions[s].idSeccio;
                     var nom = seccions[s].nom;
 
-                    var colDIV = $("<div/>", {class: "col-md-4"});
-                    var cardDIV = $("<div/>", {class: "card"});
-                    var cardBody = $("<div/>", {class: "card-body"});
-                    var cardH4 = $("<h4/>", {class: "card-title",text: nom});
-                    var cardP = $("<p/>", {class: "card-text",text: idCarta + " " + idSeccio});
-                    var cardA1 = $("<button/>",{type: "button", class:"editarSeccio btn btn-primary", id: "edS"+idSeccio, text:"Editar"});
-                    var cardA2 = $("<button/>",{type: "button", class:"eliminarSeccio btn btn-secondary", id: "elS"+idSeccio, text:"Eliminar"});
-                    cardBody.append(cardH4, cardP,cardA1,cardA2);
+                    var colDIV = $("<div/>", { class: "col-md-4" });
+                    var cardDIV = $("<div/>", { class: "card" });
+                    var cardBody = $("<div/>", { class: "card-body" });
+                    var cardH4 = $("<h4/>", { class: "card-title", text: nom });
+                    var cardP = $("<p/>", { class: "card-text", text: idCarta + " " + idSeccio });
+                    var cardA1 = $("<button/>", { type: "button", class: "editarSeccio btn btn-primary", id: "edS" + idSeccio, text: "Editar" });
+                    var cardA2 = $("<button/>", { type: "button", class: "eliminarSeccio btn btn-secondary", id: "elS" + idSeccio, text: "Eliminar" });
+                    cardBody.append(cardH4, cardP, cardA1, cardA2);
                     cardDIV.append(cardBody);
                     colDIV.append(cardDIV);
                     rowDIV.append(colDIV);
                 }
             }
         };
-        xhttp.open("GET", "../../api/seccio/readByIdCarta.php?idCarta="+idC, true);
+        xhttp.open("GET", api + "/seccio/readByIdCarta.php?idCarta=" + idC, true);
         xhttp.send();
     }
 
-    function eliminarSeccio(idS){
+    function eliminarSeccio(idS) {
         var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", "../../api/seccio/delete1.php?idSeccio="+idS, true);
+        xhttp.open("GET", api + "/seccio/delete1.php?idSeccio=" + idS, true);
         xhttp.send();
     }
 
-    function idCartaSeccio(idS){
+    function idCartaSeccio(idS) {
         var idCarta = -1;
         console.log("1");
         var xhttp = new XMLHttpRequest();
         console.log("2");
         console.log("3");
-        xhttp.open("GET", "../../api/seccio/readByIdSeccio.php?idSeccio="+idS, false);
+        xhttp.open("GET", api + "/seccio/readByIdSeccio.php?idSeccio=" + idS, false);
         console.log("4");
         xhttp.send();
         console.log("5");
@@ -114,17 +114,17 @@ $(document).ready(function() {
     }
 
     cartes();
-    
-    $(document).on("click",".editarCarta",function () {
+
+    $(document).on("click", ".editarCarta", function() {
         var idBoto = $(this).attr("id");
-        var idCarta = idBoto.substr(3,idBoto.length);
+        var idCarta = idBoto.substr(3, idBoto.length);
         mostrarSeccions(idCarta);
     });
 
-    $(document).on("click",".eliminarSeccio",function () {
+    $(document).on("click", ".eliminarSeccio", function() {
         var idBoto = $(this).attr("id");
         console.log(idBoto);
-        var idSeccio = idBoto.substr(3,idBoto.length);
+        var idSeccio = idBoto.substr(3, idBoto.length);
         console.log(idSeccio);
         //eliminarSeccio(idSeccio);
         var idCarta = idCartaSeccio(idSeccio);
