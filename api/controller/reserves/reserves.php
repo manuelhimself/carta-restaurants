@@ -3,9 +3,10 @@ session_start();
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: GET');
+header('Access-Control-Allow-Methods: GET, POST');
 
 $d = $_REQUEST['data'];
+$_date = date("Ymd", strtotime($d));
 
 if(isset ($_SESSION ['establiment'])){
     $id = $_SESSION ['establiment'];
@@ -13,12 +14,13 @@ if(isset ($_SESSION ['establiment'])){
     echo 'inci de sesio no valid';
 }
 
+
 $conn = new mysqli("localhost","root","","restaurat");
 $query = "SELECT usuari.nom, reserva.hora, reserva.data, reserva.num_comensals 
-FROM restaurants.usuari, restaurants.reserva, restaurants.establiment 
+FROM usuari, reserva, establiment 
 where reserva.Establiment_id = establiment.id and usuari.idUsuari = reserva.Usuari_idUsuari and establiment.id = ? and reserva.data = ?;";
 $stmt = $conn->prepare($query);
-$stmt->bind_param('is', $id, $d);
+$stmt->bind_param('is', $id, $_date);
 $stmt->execute();
 $result = $stmt->get_result();
 

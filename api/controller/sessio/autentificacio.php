@@ -22,8 +22,7 @@ if ($counter==1){
 				}
 			}
 		session_start();
-		$_SESSION['establiment'] = $id;
-		echo "OK";
+		echo json_encode($id);
 } else {
 		echo "ERROR";
 		

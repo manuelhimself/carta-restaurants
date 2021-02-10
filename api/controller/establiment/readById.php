@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Headers
 header('Access-Control-Allow-Origin: *'); 
 header('Access-Control-Allow-Credentials', 'true');
@@ -16,10 +17,10 @@ $dbConn = $db->connect();
 //Establiment object
 $establiment = new establiment($dbConn);
 
-if (isset($_REQUEST['id'])) {
-	$establiment->setId($_REQUEST['id']);
-} else {
-	die();
+if(isset ($_SESSION ['establiment'])){
+    $establiment->setId($_SESSION['establiment']);
+}else{
+    echo 'inci de sesio no valid';
 }
 
 //Establiments array;

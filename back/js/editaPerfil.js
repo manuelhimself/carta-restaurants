@@ -14,18 +14,18 @@ $(document).ready(function() {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {}
         }
-        xhttp.open("POST", api + "/establiment/update.php?id=" + establiment.id +
+        xhttp.open("POST", api + "/establiment/updateNom.php?id=" + establiment.id +
             "&nom=" + $("#input-nom").text(), true);
         xhttp.send();
     }
 
-    function updateNom() {
+    function updateDescripcio() {
         var pobId = getPoblacioId();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {}
         }
-        xhttp.open("POST", api + "/establiment/update.php?id=" + establiment.id +
+        xhttp.open("POST", api + "/establiment/updateDescripcio.php?id=" + establiment.id +
             "&descripcio=" + $("#input-descripcio").text(), true);
         xhttp.send();
     }
@@ -52,10 +52,24 @@ $(document).ready(function() {
         xhttp.send();
     }
 
+
+    function updateOthers() {
+        var pobId = getPoblacioId();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {}
+        }
+        xhttp.open("POST", api + "/establiment/updateOthers.php?id =" + establiment.id +
+            "&correu_electronic =" + $("#corrreu_electronic").text() + "&num_comensals =" + $("#nComensals") +
+            "&telefon =" + $("#telefon") + "&poblacio_id =" + $("#localitat").find(":selected").attr('id').replace("poblacio", ""), true);
+        xhttp.send();
+    }
+
+
     function editaPerfil() {
         deleteCategories();
         updateCategories();
-        updateEstabliment();
+        updateOthers();
     }
 
     function getPoblacioId() {
@@ -79,14 +93,14 @@ $(document).ready(function() {
 
     //Inicializer functions
 
-    function getEstabliment(id) {
+    function getEstabliment() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 establiment = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", api + "/establiment/readById.php?id=" + id, false);
+        xhttp.open("POST", api + "/establiment/readById.php", false);
         xhttp.send();
     }
 
@@ -173,7 +187,7 @@ $(document).ready(function() {
 
     //Execution
     placeEstablimentVars();
-    $("#bEditaNom").on("click", updateEstabliment());
-    $("#bEditaDescripcio").on("click", updateEstabliment());
-    //$("#bEditaPerfil").on("click", editaPerfil());
+    $("#bEditaNom").on("click", updateNom());
+    $("#bEditaDescripcio").on("click", updateDescripcio());
+    $("#bEditaPerfil").on("click", editaPerfil());
 });

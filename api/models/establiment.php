@@ -124,12 +124,23 @@ class establiment
 			WHERE id = ?";
 
     $stmt = $this->conn->prepare($query);
-    $stmt->bind_param('siiisi', $this->correu_electronic, $this->num_comensals, $this->telefon, $this->poblacio_id, $this->password,  $this->id);
+    $stmt->bind_param('siiii', $this->correu_electronic, $this->num_comensals, $this->telefon, $this->poblacio_id, $this->id);
 
     if ($stmt->execute()) {
       return true;
     }
     return false;
+  }
+
+  //Check user
+  public function checkEstabliment()
+  {
+    $query = "SELECT id FROM establiment WHERE correu_electronic = ? AND password = ?;";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param('ss', $this->correu_electronic, $this->password);
+    $stmt->execute();
+
+    return $stmt->get_result();
   }
 
   // Delete user
