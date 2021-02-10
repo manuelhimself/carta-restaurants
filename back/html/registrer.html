@@ -10,50 +10,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- Script per validar -->  
     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/dist/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="icon" href="../images/icon/icon.png">
-    <script type="text/javascript" src="../js/api.js"></script>
-    <script type="text/javascript" src="../js/editaPerfil.js"></script>
 </head>    
 <body>
-   <!--Navbar-->
-   <nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-dark sticky-top">
-    <!--Logo-->
-    <a class="navbar-brand" href="admin.restaurat.me/back/html/editarPerfil.html">
-      <img id="logo" src="../images/icon/icon.png" alt="Logo">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <!--Links-->
-        <li class="nav-item">
-          <a class="nav-link" href="admin.restaurat.me/perfil">Perfil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="admin.restaurat.me/carta">Carta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="admin.restaurat.me/reserva">Reserves</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <a href="admin.restaurat.me/login" class="btn my-2 my-sm-0 realBtn">Inicia Sessió</a>
-      </form>
-    </div>
-
-  </nav>
+    
   <div class="container">
     <h2>Registre</h2>
-    <form method="POST" action="/api/controller/establiment/addEstabliment.php">
+    <form method="POST" action="addEstabliment.php">
         <div class="form-row">
         <div class="form-group col-md-6">
             <label>Restaurant</label>
@@ -141,13 +103,15 @@ function loadCategoria() {
         bootstrapValidate('#comensals','numeric:Caracter no valid');
         bootstrapValidate('#poblacio','required:Aquest camp es obligatori!');
         bootstrapValidate('#tlfn','numeric:Caracter no valid');
-        bootstrapValidate('#pswd','required','Les contrasenyes han de coincidir!');
-        bootstrapValidate('#pswdR','required','matches:#pswd:Les contrasenyes han de coincidir!');
+        bootstrapValidate('#pswd','Les contrasenyes han de coincidir!');
+        bootstrapValidate('#pswdR','matches:#pswd:Les contrasenyes han de coincidir!');
 
 });
 
     </script>
 </body>
 </html>
+
+        
 
         
