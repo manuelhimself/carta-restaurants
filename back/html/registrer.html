@@ -1,165 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <!-- Script per validar -->
-    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/dist/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="icon" href="../images/icon/icon.png">
-    <script type="text/javascript" src="../js/api.js"></script>
-</head>
-
+    <!-- Script per validar -->  
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+</head>    
 <body>
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-dark sticky-top">
-        <!--Logo-->
-        <a class="navbar-brand" href="admin.restaurat.me/back/html/editarPerfil.html">
-            <img id="logo" src="../images/icon/icon.png" alt="Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <!--Links-->
-                <li class="nav-item">
-                    <a class="nav-link" href="admin.restaurat.me/perfil">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin.restaurat.me/carta">Carta</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin.restaurat.me/reserva">Reserves</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <a href="admin.restaurat.me/login" class="btn my-2 my-sm-0 realBtn">Inicia Sessió</a>
-            </form>
+    
+  <div class="container">
+    <h2>Registre</h2>
+    <form method="POST" action="addEstabliment.php">
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Restaurant</label>
+            <input id="nom" class="form-control" name="establiment">
         </div>
-
-    </nav>
-    <div class="container">
-        <h2>Registre</h2>
-        <form method="POST" action="/api/controller/establiment/addEstabliment.php">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>Restaurant</label>
-                    <input id="nom" class="form-control" name="establiment">
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Email</label>
-                    <input id="email" class="form-control" name="email">
-                </div>
-                <div class="form-group col-md-4">
-                    <label>Nombre màxim de comensals</label>
-                    <input id="comensals" class="form-control" name="numComensals">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputState">Localitat</label>
-                    <select id="poblacio" class="form-control" name="poblacio">
+        <div class="form-group col-md-6">
+            <label>Email</label>
+            <input id="email" class="form-control" name="email">
+        </div>  
+        <div class="form-group col-md-4">
+            <label>Nombre màxim de comensals</label>
+            <input id="comensals" class="form-control" name="numComensals">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Localitat</label>
+            <select id="poblacio" class="form-control" name="poblacio">
               <option selected>Selecciona</option>
             </select>
-                </div>
-                <div class="form-group col-md-4">
-                    <label>Telèfon</label>
-                    <input id="tlfn" class="form-control" name="tel">
-                </div>
-                <div class="form-group" id="checkBox">
-                    <label>Especialització : </label>
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Contrasenya</label>
-                    <input id="pswd" class="form-control" name="paswd">
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Repeteix contrasenya</label>
-                    <input id="pswdR" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Registrar-se</button>
-            </div>
-        </form>
-    </div>
-
+          </div>
+        <div class="form-group col-md-4">
+            <label>Telèfon</label>
+            <input id="tlfn" class="form-control" name="tel">
+        </div>
+        <div class="form-group" id="checkBox">
+            <label>Especialització : </label>
+        </div>
+        <div class="form-group col-md-6" >
+            <label>Contrasenya</label>
+            <input id="pswd" class="form-control" name="paswd">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Repeteix contrasenya</label>
+            <input id="pswdR" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar-se</button>
+        </div>
+    </form> 
+  </div>
+    
     <script>
-        $(document).ready(function() {
+        $(document).ready(function(){
+        
+        function loadPoblacio() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        var poblacio = JSON.parse(this.responseText);
+        for (c in poblacio) {
+        var idPoblacio = poblacio[c].id;
+        var nom =  poblacio[c].nom;
+        var item = $("<option/>", {value:idPoblacio,text:nom});
+        $("#poblacio").append(item);
+      }
+    }
+  };
+  xhttp.open("GET", "/api/controller/poblacio/poblacio.php", true);
+  xhttp.send();
+}
+function loadCategoria() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        var categoria = JSON.parse(this.responseText);
+        for (c in categoria) {
+        var idCat = categoria[c].id;
+        var nom =  categoria[c].nom;
+        var div = $('<div/>',{class:"form-check form-check-inline"});
+        var item = $("<input>", {class:"form-check-input",type:'checkbox',name:'id[]',value:idCat});
+        var label = $('<label/>',{class:"form-check-label",text:nom});
+        div.append(item,label);
+        $("#checkBox").append(div);
+        
 
-            function loadPoblacio() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var poblacio = JSON.parse(this.responseText);
-                        for (c in poblacio) {
-                            var idPoblacio = poblacio[c].id;
-                            var nom = poblacio[c].nom;
-                            var item = $("<option/>", {
-                                value: idPoblacio,
-                                text: nom
-                            });
-                            $("#poblacio").append(item);
-                        }
-                    }
-                };
-                xhttp.open("GET", api + "/poblacio/poblacio.php", true);
-                xhttp.send();
-            }
+      }
+    }
+  };
+  xhttp.open("GET", "/api/controller/categoria/categoria.php", true);
+  xhttp.send();
+}
 
-            function loadCategoria() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var categoria = JSON.parse(this.responseText);
-                        for (c in categoria) {
-                            var idCat = categoria[c].id;
-                            var nom = categoria[c].nom;
-                            var div = $('<div/>', {
-                                class: "form-check form-check-inline"
-                            });
-                            var item = $("<input>", {
-                                class: "form-check-input",
-                                type: 'checkbox',
-                                name: 'id[]',
-                                value: idCat
-                            });
-                            var label = $('<label/>', {
-                                class: "form-check-label",
-                                text: nom
-                            });
-                            div.append(item, label);
-                            $("#checkBox").append(div);
+        loadPoblacio();
+        loadCategoria();
+        bootstrapValidate('#nom','required:Aquest camp es obligatori!');
+        bootstrapValidate('#email','required:email:Enter a valid E-Mail Address!');
+        bootstrapValidate('#comensals','numeric:Caracter no valid');
+        bootstrapValidate('#poblacio','required:Aquest camp es obligatori!');
+        bootstrapValidate('#tlfn','numeric:Caracter no valid');
+        bootstrapValidate('#pswd','Les contrasenyes han de coincidir!');
+        bootstrapValidate('#pswdR','matches:#pswd:Les contrasenyes han de coincidir!');
 
+});
 
-                        }
-                    }
-                };
-                xhttp.open("GET", api + "/categoria/categoria.php", true);
-                xhttp.send();
-            }
-
-            loadPoblacio();
-            loadCategoria();
-            bootstrapValidate('#nom', 'required:Aquest camp es obligatori!');
-            bootstrapValidate('#email', 'required:email:Enter a valid E-Mail Address!');
-            bootstrapValidate('#comensals', 'numeric:Caracter no valid');
-            bootstrapValidate('#poblacio', 'required:Aquest camp es obligatori!');
-            bootstrapValidate('#tlfn', 'numeric:Caracter no valid');
-            bootstrapValidate('#pswd', 'required', 'Les contrasenyes han de coincidir!');
-            bootstrapValidate('#pswdR', 'required', 'matches:#pswd:Les contrasenyes han de coincidir!');
-
-        });
     </script>
 </body>
-
 </html>
+
+        
+
+        
