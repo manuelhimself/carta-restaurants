@@ -15,7 +15,7 @@ if(isset ($_SESSION ['establiment'])){
 }
 
 
-$conn = new mysqli("localhost","root","","restaurat");
+$conn = new mysqli("localhost","root","password","restaurat");
 $query = "SELECT usuari.nom, reserva.hora, reserva.data, reserva.num_comensals 
 FROM usuari, reserva, establiment 
 where reserva.Establiment_id = establiment.id and usuari.idUsuari = reserva.Usuari_idUsuari and establiment.id = ? and reserva.data = ?;";
