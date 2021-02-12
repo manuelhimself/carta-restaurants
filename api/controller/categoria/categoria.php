@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost","root","","restaurat");
+$conn = new mysqli("localhost","root","password","restaurat");
 $select = $conn -> prepare("SELECT * from categoria ");
 $select -> execute();
 $resultat = $select->get_result();
