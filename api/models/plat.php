@@ -8,13 +8,12 @@ class Plat {
     private $descripcio;
     private $preu;
     private $idSeccio;
-
+	private $idAlergen;
 
 	public function __construct($db) {
 		$this->conn = $db;
     }
     
-
 	public function read() {
 		$query = "SELECT * FROM plat";
 		$stmt = $this->conn->prepare($query);
@@ -40,23 +39,43 @@ class Plat {
 		return $stmt->get_result();
 	}
 
-	public function create() {
-		$query = "INSERT INTO plat (idPlat, nom, descripcio, preu, Seccio_idSeccio) VALUES (?, ?, ?, ?, ?)";
+	public function readByIdAlergen() {
+		$query = "SELECT plat.nom, plat.descripcio, plat.preu, plat.idPlat, alergen.id FROM restaurants.plat, restaurants.alergen, restaurants.plat_alergen, restaurants.seccio 
+		where plat.idPlat = plat_alergen.Plat_idPlat and plat_alergen.Alergen_id = alergen.id and alergen.id = ? and plat.Seccio_idSeccio = seccio.idSeccio 
+		and seccio.idSeccio = ?;";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bind_param('ii', $this->idAlergen, $this->idSeccio);
+		$stmt->execute();
+		return $stmt->get_result();
+	}
+
+	public function createPlat() {
+		$query = "INSERT INTO plat (nom, descripcio, preu, Seccio_idSeccio) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         $doublePreu = doubleval($this->preu);
-		$stmt->bind_param('issdi', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio);
+		$stmt->bind_param('ssdi', $this->nom,$this->descripcio,$doublePreu,$this->idSeccio);
 		if ($stmt->execute()) {
-		 	return true;
+			return true;
+		}
+		return false;
+    }
+
+	public function createAlergenPlat() {
+		$query = "INSERT INTO plat_alergen (Alergen_id, Plat_idPlat) VALUES (?,?)";
+        $stmt = $this->conn->prepare($query);
+		$stmt->bind_param('ii', $this->idAlergen,$this->idPlat);
+		if ($stmt->execute()) {
+			return true;
 		}
 		return false;
     }
     
 
 	public function update() {
-		$query = "UPDATE plat SET  idPlat = ?, nom = ?, descripcio = ?, preu = ?, Seccio_idSeccio WHERE idPlat = ?";
+		$query = "UPDATE plat SET nom = ?, descripcio = ?, preu = ? WHERE idPlat = ?";
         $stmt = $this->conn->prepare($query);
         $doublePreu = doubleval($this->preu);
-		$stmt->bind_param('issdii', $this->idPlat, $this->nom,$this->descripcio,$doublePreu,$this->idSeccio, $this->idPlat);
+		$stmt->bind_param('ssdi', $this->nom,$this->descripcio,$doublePreu, $this->idPlat);
 		if ($stmt->execute()) {
 		 	return true;
 		}
@@ -94,6 +113,10 @@ class Plat {
     public function getIdSeccio() {
 		return $this->idSeccio;
     }
+
+	public function getIdAlergen() {
+		return $this->idAlergen;
+	}
     
 
 	public function setIdPlat($idPlat) {
@@ -116,6 +139,9 @@ class Plat {
         $this->idSeccio = $idSeccio;
     }
 
+	public function setIdAlergen($idAlergen) {
+		$this->idAlergen = $idAlergen;
+	}
 }
 
 ?>

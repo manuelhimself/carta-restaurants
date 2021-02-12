@@ -1,10 +1,8 @@
-<?php
+<?php 
 
-header('Access-Control-Allow-Origin: *'); 
-header('Access-Control-Allow-Credentials', 'true');
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: DELETE');
+header('Access-Control-Allow-Methods: GET');
 
 include_once '../../models/config/database.php';
 include_once '../../models/plat.php';
@@ -14,14 +12,11 @@ $dbConn = $db->connect();
 
 $plat = new Plat($dbConn);
 
-$properties = json_decode(file_get_contents("php://input"));
-
-$plat->setIdPlat($properties->idPlat);
-
-if ($plat->delete()) {
-	echo json_encode(array('result' => '1'));
+if (isset($_REQUEST['idPlat'])) {
+    $plat->setIdPlat($_REQUEST['idPlat']);
+    $plat->delete();
 } else {
-	echo json_encode(array('result' => '0'));
+	die();
 }
 
 ?>

@@ -1,10 +1,8 @@
 <?php 
 
-header('Access-Control-Allow-Origin: *'); 
-header('Access-Control-Allow-Credentials', 'true');
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: DELETE');
+header('Access-Control-Allow-Methods: PUT');
 
 include_once '../../models/config/database.php';
 include_once '../../models/plat.php';
@@ -14,18 +12,14 @@ $dbConn = $db->connect();
 
 $plat = new Plat($dbConn);
 
-$properties = json_decode(file_get_contents("php://input"));
-
-$plat->setIdPlat($properties->idPlat);
-$plat->setNom($properties->nom);
-$plat->setDescripcio($properties->descripcio);
-$plat->setPreu($properties->preu);
-$plat->setIdSeccio($properties->idSeccio);
-
-if ($plat->update()) {
-	echo json_encode(array('result' => '1'));
+if (isset($_REQUEST['idPlat'])&&isset($_REQUEST['nom'])&&isset($_REQUEST['descripcio'])&&isset($_REQUEST['preu'])) {
+	$plat->setIdPlat($_REQUEST['idPlat']);
+	$plat->setNom($_REQUEST['nom']);
+	$plat->setDescripcio($_REQUEST['descripcio']);
+	$plat->setPreu($_REQUEST['preu']);
+    $plat->update();
 } else {
-	echo json_encode(array('result' => '0'));
+	die();
 }
 
 ?>

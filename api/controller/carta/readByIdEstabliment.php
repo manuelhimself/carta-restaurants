@@ -20,12 +20,21 @@ if(isset ($_SESSION ['establiment'])){
     die();
 }
 
-if (isset($_REQUEST['nomCarta'])) {
-    $carta->setNom($_REQUEST['nomCarta']);
+$cartes = array();
+
+
     $carta->setIdEstabliment($id);
-    $carta->create();
-} else {
-	die();
-}
+    $result = $carta->readByIdEstabliment();
+    while ($row = $result->fetch_assoc()) {
+        $cartaActual = array(
+            'idCarta' => $row['idCarta'],
+		    'nom' => $row['nom'],
+            'actiu' => $row['actiu']
+        );
+        array_push($cartes, $cartaActual);
+    }
+
+
+echo json_encode($cartes);
 
 ?>

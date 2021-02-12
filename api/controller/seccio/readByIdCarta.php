@@ -1,10 +1,8 @@
 <?php 
 
-header('Access-Control-Allow-Origin: *'); 
-header('Access-Control-Allow-Credentials', 'true');
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: DELETE');
+header('Access-Control-Allow-Methods: GET');
 
 include_once '../../models/config/database.php';
 include_once '../../models/seccio.php';
@@ -16,8 +14,8 @@ $seccio = new Seccio($dbConn);
 
 $seccions = array();
 
-if (isset($_GET['idCarta'])) {
-    $seccio->setIdCarta($_GET['idCarta']);
+if (isset($_REQUEST['idCarta'])) {
+    $seccio->setIdCarta($_REQUEST['idCarta']);
     $result = $seccio->readByIdCarta();
     while ($row = $result->fetch_assoc()) {
         $seccioActual = array(

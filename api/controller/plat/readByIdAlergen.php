@@ -14,16 +14,17 @@ $plat = new Plat($dbConn);
 
 $plats = array();
 
-if (isset($_REQUEST['idSeccio'])) {
+if (isset($_REQUEST['idAlergen']) && isset($_REQUEST['idSeccio'])) {
+    $plat->setIdAlergen($_REQUEST['idAlergen']);
     $plat->setIdSeccio($_REQUEST['idSeccio']);
-    $result = $plat->readBySeccio();
+    $result = $plat->readByIdAlergen();
     while ($row = $result->fetch_assoc()) {
         $platActual = array(
             'idPlat' => $row['idPlat'],
             'nom' => $row['nom'],
             'descripcio' => $row['descripcio'],
             'preu' => $row['preu'],
-            'idSeccio' => $row['Seccio_idSeccio']
+            'idAlergen' => $row['id']
         );
         array_push($plats, $platActual);
     }

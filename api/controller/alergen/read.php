@@ -5,25 +5,24 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
 
 include_once '../../models/config/database.php';
-include_once '../../models/seccio.php';
+include_once '../../models/alergen.php';
 
 $db = new DataBase();
 $dbConn = $db->connect();
 
-$seccio = new Seccio($dbConn);
-$result = $seccio->read();
+$carta = new Alergen($dbConn);
+$result = $carta->read();
 
-$seccions = array();
+$alergens = array();
 
 while ($row = $result->fetch_assoc()) {
-	$seccioActual = array(
-		'idSeccio' => $row['idSeccio'],
+	$alergenActual = array(
+		'idAlergen' => $row['id'],
 		'nom' => $row['nom'],
-        'idCarta' => $row['Carta_idCarta']
 	);
-	array_push($seccions, $seccioActual);
+	array_push($alergens, $alergenActual);
 }
 
-echo json_encode($seccions);
+echo json_encode($alergens);
 
 ?>

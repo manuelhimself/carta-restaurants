@@ -5,16 +5,17 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
 
 include_once '../../models/config/database.php';
-include_once '../../models/seccio.php';
+include_once '../../models/carta.php';
 
 $db = new DataBase();
 $dbConn = $db->connect();
 
-$seccio = new Seccio($dbConn);
+$plat = new Plat($dbConn);
 
-if (isset($_REQUEST['idSeccio'])) {
-    $seccio->setIdSeccio($_REQUEST['idSeccio']);
-    $seccio->delete1();
+if (isset($_REQUEST['idPlat']) && isset($_REQUEST['idAlergen'])) {
+	$plat->setIdPlat($_REQUEST['idPlat']);
+    $plat->setIdAlergen($_REQUEST['idAlergen']);
+    $plat->createAlergenPlat();
 } else {
 	die();
 }
