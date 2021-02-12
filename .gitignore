@@ -4,3 +4,4 @@ models/config/database.php
 *.jpg
 back/js/api.js
 
+api/models/config/database.php
