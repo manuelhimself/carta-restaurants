@@ -56,7 +56,7 @@ var svg = d3
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json(api + "/reserves/graficReserves.php", function(data) {
+d3.json("/api/controller/reserves/graficReserves.php", function(data) {
     data.sort(function(b, a) {
         return a.Value - b.Value;
     });
