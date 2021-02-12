@@ -16,7 +16,7 @@
     
   <div class="container">
     <h2>Registre</h2>
-    <form method="POST" action="/api/controller/establiment/addEstabliment.php">
+    <form method="POST" action="https://api.restaurat.me/controller/establiment/addEstabliment.php">
         <div class="form-row">
         <div class="form-group col-md-6">
             <label>Restaurant</label>
@@ -72,7 +72,7 @@
       }
     }
   };
-  xhttp.open("GET", "/api/controller/poblacio/poblacio.php", true);
+  xhttp.open("GET", "https://api.restaurat.me/controller/poblacio/poblacio.php", true);
   xhttp.send();
 }
 function loadCategoria() {
@@ -93,7 +93,7 @@ function loadCategoria() {
       }
     }
   };
-  xhttp.open("GET", "/api/controller/categoria/categoria.php", true);
+  xhttp.open("GET", "https://api.restaurat.me/controller/categoria/categoria.php", true);
   xhttp.send();
 }
 

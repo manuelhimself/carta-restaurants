@@ -31,7 +31,7 @@ if($conn->query($sql) === TRUE){
 
       if ($conn->query($cat) === TRUE) {
         echo "New record created successfully";
-        header("location: /back/html/login.html");
+        header("location:https://admin.restaurat.me/back/html/login.html");
       } else {
         echo "error a l'registre intenteu de nou";
       }
@@ -39,8 +39,8 @@ if($conn->query($sql) === TRUE){
   }
 } else {
       echo "<script> 
-      alert('There are no fields to generate a report'); 
-      window.location.href='/back/html/registrer.html'; 
+      alert('No ha estat posible el registre, recordi omplir tots els camps); 
+      window.location.href='https://admin.restaurat.me/back/html/registrer.html'; 
       </script>"; 
 }
 ?>
