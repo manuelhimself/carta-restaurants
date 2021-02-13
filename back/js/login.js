@@ -15,7 +15,7 @@ function logIn() {
     };
     xhttp.open(
         "POST",
-        "https://api.restaurat.me/controller/sessio/autentificacio.php?email=" + u + "&password=" + p,
+        api + "/sessio/autentificacio.php?email=" + u + "&password=" + p,
         true
     );
     xhttp.send();
