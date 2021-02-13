@@ -1,4 +1,9 @@
 <?php
+header('Access-Control-Allow-Origin: *'); 
+header('Access-Control-Allow-Credentials', 'true');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Methods: DELETE');
+
 session_start();
 
 header('Access-Control-Allow-Origin: *');
