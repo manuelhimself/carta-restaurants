@@ -6,12 +6,8 @@ header('Access-Control-Allow-Methods: DELETE');
 
 session_start();
 
-if(isset ($_SESSION ['establiment'])){
-    $id = $_SESSION ['establiment'];
-}else{
-    echo 'inci de sesio no valid';
-}
 
+$id=$_REQUEST['id'];
 
 $conn = new mysqli("localhost","root","password","restaurat");
 $select = $conn -> prepare("SELECT MONTHNAME(reserva.data) as mes, COUNT(id_reserva) as suma FROM reserva WHERE reserva.Establiment_id=$id GROUP BY MONTHnAME(reserva.data)");

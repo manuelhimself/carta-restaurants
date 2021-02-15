@@ -4,20 +4,11 @@ header('Access-Control-Allow-Credentials', 'true');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: DELETE');
 
-session_start();
-
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: GET, POST');
 
 $d = $_REQUEST['data'];
 $_date = date("Ymd", strtotime($d));
 
-if(isset ($_SESSION ['establiment'])){
-    $id = $_SESSION ['establiment'];
-}else{
-    echo 'inci de sesio no valid';
-}
+$id = $_REQUEST['id'];
 
 
 $conn = new mysqli("localhost","root","password","restaurat");

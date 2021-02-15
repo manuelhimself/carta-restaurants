@@ -44,7 +44,7 @@ if($conn->query($sql) === TRUE){
 } else {
       echo "<script> 
       alert('No ha estat posible el registre, recordi omplir tots els camps'); 
-      window.location.href='/back/html/registrer.html'; 
+      window.location.replace('/back/html/registrer.html'); 
       </script>"; 
 }
 ?>

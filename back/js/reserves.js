@@ -1,6 +1,11 @@
 var reserves;
 var grafic;
 var taula;
+var id = sessionStorage.getItem('key');
+
+if (id == null) {
+    window.location.replace("iniciSesio.html");
+}
 
 function loadData() {
     var d = $("#data").val();
@@ -35,7 +40,7 @@ function loadData() {
             });
         }
     };
-    xhttp.open("POST", api + "/reserves/reserves.php?data=" + d, false);
+    xhttp.open("POST", api + "/reserves/reserves.php?data=" + d + "&id=" + id, false);
     xhttp.send();
 }
 
@@ -56,7 +61,7 @@ var svg = d3
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("/api/controller/reserves/graficReserves.php", function(data) {
+d3.json("/api/controller/reserves/graficReserves.php?id="+id, function(data) {
     data.sort(function(b, a) {
         return a.Value - b.Value;
     });

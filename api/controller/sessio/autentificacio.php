@@ -25,9 +25,7 @@ if ($counter == 1) {
 			$id = $row['id'];
 		}
 	}
-	session_start();
-	$_SESSION['establiment'] = $id;
-	echo "OK";
+	echo $id;
 } else {
 	echo "ERROR";
 }

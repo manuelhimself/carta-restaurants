@@ -9,6 +9,7 @@ function logIn() {
             if (resposta == "ERROR") {
                 $("#m1").html("Email o contrasenya introduïts no valids");
             } else {
+                sessionStorage.setItem('key', id);
                 window.location.replace("editarPerfil.html");
             }
         }
