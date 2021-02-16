@@ -40,7 +40,7 @@ class Plat {
 	}
 
 	public function readByIdAlergen() {
-		$query = "SELECT plat.nom, plat.descripcio, plat.preu, plat.idPlat, alergen.id FROM restaurants.plat, restaurants.alergen, restaurants.plat_alergen, restaurants.seccio 
+		$query = "SELECT plat.nom, plat.descripcio, plat.preu, plat.idPlat, alergen.id FROM restaurat.plat, restaurat.alergen, restaurat.plat_alergen, restaurat.seccio 
 		where plat.idPlat = plat_alergen.Plat_idPlat and plat_alergen.Alergen_id = alergen.id and alergen.id = ? and plat.Seccio_idSeccio = seccio.idSeccio 
 		and seccio.idSeccio = ?;";
 		$stmt = $this->conn->prepare($query);
