@@ -3,10 +3,12 @@ $(document).ready(function() {
     var poblacions;
     var categories;
     var id = sessionStorage.getItem("key");
+
     // comprova si sa sessio esta iniciada //
     if (id == null) {
         window.location.replace("login.html");
     }
+
     getEstabliment(id);
     getPoblacions();
     getCategoriesFromDB();
