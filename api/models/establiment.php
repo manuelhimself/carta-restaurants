@@ -46,9 +46,13 @@ class establiment
   //Get establiment by name
   public function readByNom()
   {
-    $query = "SELECT * FROM
-                  establiment
-                  WHERE nom LIKE ? LIMIT 50";
+    $query = "SELECT categoria.id AS id_categoria, 
+    establiment.id, establiment.nom, establiment.correu_electronic, establiment.num_comensals, 
+    establiment.telefon, establiment.Poblacio_id, establiment.descripcio 
+    FROM categoria, categoria_establiment, establiment 
+    WHERE categoria_establiment.Categoria_id = categoria.id 
+    AND categoria_establiment.Establiment_id = establiment.id 
+    AND establiment.nom LIKE ? LIMIT 50";
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param('s', $this->nom);
     $stmt->execute();

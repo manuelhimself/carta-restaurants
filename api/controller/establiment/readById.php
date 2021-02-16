@@ -17,13 +17,13 @@ $dbConn = $db->connect();
 //Establiment object
 $establiment = new establiment($dbConn);
 
-if(isset ($_SESSION ['establiment'])){
-    $id = $_SESSION ['establiment'];
+if(isset($_REQUEST['id'])){
+    $establiment->setId($_REQUEST ['id']);
 }else{
-    echo 'inci de sesio no valid';
+    die();
 }
 
-$establiment->setId($id);
+//$establiment->setId($id);
 //Establiments array;
 $categories_arr = array();
 

@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: DELETE');
 
 include_once '../../models/config/database.php';
-include_once '../../models/establiment__categoria.php';
+include_once '../../models/establiment_categoria.php';
 
 //DB
 $db = new DataBase();
@@ -17,10 +17,11 @@ $dbConn = $db->connect();
 $establiment_categoria = new establiment_categoria($dbConn);
 
 //Get establiment_categoria properties
-$properties = json_decode(file_get_contents("php://input"));
-
-//Set establiment_categoria id
-$establiment_categoria->setEstabliment_id($properties->Establiment_id);
+if (isset($_REQUEST['Establiment_id'])) {
+    $establiment_categoria->setEstabliment_id($_REQUEST['Establiment_id']);
+}else{
+    die();
+}
 
 //Delete establiment_categoria
 if ($establiment_categoria->delete()){

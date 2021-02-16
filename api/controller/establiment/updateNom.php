@@ -1,7 +1,7 @@
 <?php
 
 // Headers
-header('Access-Control-Allow-Origin: *'); 
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Credentials', 'true');
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
@@ -18,16 +18,16 @@ $dbConn = $db->connect();
 $establiment = new establiment($dbConn);
 
 //Get establiment properties
-$properties = json_decode(file_get_contents("php://input"));
-
-//Set establiment properties
-$establiment->setId($properies->id);
-$establiment->setNom($properies->nom);
+if (isset($_REQUEST['id']) && isset($_REQUEST['nom'])) {
+    $establiment->setId($_REQUEST['id']);
+    $establiment->setNom($_REQUEST['nom']);
+}else{
+    die();
+}
 
 //Update establiment
-if($establiment->updateNom()){
+if ($establiment->updateNom()) {
     echo json_encode(array('result' => '1'));
-} else{
+} else {
     echo json_encode(array('result' => '0'));
 }
-?>

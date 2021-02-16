@@ -17,12 +17,13 @@ $dbConn = $db->connect();
 //Establiment object
 $establiment_categoria = new establiment_categoria($dbConn);
 
-//Get establiment properties
-$properties = json_decode(file_get_contents("php://input"));
-
-//Set establiment_categoria id
-$establiment_categoria->setEstabliment_id($properties->Establiment_id);
-$establiment_categoria->setCategoria_id($properties->Categoria_id);
+//Get establiment_categoria properties
+if (isset($_REQUEST['Establiment_id']) && isset($_REQUEST['Categoria_id'])) {
+    $establiment_categoria->setEstabliment_id($_REQUEST['Establiment_id']);
+    $establiment_categoria->setCategoria_id($_REQUEST['Categoria_id']);
+}else{
+    die();
+}
 
 //Update establiment
 if($establiment_categoria->insert()){

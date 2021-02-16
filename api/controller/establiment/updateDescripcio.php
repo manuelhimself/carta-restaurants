@@ -18,11 +18,12 @@ $dbConn = $db->connect();
 $establiment = new establiment($dbConn);
 
 //Get establiment properties
-$properties = json_decode(file_get_contents("php://input"));
-
-//Set establiment properties
-$establiment->setId($properies->id);
-$establiment->setDescripcio($properies->descripcio);
+if (isset($_REQUEST['id']) && isset($_REQUEST['descripcio'])) {
+    $establiment->setId($_REQUEST['id']);
+    $establiment->setDescripcio($_REQUEST['descripcio']);
+}else{
+    die();
+}
 
 //Update establiment
 if($establiment->updateDescripcio()){
