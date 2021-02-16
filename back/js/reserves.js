@@ -40,7 +40,7 @@ function loadData() {
             });
         }
     };
-    xhttp.open("POST", api + "/reserves/reserves.php?data=" + d + "&id=" + id, false);
+    xhttp.open("POST", "https://api.restaurat.me/controller/reserves/reserves.php?data=" + d + "&id=" + id, false);
     xhttp.send();
 }
 
