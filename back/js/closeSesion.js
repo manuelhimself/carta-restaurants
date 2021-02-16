@@ -1,2 +1,2 @@
 sessionStorage.clear();
-window.location.replace("/back/html/login");
+window.location.replace("/back/html/login.html");
