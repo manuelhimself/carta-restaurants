@@ -1,10 +1,15 @@
 $(document).ready(function () {
 
     var alergens;
-    var idSeccio = 243;
+    var alergensPlat;
+    var idSeccio = sessionStorage.getItem('idSeccio');
     var plats;
     var idP;
-    var alergensChecked;
+    var last_idPlat;
+
+    if(idSeccio == null){
+        window.location.replace("login.html");
+    }
 
     selectAlergen();
     mostraPlats();
@@ -56,7 +61,6 @@ $(document).ready(function () {
         $("#plats").empty();
         var idS = idSeccio;
         var idAlergen = $("#select").val();
-        console.log(idAlergen);
         if(idAlergen==0){
             totsPlats(idS);
         }else{
@@ -116,22 +120,57 @@ $(document).ready(function () {
         $(".checkbox").empty();
         var form = $(".checkbox");
         for(var i=0;i<alergens.length;i++){
+            var id = alergens[i].idAlergen;
             var nom = alergens[i].nom;
-            console.log(alergens[i].nom);
-            var checkbox = $("<input/>",{ type: "checkbox", name: "idAlergens[]", value: nom, id: nom});
+            var checkbox = $("<input/>",{ type: "checkbox", name: "idAlergens", value: nom, id: "chk"+id});
             var label = $("<label>", {for: alergens[i].nom, text: alergens[i].nom});
             form.append("<br>", label, checkbox);
         }
     }
 
-    function afegirPlat(nom,descripcio,preu,idSeccio){
+    function getAlergensPlat(idPlat){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                mostraPlats();
+                alergensPlat = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", api + "/plat/createPlat.php?nom="+nom+"&descripcio="+descripcio+"&preu="+preu+"&idSeccio="+idSeccio, false);
+        xhttp.open("GET", api + "/alergen/readByIdPlat.php?idPlat=" + idPlat, false);
+        xhttp.send();
+    }
+
+    function checkAlergens(idPlat){
+        getAlergensPlat(idPlat);
+        for(var i=0;i<alergens.length;i++){
+            for(var j=0;j<alergensPlat.length;j++){
+                var idAlergen = alergensPlat[j].idAlergen;
+                if(alergens[i].idAlergen == alergensPlat[j].idAlergen){
+                    $("#chk" + idAlergen).prop("checked", true);
+                }
+            }
+        }
+    }
+
+    function eliminarAlergensPlat(idPlat){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                
+            }
+        };
+        xhttp.open("GET", api + "/alergen/deleteAllAlergenByIdPlat.php?idPlat="+idPlat, false);
+        xhttp.send();
+    }
+
+    function afegirPlat(nom,descripcio,preu,idS){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var plat = JSON.parse(this.responseText);
+                last_idPlat = plat.id;
+            }
+        };
+        xhttp.open("GET", api + "/plat/createPlat.php?nom="+nom+"&descripcio="+descripcio+"&preu="+preu+"&idSeccio="+idS, false);
         xhttp.send();
     }
 
@@ -139,7 +178,6 @@ $(document).ready(function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                mostraPlats();
             }
         };
         xhttp.open("GET", api + "/plat/createAlergenPlat.php?idPlat="+idPlat+"&idAlergen="+idAlergen, false);
@@ -163,8 +201,8 @@ $(document).ready(function () {
     $(document).on("click", ".editarPlat", function () {
         afegirCheckbox();
         var idBoto = $(this).attr("id");
-        var idP = idBoto.substr(3, idBoto.length);
-        console.log(idP);
+        idP = idBoto.substr(3, idBoto.length);
+        checkAlergens(idP);
         var nomP = $("#" + idP + " div h1").text();
         var desc = $("#" + idP + " div").find("p:eq(0)").text();
         var textPreu = $("#" + idP + " div").find("p:eq(1)").text();
@@ -178,10 +216,20 @@ $(document).ready(function () {
 
     $(document).on("click", "#edita", function () {
         var nom = $("#nomPlat").val();
-        var idPlat = $("#idPlat").val();
+        idP = $("#idPlat").val();
         var preu = $("#preuPlat").val();
         var descripcio = $("#descripcioPlat").val();
-        modificarPlat(idPlat,nom,descripcio,preu);
+        modificarPlat(idP,nom,descripcio,preu);
+        var alergensChecked = Array();
+        $("input:checkbox[name=idAlergens]:checked").each(function() {
+            alergensChecked.push($(this).attr("id").substr(3,$(this).attr("id").length));
+        });
+        eliminarAlergensPlat(idP);
+        for(var i=0;i<alergensChecked.length;i++){
+            var idAlergen = alergensChecked[i];
+            afegirAlergenPlat(idAlergen,idP);
+        }
+        
     });
 
     $(document).on("click", "#afegirPlat", function(){
@@ -189,14 +237,20 @@ $(document).ready(function () {
         $("#modal3").modal("toggle");
     });
 
-    /*$(document).on("click", "#afegir", function (){
-        var nom = $("#nomPlat").val();
-        var descripcio = $("#descripcioPlat").val();
-        var preu = $("#preuPlat");
+    $(document).on("click", "#afegir", function (){
+        var nom = $("#nomP").val();
+        var descripcio = $("#descripcioP").val();
+        var preu = $("#preuP").val();
         afegirPlat(nom, descripcio, preu, idSeccio);
-        for(var i=0;i<){
-
+        var alergensChecked = Array();
+        $("input:checkbox[name=idAlergens]:checked").each(function() {
+            alergensChecked.push($(this).attr("id").substr(3,$(this).attr("id").length));
+        }); 
+        for(var i=0;i<alergensChecked.length;i++){
+            var idAlergen = alergensChecked[i];
+            afegirAlergenPlat(idAlergen,last_idPlat);
         }
-    });*/
+        mostraPlats();
+    });
 
 });

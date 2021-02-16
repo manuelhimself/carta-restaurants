@@ -1,19 +1,22 @@
-<?php 
+<?php
 
-class Alergen {
+class Alergen
+{
 
 	private $conn;
 	private $idAlergen;
 	private $nom;
-    private $idPlat;
+	private $idPlat;
 
 
-	public function __construct($db) {
+	public function __construct($db)
+	{
 		$this->conn = $db;
-    }
-    
+	}
 
-	public function read() {
+
+	public function read()
+	{
 		$query = "SELECT * FROM alergen";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
@@ -21,74 +24,102 @@ class Alergen {
 	}
 
 
-	public function readById() {
-		$query = "SELECT * FROM alergen WHERE id = ? LIMIT 1";
+	public function readById()
+	{
+		$query = "SELECT * FROM alergen WHERE id = ?";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bind_param('i', $this->idAlergen);
 		$stmt->execute();
-		$result = $stmt->get_result();
-		return $result->fetch_assoc();
+		return $stmt->get_result();
 	}
 
-	public function create() {
+	public function readByIdPlat()
+	{
+		$query = "SELECT Alergen_id FROM plat_alergen WHERE Plat_idPlat = ?";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bind_param('i', $this->idPlat);
+		$stmt->execute();
+		return $stmt->get_result();
+	}
+
+	public function create()
+	{
 		$query = "INSERT INTO alergen (nom) VALUES (?)";
-        $stmt = $this->conn->prepare($query);
+		$stmt = $this->conn->prepare($query);
 		$stmt->bind_param('s', $this->nom);
 		if ($stmt->execute()) {
 			$idAlergen = $this->conn->insert_id;
 			$query = "INSERT INTO plat_alergen (Aalergen_id, Plat_idPlat) VALUES (?,?)";
 			$stmt = $this->conn->prepare($query);
-			$stmt->bind_param('ii', $idAlergen,$this->idPlat);
+			$stmt->bind_param('ii', $idAlergen, $this->idPlat);
 			if ($stmt->execute()) {
-				 return true;
+				return true;
 			}
 			return false;
 		}
 		return false;
 	}
 
-	public function update() {
-		$query = "UPDATE alergen SET nom = ? WHERE id = ?";
-        $stmt = $this->conn->prepare($query);
-		$stmt->bind_param('si', $this->nom, $this->idAlergen);
+	public function deleteAllAlergenByIdPlat()
+	{
+		$query = "DELETE from plat_alergen where Plat_idPlat = ?";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bind_param('i', $this->idPlat);
 		if ($stmt->execute()) {
-		 	return true;
+			return true;
 		}
 		return false;
 	}
-    
-	public function delete() {
+
+	public function update()
+	{
+		$query = "UPDATE alergen SET nom = ? WHERE id = ?";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bind_param('si', $this->nom, $this->idAlergen);
+		if ($stmt->execute()) {
+			return true;
+		}
+		return false;
+	}
+
+	public function delete()
+	{
 		$query = "DELETE FROM alergen WHERE id = ?";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bind_param('i', $this->idAlergen);
 		if ($stmt->execute()) {
-		 	return true;
+			return true;
 		}
 		return false;
 	}
 
-	public function getIdAlergen() {
+	public function getIdAlergen()
+	{
 		return $this->idAlergen;
 	}
 
-	public function getNom() {
+	public function getNom()
+	{
 		return $this->nom;
-    }
-    
-    public function getIdPlat() {
+	}
+
+	public function getIdPlat()
+	{
 		return $this->idPlat;
 	}
-    
-	public function setIdAlergen($idAlergen) {
+
+	public function setIdAlergen($idAlergen)
+	{
 		$this->idAlergen = $idAlergen;
 	}
 
-	public function setNom($nom) {
+	public function setNom($nom)
+	{
 		$this->nom = $nom;
 	}
-	
-	public function setIdPlat($idPlat) {
-		$this->idPlat = $idPlat;
-    }
 
+	public function setIdPlat($idPlat)
+	{
+		$this->idPlat = $idPlat;
+	}
 }

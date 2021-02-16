@@ -5,17 +5,16 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
 
 include_once '../../models/config/database.php';
-include_once '../../models/plat.php';
+include_once '../../models/alergen.php';
 
 $db = new DataBase();
 $dbConn = $db->connect();
 
-$plat = new Plat($dbConn);
+$alergen = new Alergen($dbConn);
 
-if (isset($_REQUEST['idPlat']) && isset($_REQUEST['idAlergen'])) {
-	$plat->setIdPlat($_REQUEST['idPlat']);
-    $plat->setIdAlergen($_REQUEST['idAlergen']);
-    $plat->createAlergenPlat();
+if (isset($_REQUEST['idPlat'])) {
+    $alergen->setIdPlat($_REQUEST['idPlat']);
+    $alergen->deleteAllAlergenByIdPlat();
 } else {
 	die();
 }

@@ -50,10 +50,9 @@ class Plat {
 	}
 
 	public function createPlat() {
-		$query = "INSERT INTO plat (nom, descripcio, preu, Seccio_idSeccio) VALUES (?, ?, ?, ?, ?)";
+		$query = "INSERT INTO plat (nom, descripcio, preu, Seccio_idSeccio) VALUES (?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $doublePreu = doubleval($this->preu);
-		$stmt->bind_param('ssdi', $this->nom,$this->descripcio,$doublePreu,$this->idSeccio);
+		$stmt->bind_param('ssdi', $this->nom,$this->descripcio,$this->preu,$this->idSeccio);
 		if ($stmt->execute()) {
 			return true;
 		}
@@ -80,8 +79,7 @@ class Plat {
 		 	return true;
 		}
 		return false;
-    }
-    
+    }   
 
 	public function delete() {
 		$query = "DELETE FROM plat WHERE idPlat = ?";

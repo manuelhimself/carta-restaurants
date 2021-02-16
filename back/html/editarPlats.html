@@ -13,9 +13,37 @@
     <script src="../js/api.js"></script>
     <script src="../js/editaPlats.js"></script>
     <link rel="stylesheet" href="../css/estils.css">
+    <link rel="stylesheet" href="../css/dist/style.css">
 
     <title>Plats</title>
 </head>
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-dark sticky-top">
+    <!--Logo-->
+    <a class="navbar-brand" href="./editarPerfil.html">
+        <img id="logo" src="../images/icon/icon.png" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <!--Links-->
+            <li class="nav-item">
+                <a class="nav-link" href="./editarPerfil.html">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./editarCarta.html">Carta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./reserves.html">Reserves</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a href="back/js/closeSesion.js" class="btn my-2 my-sm-0 realBtn">Tanca Sessió</a>
+        </form>
+    </div>
+</nav>
 
 <body>
 
@@ -71,15 +99,14 @@
                     </div>
                     <div class="modal-body">
                         <form method="GET">
-                            <input type="hidden" name="idPlat" id="idPlat">
                             <label for="nomPlat">Nom plat:</label><br>
-                            <input type="text" name="nomPlat" id="nomPlat">
+                            <input type="text" name="nomPlat" id="nomP">
                             <br>
                             <label for="descripcioPlat">Descripció plat:</label><br>
-                            <input type="text" name="descripcioPlat" id="descripcioPlat">
+                            <input type="text" name="descripcioPlat" id="descripcioP">
                             <br>
                             <label for="preuPlat">Preu plat:</label><br>
-                            <input type="text" name="preuPlat" id="preuPlat">
+                            <input type="text" name="preuPlat" id="preuP">
                             <div class="checkbox"></div>
                         </form>
                     </div>

@@ -5,6 +5,12 @@ $(document).ready(function () {
     var cartes;
     var idC;
     var idS;
+    var idEstabliment = sessionStorage.getItem('key');
+    console.log(idEstabliment);
+
+    if(idEstabliment == null){
+        window.location.replace("login.html");
+    }
 
     mostrarCartes();
 
@@ -26,7 +32,7 @@ $(document).ready(function () {
                 cartes = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", api + "/carta/readByIdEstabliment.php", false);
+        xhttp.open("GET", api + "/carta/readByIdEstabliment.php?idEstabliment=" + idEstabliment, false);
         xhttp.send();
     }
 
@@ -104,7 +110,7 @@ $(document).ready(function () {
             var cardH1 = $("<h1/>", { class: "card-title", text: nom });
             var cardIcon1 = $("<i/>", { class: "fa fa-trash" });
             var cardA1 = $("<button/>", { type: "button", class: "editarSeccioNom btn", id: "edS" + id, idCarta: idCarta });
-            var cardA2 = $("<button/>", { type: "button", class: "editarPlats btn", id: "edP" + id, text: "Mostrar Plats" });
+            var cardA2 = $("<a/>", { href: "editarPlats.html", class: "editarPlats btn", id: "edP" + id, text: "Mostrar Plats" });
             var cardA3 = $("<a/>", { class: "eliminarSeccio btn", id: "elS" + id, idCarta: idCarta });
             var cardIcon2 = $("<i/>", { class: "fa fa-eye" });
             var cardIcon3 = $("<i/>", { class: "fa fa-edit" });
@@ -186,7 +192,7 @@ $(document).ready(function () {
                 mostrarCartes();
             }
         };
-        xhttp.open("GET", api + "/carta/create.php?nomCarta=" + nomCarta, true);
+        xhttp.open("GET", api + "/carta/create.php?nomCarta=" + nomCarta + "&idEstabliment=" + idEstabliment, true);
         xhttp.send();
     }
 
@@ -336,6 +342,13 @@ $(document).ready(function () {
             desactivarAltresCartes(idCarta);
             $('.estatCarta').not(this).prop('checked', false);
         }
+    });
+
+    $(document).on("click", ".editarPlats", function () {
+        var idBoto = $(this).attr("id");
+        var idSeccio = idBoto.substr(3, idBoto.length);
+        console.log(idSeccio);
+        sessionStorage.setItem('idSeccio',idSeccio);
     });
 
 });

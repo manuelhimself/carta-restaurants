@@ -1,7 +1,5 @@
 <?php 
 
-session_start();
-
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
@@ -14,15 +12,9 @@ $dbConn = $db->connect();
 
 $carta = new Carta($dbConn);
 
-if(isset ($_SESSION ['establiment'])){
-    $id = $_SESSION ['establiment'];
-}else{
-    die();
-}
-
-if (isset($_REQUEST['nomCarta'])) {
+if (isset($_REQUEST['nomCarta'])&&isset($_REQUEST['idEstabliment'])) {
     $carta->setNom($_REQUEST['nomCarta']);
-    $carta->setIdEstabliment($id);
+    $carta->setIdEstabliment($_REQUEST['idEstabliment']);
     $carta->create();
 } else {
 	die();
