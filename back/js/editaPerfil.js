@@ -174,8 +174,6 @@ $(document).ready(function() {
     function placeEstablimentVars() {
         $("#nomEstabliment").text(establiment.nom);
         for (var i = 1; i <= 5; i++) {
-            var link = $("<a/>");
-            link.attr("id", "a" + i);
             var img = $("<img/>");
             img.attr("id", "pic" + i);
             img.attr(
@@ -184,15 +182,11 @@ $(document).ready(function() {
             );
             img.attr("alt", "Restaurant Image");
             if (i != 1) {
-                link.addClass("col-md-3 col-sm-6");
-                //img.addClass("col-md-3 col-sm-6");
-                link.append(img);
-                $("#smallPics").append(link);
+                img.addClass("col-md-3 col-6");
+                $("#smallPics").append(img);
             } else {
-                link.addClass("col");
-                //img.addClass("col");
-                link.append(img);
-                $("#bigPic").append(link);
+                img.addClass("col");
+                $("#bigPic").append(img);
             }
         }
 

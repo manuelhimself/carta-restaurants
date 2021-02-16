@@ -23,7 +23,6 @@ if(isset($_REQUEST['id'])){
     die();
 }
 
-//$establiment->setId($id);
 //Establiments array;
 $categories_arr = array();
 
