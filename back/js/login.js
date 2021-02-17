@@ -10,13 +10,13 @@ function logIn() {
                 $("#m1").html("Email o contrasenya introduïts no valids");
             } else {
                 sessionStorage.setItem('key', id);
-                window.location.replace("editarPerfil.html");
+                window.location.replace("index.html");
             }
         }
     };
     xhttp.open(
         "POST",
-        api + "/sessio/autentificacio.php?email=" + u + "&password=" + p,
+        "https://api.restaurat.me/controller/sessio/autentificacio.php?email=" + u + "&password=" + p,
         true
     );
     xhttp.send();
