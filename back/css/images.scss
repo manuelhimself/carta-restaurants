@@ -8,13 +8,18 @@
     padding-right: 0px;
 }
 
-a {
+.image-upload {
     padding-left: 0px !important;
     padding-right: 0px !important;
-    //img {
-        //padding-left: 0px !important;
-        //padding-right: 0px !important;
-    //}
+    >input {
+        display: none !important;
+    }
+}
+
+.image-upload img {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    max-width: 100%;
 }
 
 #bigPic,

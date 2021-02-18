@@ -1,6 +1,6 @@
 .realBtn {
     background-color: $my-red;
-    color: white;
+    color: white !important;
      :hover {
         transition: 0.5s;
         color: lightslategray;

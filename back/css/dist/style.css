@@ -1,6 +1,6 @@
 .realBtn {
   background-color: #A33E3E;
-  color: white;
+  color: white !important;
 }
 .realBtn :hover {
   transition: 0.5s;
@@ -46,9 +46,18 @@
   padding-right: 0px;
 }
 
-a {
+.image-upload {
   padding-left: 0px !important;
   padding-right: 0px !important;
+}
+.image-upload > input {
+  display: none !important;
+}
+
+.image-upload img {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  max-width: 100%;
 }
 
 #bigPic,
@@ -63,4 +72,29 @@ a {
 
 .checkbox {
   margin-right: 3px;
+}
+
+.footer {
+  background: #414749;
+  color: white;
+}
+
+.links ul {
+  list-style-type: none;
+}
+.links li a {
+  color: white;
+  transition: color 0.2s;
+}
+.links li a :hover {
+  text-decoration: none;
+  color: #A33E3E;
+}
+
+.location i {
+  font-size: 18px;
+}
+
+.copyright p {
+  border-top: 1px solid grey;
 }

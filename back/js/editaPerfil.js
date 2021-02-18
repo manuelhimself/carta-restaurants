@@ -174,6 +174,10 @@ $(document).ready(function() {
     function placeEstablimentVars() {
         $("#nomEstabliment").text(establiment.nom);
         for (var i = 1; i <= 5; i++) {
+            var div = $("<div/>", { class: "image-upload" });
+            var label = $("<label/>", { for: "file-input-" + i });
+            var input = $("<input/>", { id: "file-input-" + i });
+            input.attr("type", "file");
             var img = $("<img/>");
             img.attr("id", "pic" + i);
             img.attr(
@@ -181,12 +185,15 @@ $(document).ready(function() {
                 "../images/establiment/" + establiment.id + "-" + i + ".jpg"
             );
             img.attr("alt", "Restaurant Image");
+            label.append(img);
+            div.append(label);
+            div.append(input);
             if (i != 1) {
-                img.addClass("col-md-3 col-6");
-                $("#smallPics").append(img);
+                div.addClass("col-md-3 col-6");
+                $("#smallPics").append(div);
             } else {
-                img.addClass("col");
-                $("#bigPic").append(img);
+                div.addClass("col");
+                $("#bigPic").append(div);
             }
         }
 

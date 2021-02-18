@@ -1,0 +1,26 @@
+.footer {
+    background: $dark;
+    color: white;
+}
+
+.links {
+    ul {
+        list-style-type: none;
+    }
+    li a {
+        color: white;
+        transition: color 0.2s;
+         :hover {
+            text-decoration: none;
+            color: $my-red;
+        }
+    }
+}
+
+.location i {
+    font-size: 18px;
+}
+
+.copyright p {
+    border-top: 1px solid grey;
+}
