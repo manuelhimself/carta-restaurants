@@ -10,44 +10,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="icon" href="../images/icon/icon.png">
-    <script type="text/javascript" src="../js/api.js"></script>
-    <script type="text/javascript" src="../js/editaPerfil.js"></script>
-    <script src="../js/closeSesion.js"></script>
+    <link rel="icon" href="./images/icon/icon.png">
+    <script type="text/javascript" src="./js/api.js"></script>
+    <script type="text/javascript" src="./js/editaPerfil.js"></script>
+    <script src="./js/closeSesion.js"></script>
     <title>Edita perfil</title>
 </head>
 
 <body>
-
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-dark sticky-top">
-        <!--Logo-->
-        <a class="navbar-brand" href="./editarPerfil.html">
-            <img id="logo" src="../images/icon/icon.png" alt="Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <!--Links-->
-                <li class="nav-item">
-                    <a class="nav-link" href="editarPerfil.html">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="editarCarta.html">Carta</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="reserves.html">Reserves</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <a class="btn my-2 my-sm-0 realBtn" id="tancaSessio">Tanca Sessió</a>
-            </form>
-        </div>
-
-    </nav>
-
+<?
+include("navbar.php");
+?>
     <div class="container" id="perfilContainer">
         <div class="card" id="perfilCard">
             <div>
@@ -218,35 +191,9 @@
             </div>
         </div>
     </div>
-
-    <!--About us footer-->
-    <footer class="mt-5 pt-5 pb-5 footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-xs-12 portal-restaurants links">
-                    <h4>Portal Restaurants</h4>
-                    <ul class="m-0 p-0">
-                        <li>- <a href="login.html">Inici sessió</a></li>
-                        <li>- <a href="reserves.html">Consulta reserva</a></li>
-                        <li>- <a href="editarPerfil.html">Edita perfil</a></li>
-                        <li>- <a href="editarCarta.html">Edita cartes</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-5 col-xs-12 portal-clients links">
-                    <h4 class="mt-lg-0 mt-sm-3">Portal Clients</h4>
-                    <ul class="m-0 p-0">
-                        <li>- <a href="#">Inicia sessió</a></li>
-                        <li>- <a href="#">Cerca restaurants</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col copyright">
-                    <p class=""><small class="text-white-50">© 2021. Tots els drets reservats.</small></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+<?
+include("footer.php");
+?>
 </body>
 
 </html>

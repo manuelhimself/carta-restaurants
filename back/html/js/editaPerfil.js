@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     // comprova si sa sessio esta iniciada //
     if (id == null) {
-        window.location.replace("login.html");
+        window.location.replace("login.php");
     }
 
     getEstabliment(id);

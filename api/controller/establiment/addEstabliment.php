@@ -35,7 +35,7 @@ if($conn->query($sql) === TRUE){
 
       if ($conn->query($cat) === TRUE) {
         echo "New record created successfully";
-        header("location:https://admin.restaurat.me/login.html");
+        header("location:https://admin.restaurat.me/login.php");
       } else {
         echo "error a l'registre intenteu de nou";
       }
@@ -44,7 +44,7 @@ if($conn->query($sql) === TRUE){
 } else {
       echo "<script> 
       alert('No ha estat posible el registre'); 
-      window.location.replace('https://admin.restaurat.me/registrer.html'); 
+      window.location.replace('https://admin.restaurat.me/registrer.php'); 
       </script>"; 
 }
 ?>

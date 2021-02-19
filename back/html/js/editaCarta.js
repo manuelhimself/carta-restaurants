@@ -9,7 +9,7 @@ $(document).ready(function () {
     console.log(idEstabliment);
 
     if(idEstabliment == null){
-        window.location.replace("login.html");
+        window.location.replace("login.php");
     }
 
     mostrarCartes();

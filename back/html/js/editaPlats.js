@@ -8,7 +8,7 @@ $(document).ready(function () {
     var last_idPlat;
 
     if(idSeccio == null){
-        window.location.replace("login.html");
+        window.location.replace("login.php");
     }
 
     selectAlergen();

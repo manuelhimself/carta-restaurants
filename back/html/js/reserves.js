@@ -4,7 +4,7 @@ var taula;
 var id = sessionStorage.getItem('key');
 
 if (id == null) {
-    window.location.replace("iniciSesio.html");
+    window.location.replace("iniciSesio.php");
 }
 
 function loadData() {

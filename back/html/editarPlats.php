@@ -10,41 +10,17 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="../js/api.js"></script>
-    <script src="../js/editaPlats.js"></script>
-    <script src="../js/closeSesion.js"></script>
-    <link rel="stylesheet" href="../css/dist/estils.css">
-    <link rel="stylesheet" href="../css/dist/style.css">
+    <script src="./js/api.js"></script>
+    <script src="./js/editaPlats.js"></script>
+    <script src="./js/closeSesion.js"></script>
+    <link rel="stylesheet" href="./css/dist/estils.css">
+    <link rel="stylesheet" href="./css/dist/style.css">
 
     <title>Plats</title>
 </head>
-
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-dark sticky-top">
-    <!--Logo-->
-    <a class="navbar-brand" href="./index.html">
-        <img id="logo" src="../images/icon/icon.png" alt="Logo">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <!--Links-->
-            <li class="nav-item">
-                <a class="nav-link" href="./index.html">Perfil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./editarCarta.html">Carta</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./reserves.html">Reserves</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <a class="btn my-2 my-sm-0 realBtn" id="tancaSessio">Tanca Sessió</a>
-        </form>
-    </div>
-</nav>
+<?
+include("navbar.php");
+?>
 
 <body>
 
@@ -135,5 +111,7 @@
         </div>
     </div>
 </body>
-
+<?
+include("footer.php");
+?>
 </html>
