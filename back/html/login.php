@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -32,7 +33,7 @@
         <span id="m1"></span>
     </div>
 <?
-include("footer.php");
+include 'footer.php';
 ?>
 </body>
 
