@@ -10,11 +10,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="./js/api.js"></script>
-    <script src="./js/editaPlats.js"></script>
-    <script src="./js/closeSesion.js"></script>
-    <link rel="stylesheet" href="./css/dist/estils.css">
-    <link rel="stylesheet" href="./css/dist/style.css">
+    <script src="html/js/api.js"></script>
+    <script src="html/js/editaPlats.js"></script>
+    <script src="html/js/closeSesion.js"></script>
+    <link rel="stylesheet" href="html/css/dist/estils.css">
+    <link rel="stylesheet" href="html/css/dist/style.css">
 
     <title>Plats</title>
 </head>
