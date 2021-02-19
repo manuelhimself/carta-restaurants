@@ -1,7 +1,3 @@
-<?
-include("navBar.php");
-include("footer.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +19,7 @@ include("footer.php");
 
 <body>
 <?
-include("navBar.php");
+include 'navBar.php';
 ?>
     <div class="container" id="perfilContainer">
         <div class="card" id="perfilCard">
@@ -196,7 +192,7 @@ include("navBar.php");
         </div>
     </div>
 <?
-include("footer.php");
+include 'footer.php';
 ?>
 </body>
 
