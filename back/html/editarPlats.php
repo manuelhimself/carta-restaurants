@@ -13,7 +13,6 @@
     <script src="/js/api.js"></script>
     <script src="/js/editaPlats.js"></script>
     <script src="/js/closeSesion.js"></script>
-    <link rel="stylesheet" href="/css/dist/estils.css">
     <link rel="stylesheet" href="/css/dist/style.css">
     <link rel="stylesheet" href="/css/dist/plats.css">
 

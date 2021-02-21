@@ -115,22 +115,22 @@ body{
 }
 
 .modal-content { /* posat per editarCarta i editarPlats */
-  background-color: #616568;
+  background-color: #84878a;
 }
 
 .modal-header { /* posat per editarCarta i editarPlats */
-  background-color: #616568;
+  background-color: #84878a;
   color: #ffffff;
 }
 
 .modal-body { /* posat per editarCarta i editarPlats */
-  background-color: #616568;
+  background-color: #84878a;
   color: #ffffff;
   text-align: center;
 }
 
 .modal-footer { /* posat per editarCarta i editarPlats */
-  background-color: #616568;
+  background-color: #84878a;
   color: #ffffff;
 }
 

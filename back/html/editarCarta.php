@@ -14,7 +14,6 @@
     <script src="/js/editaCarta.js"></script>
     <script src="/js/closeSesion.js"></script>
     <link rel="stylesheet" href="/css/dist/style.css">
-    <link rel="stylesheet" href="/css/dist/estils.css">
     <link rel="stylesheet" href="/css/dist/cartaSeccio.css">
     
 
