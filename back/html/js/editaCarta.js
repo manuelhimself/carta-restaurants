@@ -163,7 +163,7 @@ $(document).ready(function () {
                 $(id).text(nomSeccio);
             }
         };
-        xhttp.open("GET", api + "https://api.restaurat.me/controller/seccio/update.php?idSeccio=" + idSeccio + "&nomSeccio=" + nomSeccio, true);
+        xhttp.open("GET", "https://api.restaurat.me/controller/seccio/update.php?idSeccio=" + idSeccio + "&nomSeccio=" + nomSeccio, true);
         xhttp.send();
     }
 
@@ -265,7 +265,7 @@ $(document).ready(function () {
     $(document).on("click", ".editarSeccioNom", function () {
         var idBoto = $(this).attr("id");
         var idSeccio = idBoto.substr(3, idBoto.length);
-        var nomS = $("#" + idSeccio + " div div div h3").text();
+        var nomS = $("#idS" + idSeccio + " div div div h3").text();
         $("#modal1").modal("toggle");
         $("#idSeccioForm").val(idSeccio);
         $("#nomSeccioForm").val(nomS);
@@ -280,7 +280,7 @@ $(document).ready(function () {
     $(document).on("click", ".editarNomCarta", function () {
         var idBoto = $(this).attr("id");
         var idCarta = idBoto.substr(3, idBoto.length);
-        var nomC = $("#" + idCarta + " div div div h3").text();
+        var nomC = $("#idC" + idCarta + " div div div h3").text();
         $("#modal4").modal("toggle");
         $("#nomC").val(nomC);
         $("#idCartaForm").val(idCarta);
