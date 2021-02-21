@@ -21,7 +21,7 @@ $(document).ready(function () {
                 carta = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/carta/readByIdCarta.php?idCarta=" + id, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/carta/readByIdCarta.php?idCarta=" + id, false);
         xhttp.send();
     }
 
@@ -32,7 +32,7 @@ $(document).ready(function () {
                 cartes = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/carta/readByIdEstabliment.php?idEstabliment=" + idEstabliment, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/carta/readByIdEstabliment.php?idEstabliment=" + idEstabliment, false);
         xhttp.send();
     }
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
                 seccions = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/seccio/readByIdCarta.php?idCarta=" + idC, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/seccio/readByIdCarta.php?idCarta=" + idC, false);
         xhttp.send();
     }
 
@@ -146,7 +146,7 @@ $(document).ready(function () {
                 mostrarSeccions(idCarta);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/seccio/delete1.php?idSeccio=" + idSeccio, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/seccio/delete1.php?idSeccio=" + idSeccio, false);
         xhttp.send();
     }
 
@@ -157,7 +157,7 @@ $(document).ready(function () {
                 mostrarCartes();
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/carta/delete1.php?idCarta=" + idCarta, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/carta/delete1.php?idCarta=" + idCarta, false);
         xhttp.send();
     }
 
@@ -169,7 +169,7 @@ $(document).ready(function () {
                 $(id).text(nomSeccio);
             }
         };
-        xhttp.open("GET", api + "https://api.restaurat.me/api/controller/seccio/update.php?idSeccio=" + idSeccio + "&nomSeccio=" + nomSeccio, true);
+        xhttp.open("GET", api + "https://api.restaurat.me/controller/seccio/update.php?idSeccio=" + idSeccio + "&nomSeccio=" + nomSeccio, true);
         xhttp.send();
     }
 
@@ -181,7 +181,7 @@ $(document).ready(function () {
                 $(id).text(nomCarta);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/carta/update.php?idCarta=" + idCarta + "&nomCarta=" + nomCarta, true);
+        xhttp.open("GET", "https://api.restaurat.me/controller/carta/update.php?idCarta=" + idCarta + "&nomCarta=" + nomCarta, true);
         xhttp.send();
     }
 
@@ -192,7 +192,7 @@ $(document).ready(function () {
                 mostrarCartes();
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/carta/create.php?nomCarta=" + nomCarta + "&idEstabliment=" + idEstabliment, true);
+        xhttp.open("GET", "https://api.restaurat.me/controller/carta/create.php?nomCarta=" + nomCarta + "&idEstabliment=" + idEstabliment, true);
         xhttp.send();
     }
 
@@ -203,7 +203,7 @@ $(document).ready(function () {
                 mostrarSeccions(idCarta);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/seccio/create.php?nomSeccio=" + nomSeccio + "&idCarta=" + idCarta, true);
+        xhttp.open("GET", "https://api.restaurat.me/controller/seccio/create.php?nomSeccio=" + nomSeccio + "&idCarta=" + idCarta, true);
         xhttp.send();
     }
 
@@ -236,7 +236,7 @@ $(document).ready(function () {
 
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/carta/activate.php?idCarta=" + idCarta, true);
+        xhttp.open("GET", "https://api.restaurat.me/controller/carta/activate.php?idCarta=" + idCarta, true);
         xhttp.send();
     }
 
@@ -247,7 +247,7 @@ $(document).ready(function () {
 
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/carta/desactivate.php?idCarta=" + idCarta, true);
+        xhttp.open("GET", "https://api.restaurat.me/controller/carta/desactivate.php?idCarta=" + idCarta, true);
         xhttp.send();
     }
 

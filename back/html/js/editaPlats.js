@@ -21,7 +21,7 @@ $(document).ready(function () {
                 alergens = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/alergen/read.php", false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/alergen/read.php", false);
         xhttp.send();
     }
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
                 plats = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/plat/readByIdSeccio.php?idSeccio="+idS, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/plat/readByIdSeccio.php?idSeccio="+idS, false);
         xhttp.send();
     }
 
@@ -53,7 +53,7 @@ $(document).ready(function () {
                 plats = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/plat/readByIdAlergen.php?idAlergen="+idAlergen +"&idSeccio="+idS, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/plat/readByIdAlergen.php?idAlergen="+idAlergen +"&idSeccio="+idS, false);
         xhttp.send();
     }
 
@@ -101,7 +101,7 @@ $(document).ready(function () {
                 mostraPlats();
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/plat/delete.php?idPlat=" + idPlat, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/plat/delete.php?idPlat=" + idPlat, false);
         xhttp.send();
     }
 
@@ -112,7 +112,7 @@ $(document).ready(function () {
                 mostraPlats();
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/plat/update.php?idPlat="+idPlat+"&nom="+nom+"&descripcio="+descripcio+"&preu="+preu, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/plat/update.php?idPlat="+idPlat+"&nom="+nom+"&descripcio="+descripcio+"&preu="+preu, false);
         xhttp.send();
     }
 
@@ -135,7 +135,7 @@ $(document).ready(function () {
                 alergensPlat = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/plat/readByIdPlat.php?idPlat=" + idPlat, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/plat/readByIdPlat.php?idPlat=" + idPlat, false);
         xhttp.send();
     }
 
@@ -158,7 +158,7 @@ $(document).ready(function () {
                 
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/alergen/deleteAllAlergenByIdPlat.php?idPlat="+idPlat, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/alergen/deleteAllAlergenByIdPlat.php?idPlat="+idPlat, false);
         xhttp.send();
     }
 
@@ -170,7 +170,7 @@ $(document).ready(function () {
                 last_idPlat = plat.id;
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/plat/createPlat.php?nom="+nom+"&descripcio="+descripcio+"&preu="+preu+"&idSeccio="+idS, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/plat/createPlat.php?nom="+nom+"&descripcio="+descripcio+"&preu="+preu+"&idSeccio="+idS, false);
         xhttp.send();
     }
 
@@ -180,7 +180,7 @@ $(document).ready(function () {
             if (this.readyState == 4 && this.status == 200) {
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/api/controller/plat/createAlergenPlat.php?idPlat="+idPlat+"&idAlergen="+idAlergen, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/plat/createAlergenPlat.php?idPlat="+idPlat+"&idAlergen="+idAlergen, false);
         xhttp.send();
     }
 
