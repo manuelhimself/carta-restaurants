@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="/js/api.js"></script>
+    <!--<script src="/js/api.js"></script> -->
     <script src="/js/editaCarta.js"></script>
     <script src="/js/closeSesion.js"></script>
     <link rel="stylesheet" href="/css/dist/style.css">
