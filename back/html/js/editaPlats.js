@@ -216,6 +216,7 @@ $(document).ready(function () {
     }
 
     $(document).on("change", "#select", function(){
+        $("#select option[value=0]").text("Tots els plats");
         mostraPlats();
     });
 
