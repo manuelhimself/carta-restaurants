@@ -15,6 +15,7 @@
     <script src="/js/closeSesion.js"></script>
     <link rel="stylesheet" href="/css/dist/style.css">
     <link rel="stylesheet" href="/css/dist/estils.css">
+    <link rel="stylesheet" href="/css/dist/cartaSeccio.css">
     
 
     <title>Carta i Selecció de Seccions</title>
@@ -148,10 +149,10 @@ include_once 'navBar.php';
         </div>
     </div>
 
+</body>
+
 <?php
 include_once 'footer.php';
 ?>
-
-</body>
 
 </html>

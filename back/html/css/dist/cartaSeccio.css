@@ -1,0 +1,33 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.botons .btn {
+    margin-top: 8%;
+    margin-left: 1.5%;
+}
+
+.botonsSeccio .btn {
+    margin-top: 8%;
+    margin-left: 1.5%;
+}
+
+#afegirCarta {
+    margin-bottom: 1%;
+}
+
+#afegirSeccio {
+    margin-bottom: 1%;
+}
+
+@media (max-width: 767px) {
+    .col-md-6 {
+        margin-bottom: 6%;
+    }
+}
+
+@media (min-width:768px) {
+    .row {
+        margin-bottom: 2%;
+    }
+}

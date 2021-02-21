@@ -1,0 +1,56 @@
+.botons {
+    width: 100%;
+}
+
+.botons .btn {
+    margin-top: 4%;
+    float: right;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    margin-left: 2%;
+}
+
+button:hover {
+    color: #FFFFFF !important;
+}
+
+@media (max-width: 767px) {
+    .col-md-4 {
+        margin-bottom: 6%;
+    }
+}
+
+@media (min-width:768px) {
+    .row {
+        margin-bottom: 2%;
+    }
+}
+
+#select {
+    margin-top: 1%;
+    width: 30%;
+}
+
+.fa-edit {
+    margin-left: 6%;
+}
+
+.container {
+    margin-top: 1%;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.image-upload{
+    text-align: center;
+}
+
+img{
+    border-radius: 10px;
+}
+
+input[type=file]{
+    display: none;
+}

@@ -1,0 +1,27 @@
+#contenidor {
+    background-color: #616568;
+    /*position: fixed;
+    top: 30%;*/
+}
+
+#contenidorPrincipal {
+    margin-top: -3%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("images/background/fonsRegister.jpg");
+}
+
+#contenidorSecundari {
+    color: white;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-top: 5%;
+}
+
+#m1 {
+    color: black;
+}
+
+button[type=submit] {
+    margin-bottom: 2%;
+}

@@ -1,0 +1,23 @@
+#contenidor {
+    background-color: #616568;
+    /*position: fixed;
+    top: 30%;*/
+}
+
+#contenidorSecundari {
+    color: white;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-top:5%;
+}
+
+#contenidorPrincipal {
+    margin-top: -3%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("images/background/fonsLogin.jpg");
+}
+
+#botons .btn:nth-child(2){
+    margin-left: 2%;
+}

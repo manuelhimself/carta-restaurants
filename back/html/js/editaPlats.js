@@ -11,8 +11,21 @@ $(document).ready(function () {
         window.location.replace("login.php");
     }
 
+    setTitol();
     selectAlergen();
     mostraPlats();
+
+    function setTitol(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var seccio = JSON.parse(this.responseText);
+                $("#direccioPlats").text("Plats de la secció " + seccio.nom);
+            }
+        };
+        xhttp.open("GET", "https://api.restaurat.me/controller/plat/readByIdSeccio.php?idSeccio=" + idSeccio, false);
+        xhttp.send();
+    }
 
     function getAlergens() {
         var xhttp = new XMLHttpRequest();
@@ -75,19 +88,32 @@ $(document).ready(function () {
                 var rowDIV = $("<div/>", { class: "row" });
                 $("#plats").append(rowDIV);
             }
+
             var colDIV = $("<div/>", { class: "col-md-4" });
-            var cardDIV = $("<div/>", { class: "card", id: idPlat });
-            var cardBody = $("<div/>", { class: "card-body" });
+            var cardDIV = $("<div/>", { class: "card rounded border-0 h-100", id: idPlat });
+            var cardBody = $("<div/>", { class: "card-body p-4" });
+            var divImg = $("<div/>", {class: "image-upload"});
+            var cardImg = $("<img/>" , { class: "img-fluid d-block mx-auto mb-3", src: "../images/plat/1.jpg" });
             var cardIcon = $("<i/>", { class: "fa fa-trash" });
             var cardIcon1 = $("<i/>", { class: "fa fa-edit" });
-            var cardInfo1 = $("<p/>", { class: "card-text", text: descripcio});
-            var cardInfo2 = $("<p/>", { class: "card-text", text: "Preu: " + preu});
-            var cardH1 = $("<h1/>", { class: "card-title", text: nom });
-            var cardA1 = $("<button/>", { type: "button", class: "editarPlat btn", id: "edP" + idPlat, text: "Edita plat" });
+            var cardDivP = $("<div/>");
+            var cardDivBotons = $("<div/>", { class: "botons" });
+            var cardInfo = $("<p/>", { class: "card-text font-italic"});
+            var spanPreu = $("<span/>",{text: 'Preu: ' + preu});
+            var spanDescripcio = $("<span/>",{text: descripcio});
+            var br = $("<br>");
+            var cardH4 = $("<h4/>", { text: nom });
+            var cardA1 = $("<button/>", { type: "button", class: "editarPlat btn", id: "edP" + idPlat, text: "Edita" });
             var cardA2 = $("<a/>", { class: "eliminarPlat btn", id: "elP" + idPlat });
-            cardA1.append(cardIcon1);
+            var labelFileInput = $("<label/>", { for: "file-input"});
+            cardA1.prepend(cardIcon1);
             cardA2.append(cardIcon);
-            cardBody.append(cardH1, cardInfo1, cardInfo2, cardA1, cardA2);
+            cardInfo.append(spanDescripcio, br, spanPreu);
+            labelFileInput.append(cardImg);
+            divImg.append(labelFileInput);
+            cardDivBotons.append(cardA2, cardA1);
+            cardDivP.append(cardInfo);
+            cardBody.append(divImg, cardH4, cardDivP, cardDivBotons);
             cardDIV.append(cardBody);
             colDIV.append(cardDIV);
             rowDIV.append(colDIV);
@@ -184,6 +210,11 @@ $(document).ready(function () {
         xhttp.send();
     }
 
+    function cambiarFile(idCard) {
+        const input = document.getElementById('file-input');
+        $("#" + idCard + " div label img").attr("src","../images/plat/" + input.files[0].name);
+    }
+
     $(document).on("change", "#select", function(){
         mostraPlats();
     });
@@ -251,6 +282,10 @@ $(document).ready(function () {
             afegirAlergenPlat(idAlergen,last_idPlat);
         }
         mostraPlats();
+    });
+
+    $(document).on("change", "#file-input", function(){
+        cambiarFile(59);
     });
 
 });

@@ -149,7 +149,7 @@ include_once 'navBar.php';
                             <div class="col-md-6">
                                 <label>Localitat:</label>
                                 <select name="localitat" id="localitat" class="form-control">
-                                    
+
                                 </select>
                             </div>
                         </div>

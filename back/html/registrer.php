@@ -11,56 +11,70 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- Script per validar -->
     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+    <link rel="stylesheet" href="/css/dist/register.css">
+    <link rel="stylesheet" href="/css/dist/style.css">
 
 </head>
 
 
 <?php
-include_once 'navBar.php';
+include_once 'navbarLoginRegister.php';
 ?>
 
 <body>
 
-    <div class="container">
-        <h2>Registre</h2>
-        <form method="POST" action="https://api.restaurat.me/controller/establiment/addEstabliment.php">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>Restaurant</label>
-                    <input id="nom" class="form-control" name="establiment" required>
+    <div id="contenidorPrincipal">
+        <div class="container" id="contenidorSecundari">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-sm-12" id="contenidor">
+                    <h2>Registre</h2>
+                    <form method="POST" id="formulari">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Nom restaurant</label>
+                                <input id="nom" class="form-control" name="establiment" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Email</label>
+                                <input id="email" class="form-control" name="email" type="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Màxim comensals</label>
+                                <input id="comensals" class="form-control" name="numComensals" type="number" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="poblacio">Localitat</label>
+                                <select id="poblacio" class="form-control" name="poblacio" required>
+                                    <option selected>Selecciona</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Telèfon</label>
+                                <input id="tlfn" class="form-control" name="tel" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12" id="checkBox">
+                                <label>Especialització: </label>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Contrasenya</label>
+                                <input id="pswd" type="password" class="form-control" name="paswd" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Repeteix contrasenya</label>
+                                <input id="pswdR" type="password" class="form-control" required>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn pull-right">Registrar-se</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group col-md-6">
-                    <label>Email</label>
-                    <input id="email" class="form-control" name="email" type="email" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <label>Nombre màxim de comensals</label>
-                    <input id="comensals" class="form-control" name="numComensals" type="number" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputState">Localitat</label>
-                    <select id="poblacio" class="form-control" name="poblacio" required>
-              <option selected>Selecciona</option>
-            </select>
-                </div>
-                <div class="form-group col-md-4">
-                    <label>Telèfon</label>
-                    <input id="tlfn" class="form-control" name="tel" required>
-                </div>
-                <div class="form-group col-md-12" id="checkBox">
-                    <label>Especialització  </label>
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Contrasenya</label>
-                    <input id="pswd" type="password" class="form-control" name="paswd" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Repeteix contrasenya</label>
-                    <input id="pswdR" type="password" class="form-control" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Registrar-se</button>
             </div>
-        </form>
+        </div>
     </div>
 
     <script>
@@ -114,7 +128,7 @@ include_once 'navBar.php';
                         }
                     }
                 };
-                xhttp.open("GET","https://api.restaurat.me/controller/categoria/categoria.php", true);
+                xhttp.open("GET", "https://api.restaurat.me/controller/categoria/categoria.php", true);
                 xhttp.send();
             }
 
