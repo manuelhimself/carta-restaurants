@@ -14,6 +14,11 @@
 
 </head>
 
+
+<?php
+include_once 'navBar.php';
+?>
+
 <body>
 
     <div class="container">
@@ -125,9 +130,10 @@
 
         });
     </script>
-<?
-include("footer.php");
-?>
 </body>
+
+<?php
+include_once 'footer.php';
+?>
 
 </html>

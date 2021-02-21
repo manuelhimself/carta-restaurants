@@ -17,10 +17,12 @@
     <title>Edita perfil</title>
 </head>
 
-<body>
-<?
+<?php
 include_once 'navBar.php';
 ?>
+
+<body>
+
     <div class="container" id="perfilContainer">
         <div class="card" id="perfilCard">
             <div>
@@ -191,9 +193,10 @@ include_once 'navBar.php';
             </div>
         </div>
     </div>
-<?
-include 'footer.php';
-?>
 </body>
+
+<?php
+include_once 'footer.php';
+?>
 
 </html>

@@ -20,11 +20,11 @@
     <title>Carta i Selecció de Seccions</title>
 </head>
 
-<body>
-
-<?
-include("navBar.php");
+<?php
+include_once 'navBar.php';
 ?>
+
+<body>
     <div class="container">
         <div class="modal fade" id="modal1" role="dialog">
             <div class="modal-dialog">
@@ -147,9 +147,11 @@ include("navBar.php");
             <div id="seccions"></div>
         </div>
     </div>
-<?
-include("footer.php");
+
+<?php
+include_once 'footer.php';
 ?>
+
 </body>
 
 </html>

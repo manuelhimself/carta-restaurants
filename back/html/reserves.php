@@ -35,9 +35,11 @@
 
 
 </head>
-<?
-include("navBar.php");
+
+<?php
+include_once 'navBar.php';
 ?>
+
 <body>
     <h1>Reserves</h1>
     <div class="row">
@@ -68,7 +70,9 @@ include("navBar.php");
         <div class="col-md-6" id="svg"></div>
     </div>
 </body>
-<?
-include("footer.php");
+
+<?php
+include_once 'footer.php';
 ?>
+
 </html>

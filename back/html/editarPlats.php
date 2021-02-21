@@ -18,8 +18,9 @@
 
     <title>Plats</title>
 </head>
-<?
-include("navBar.php");
+
+<?php
+include_once 'navBar.php';
 ?>
 
 <body>
@@ -111,7 +112,9 @@ include("navBar.php");
         </div>
     </div>
 </body>
-<?
-include("footer.php");
+
+<?php
+include_once 'footer.php';
 ?>
+
 </html>

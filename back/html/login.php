@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="/css/dist/style.css">
 </head>
 
+
+<?php
+include_once 'navBar.php';
+?>
+
 <body>
     <div class="container">
         <h2>Inici de sessió</h2>
@@ -30,7 +35,10 @@
         </div>
         <span id="m1"></span>
     </div>
-<?include_once 'footer.php'?>
 </body>
+
+<?php
+include_once 'footer.php';
+?>
 
 </html>
