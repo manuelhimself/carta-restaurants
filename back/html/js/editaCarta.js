@@ -58,7 +58,7 @@ $(document).ready(function () {
                 $("#cartes").append(rowDIV);
             }
             var colDIV = $("<div/>", { class: "col-md-6" });
-            var cardDIV = $("<div/>", { class: "card border-0 h-100", id: id });
+            var cardDIV = $("<div/>", { class: "card border-0 h-100", id: "idC" + id });
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var cardRow = $("<div/>", { class: "row" });
             var cardCol1 = $("<div/>", {class: "col-md-7 text-center my-auto"});
@@ -106,7 +106,7 @@ $(document).ready(function () {
                 $("#seccions").append(rowDIV);
             }
             var colDIV = $("<div/>", { class: "col-md-8" });
-            var cardDIV = $("<div/>", { class: "card border-0 h-100", id: id });
+            var cardDIV = $("<div/>", { class: "card border-0 h-100", id: "idS" + id });
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var rowCard = $("<div/>", { class: "row" });
             var colDivButton = $("<div/>", { class: "col-md-4 text-center botonsSeccio"});
@@ -159,7 +159,7 @@ $(document).ready(function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var id = "#" + idSeccio + " div div div h3";
+                var id = "#idS" + idSeccio + " div div div h3";
                 $(id).text(nomSeccio);
             }
         };
@@ -171,7 +171,7 @@ $(document).ready(function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var id = "#" + idCarta + " div div div h3";
+                var id = "#idC" + idCarta + " div div div h3";
                 $(id).text(nomCarta);
             }
         };
