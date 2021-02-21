@@ -19,7 +19,7 @@
 
 <body>
 <?
-include 'navBar.php';
+include_once 'navBar.php';
 ?>
     <div class="container" id="perfilContainer">
         <div class="card" id="perfilCard">

@@ -1,6 +1,3 @@
-<?
-include 'navBar.php';
-?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -34,7 +31,7 @@ include 'navBar.php';
         <span id="m1"></span>
     </div>
 <?
-include 'footer.php';
+include_once 'footer.php';
 ?>
 </body>
 

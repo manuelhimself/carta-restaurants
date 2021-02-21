@@ -10,7 +10,7 @@ function logIn() {
                 $("#m1").html("Email o contrasenya introduïts no valids");
             } else {
                 sessionStorage.setItem('key', id);
-                window.location.replace("editarCartar.php");
+                window.location.replace("index.php");
             }
         }
     };
