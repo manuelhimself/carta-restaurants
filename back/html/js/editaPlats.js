@@ -161,7 +161,7 @@ $(document).ready(function () {
                 alergensPlat = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/plat/readByIdPlat.php?idPlat=" + idPlat, false);
+        xhttp.open("GET", "https://api.restaurat.me/controller/alergen/readByIdPlat.php?idPlat=" + idPlat, false);
         xhttp.send();
     }
 
