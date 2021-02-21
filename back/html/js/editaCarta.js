@@ -110,7 +110,7 @@ $(document).ready(function () {
             var cardH1 = $("<h1/>", { class: "card-title", text: nom });
             var cardIcon1 = $("<i/>", { class: "fa fa-trash" });
             var cardA1 = $("<button/>", { type: "button", class: "editarSeccioNom btn", id: "edS" + id, idCarta: idCarta });
-            var cardA2 = $("<a/>", { href: "editarPlats.html", class: "editarPlats btn", id: "edP" + id, text: "Mostrar Plats" });
+            var cardA2 = $("<a/>", { href: "editarPlats.php", class: "editarPlats btn", id: "edP" + id, text: "Mostrar Plats" });
             var cardA3 = $("<a/>", { class: "eliminarSeccio btn", id: "elS" + id, idCarta: idCarta });
             var cardIcon2 = $("<i/>", { class: "fa fa-eye" });
             var cardIcon3 = $("<i/>", { class: "fa fa-edit" });
