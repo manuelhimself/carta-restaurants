@@ -30,9 +30,7 @@
         </div>
         <span id="m1"></span>
     </div>
-<?
-include_once 'footer.php';
-?>
+<?include_once 'footer.php'?>
 </body>
 
 </html>
