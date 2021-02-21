@@ -234,9 +234,9 @@ $(document).ready(function () {
         var idBoto = $(this).attr("id");
         idP = idBoto.substr(3, idBoto.length);
         checkAlergens(idP);
-        var nomP = $("#" + idP + " div h1").text();
-        var desc = $("#" + idP + " div").find("p:eq(0)").text();
-        var textPreu = $("#" + idP + " div").find("p:eq(1)").text();
+        var nomP = $("#" + idP + " div h4").text();
+        var desc = $("#" + idP + " div p").find("span:eq(0)").text();
+        var textPreu = $("#" + idP + " div div p").find("span:eq(1)").text();
         var preu = textPreu.substr(6, textPreu.length);
         $("#modal1").modal("toggle");
         $("#idPlat").val(idP);
