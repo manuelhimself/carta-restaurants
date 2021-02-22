@@ -29,7 +29,7 @@ include_once 'navBar.php';
         <div class="modal fade" id="modal1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center border-0">
+                    <div class="modal-header text-center">
                         <h4 class="modal-title w-100">Editar nom secció</h4>
                     </div>
                     <div class="modal-body">
@@ -39,7 +39,7 @@ include_once 'navBar.php';
                             <input type="text" name="nomSeccio" id="nomSeccioForm">
                         </form>
                     </div>
-                    <div class="modal-footer border-0">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-primary nomModal" data-dismiss="modal">Desa</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
                     </div>
@@ -51,7 +51,7 @@ include_once 'navBar.php';
         <div class="modal fade" id="modal2" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center border-0">
+                    <div class="modal-header text-center">
                         <h4 class="modal-title w-100">Afegir carta</h4>
                     </div>
                     <div class="modal-body">
@@ -60,7 +60,7 @@ include_once 'navBar.php';
                             <input type="text" name="nomCarta" id="nomCartaForm">
                         </form>
                     </div>
-                    <div class="modal-footer border-0">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="bAfegirCarta"
                             data-dismiss="modal">Afegir</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
@@ -72,7 +72,7 @@ include_once 'navBar.php';
         <div class="modal fade" id="modal3" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center border-0">
+                    <div class="modal-header text-center">
                         <h4 class="modal-title w-100">Afegir secció</h4>
                     </div>
                     <div class="modal-body">
@@ -81,7 +81,7 @@ include_once 'navBar.php';
                             <input type="text" name="nomSeccio" id="nomS">
                         </form>
                     </div>
-                    <div class="modal-footer border-0">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="bAfegir" data-dismiss="modal">Desa</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
                     </div>
@@ -92,7 +92,7 @@ include_once 'navBar.php';
         <div class="modal fade" id="modal4" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center border-0">
+                    <div class="modal-header text-center">
                         <h4 class="modal-title w-100">Editar nom carta</h4>
                     </div>
                     <div class="modal-body">
@@ -102,7 +102,7 @@ include_once 'navBar.php';
                             <input type="text" name="nomCarta" id="nomC">
                         </form>
                     </div>
-                    <div class="modal-footer border-0">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-primary bModificarCarta" data-dismiss="modal">Desa</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
                     </div>
@@ -113,7 +113,7 @@ include_once 'navBar.php';
         <div class="modal fade" id="modal5" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center border-0">
+                    <div class="modal-header text-center">
                         <h4 class="modal-title w-100">Estàs segur que vols eliminar la carta?</h4>
                     </div>
                     <div class="modal-body">
@@ -127,7 +127,7 @@ include_once 'navBar.php';
         <div class="modal fade" id="modal6" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center border-0">
+                    <div class="modal-header text-center">
                         <h4 class="modal-title w-100">Estàs segur que vols eliminar la secció?</h4>
                     </div>
                     <div class="modal-body">

@@ -63,7 +63,7 @@ include_once 'navBar.php';
 
                 <!-- header modal -->
 
-                <div class="modal-header text-center border-0">
+                <div class="modal-header text-center">
                     <h4 class="modal-title" id="exampleModalLabel">Edita nom de l'establiment</h4>
                 </div>
 
@@ -149,7 +149,7 @@ include_once 'navBar.php';
                             <div class="col-md-6">
                                 <label>Localitat:</label>
                                 <select name="localitat" id="localitat" class="form-control">
-                                    
+
                                 </select>
                             </div>
                         </div>

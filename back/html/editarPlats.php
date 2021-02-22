@@ -29,7 +29,7 @@ include_once 'navBar.php';
         <div class="modal fade" id="modal1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center border-0">
+                    <div class="modal-header text-center">
                         <h4 class="modal-title w-100">Editar plat</h4>
                     </div>
                     <div class="modal-body">
@@ -46,7 +46,7 @@ include_once 'navBar.php';
                             <div class="checkbox"></div>
                         </form>
                     </div>
-                    <div class="modal-footer border-0">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="edita" data-dismiss="modal">Desa</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
                     </div>
@@ -58,7 +58,7 @@ include_once 'navBar.php';
         <div class="modal fade" id="modal2" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center border-0">
+                    <div class="modal-header text-center">
                         <h4 class="modal-title w-100">Estàs segur que vols eliminar el plat?</h4>
                     </div>
                     <div class="modal-body">
@@ -72,7 +72,7 @@ include_once 'navBar.php';
         <div class="modal fade" id="modal3" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center border-0">
+                    <div class="modal-header text-center">
                         <h4 class="modal-title w-100">Afegir plat</h4>
                     </div>
                     <div class="modal-body">
@@ -88,7 +88,7 @@ include_once 'navBar.php';
                             <div class="checkbox"></div>
                         </form>
                     </div>
-                    <div class="modal-footer border-0">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="afegir" data-dismiss="modal">Desa</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
                     </div>
