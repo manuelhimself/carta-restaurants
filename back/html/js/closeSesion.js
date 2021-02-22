@@ -1,6 +1,6 @@
 function tancarSessio() {
     sessionStorage.clear();
-    window.location.replace("../html/login.php");
+    window.location.replace("./login.php");
 }
 
 $(document).on("click","#tancaSessio", function(){
