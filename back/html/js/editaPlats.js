@@ -23,7 +23,7 @@ $(document).ready(function() {
                 $("#direccioPlats").text("Plats de la secció " + seccio.nom);
             }
         };
-        xhttp.open("GET", api + "/plat/readByIdSeccio.php?idSeccio=" + idSeccio, false);
+        xhttp.open("POST", api + "/plat/readByIdSeccio.php?idSeccio=" + idSeccio, false);
         xhttp.send();
     }
 
@@ -34,7 +34,7 @@ $(document).ready(function() {
                 alergens = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", api + "/alergen/read.php", false);
+        xhttp.open("POST", api + "/alergen/read.php", false);
         xhttp.send();
     }
 
@@ -55,7 +55,7 @@ $(document).ready(function() {
                 plats = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", api + "/plat/readByIdSeccio.php?idSeccio=" + idS, false);
+        xhttp.open("POST", api + "/plat/readByIdSeccio.php?idSeccio=" + idS, false);
         xhttp.send();
     }
 
@@ -66,7 +66,7 @@ $(document).ready(function() {
                 plats = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", api + "/plat/readByIdAlergen.php?idAlergen=" + idAlergen + "&idSeccio=" + idS, false);
+        xhttp.open("POST", api + "/plat/readByIdAlergen.php?idAlergen=" + idAlergen + "&idSeccio=" + idS, false);
         xhttp.send();
     }
 
@@ -127,7 +127,7 @@ $(document).ready(function() {
                 mostraPlats();
             }
         };
-        xhttp.open("GET", api + "/plat/delete.php?idPlat=" + idPlat, false);
+        xhttp.open("POST", api + "/plat/delete.php?idPlat=" + idPlat, false);
         xhttp.send();
     }
 
@@ -138,7 +138,7 @@ $(document).ready(function() {
                 mostraPlats();
             }
         };
-        xhttp.open("GET", api + "/plat/update.php?idPlat=" + idPlat + "&nom=" + nom + "&descripcio=" + descripcio + "&preu=" + preu, false);
+        xhttp.open("POST", api + "/plat/update.php?idPlat=" + idPlat + "&nom=" + nom + "&descripcio=" + descripcio + "&preu=" + preu, false);
         xhttp.send();
     }
 
@@ -161,7 +161,7 @@ $(document).ready(function() {
                 alergensPlat = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", api + "/alergen/readByIdPlat.php?idPlat=" + idPlat, false);
+        xhttp.open("POST", api + "/alergen/readByIdPlat.php?idPlat=" + idPlat, false);
         xhttp.send();
     }
 
@@ -184,7 +184,7 @@ $(document).ready(function() {
 
             }
         };
-        xhttp.open("GET", api + "/alergen/deleteAllAlergenByIdPlat.php?idPlat=" + idPlat, false);
+        xhttp.open("POST", api + "/alergen/deleteAllAlergenByIdPlat.php?idPlat=" + idPlat, false);
         xhttp.send();
     }
 
@@ -196,7 +196,7 @@ $(document).ready(function() {
                 last_idPlat = plat.id;
             }
         };
-        xhttp.open("GET", api + "/plat/createPlat.php?nom=" + nom + "&descripcio=" + descripcio + "&preu=" + preu + "&idSeccio=" + idS, false);
+        xhttp.open("POST", api + "/plat/createPlat.php?nom=" + nom + "&descripcio=" + descripcio + "&preu=" + preu + "&idSeccio=" + idS, false);
         xhttp.send();
     }
 
@@ -205,7 +205,7 @@ $(document).ready(function() {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {}
         };
-        xhttp.open("GET", api + "/plat/createAlergenPlat.php?idPlat=" + idPlat + "&idAlergen=" + idAlergen, false);
+        xhttp.open("POST", api + "/plat/createAlergenPlat.php?idPlat=" + idPlat + "&idAlergen=" + idAlergen, false);
         xhttp.send();
     }
 

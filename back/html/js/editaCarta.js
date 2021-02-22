@@ -21,7 +21,7 @@ $(document).ready(function() {
                 carta = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", api + "/carta/readByIdCarta.php?idCarta=" + id, false);
+        xhttp.open("POST", api + "/carta/readByIdCarta.php?idCarta=" + id, false);
         xhttp.send();
     }
 
@@ -32,7 +32,7 @@ $(document).ready(function() {
                 cartes = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", api + "/carta/readByIdEstabliment.php?idEstabliment=" + idEstabliment, false);
+        xhttp.open("POST", api + "/carta/readByIdEstabliment.php?idEstabliment=" + idEstabliment, false);
         xhttp.send();
     }
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
                 seccions = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", api + "/seccio/readByIdCarta.php?idCarta=" + idC, false);
+        xhttp.open("POST", api + "/seccio/readByIdCarta.php?idCarta=" + idC, false);
         xhttp.send();
     }
 
@@ -140,7 +140,7 @@ $(document).ready(function() {
                 mostrarSeccions(idCarta);
             }
         };
-        xhttp.open("GET", api + "/seccio/delete1.php?idSeccio=" + idSeccio, false);
+        xhttp.open("POST", api + "/seccio/delete1.php?idSeccio=" + idSeccio, false);
         xhttp.send();
     }
 
@@ -151,7 +151,7 @@ $(document).ready(function() {
                 mostrarCartes();
             }
         };
-        xhttp.open("GET", api + "/carta/delete1.php?idCarta=" + idCarta, false);
+        xhttp.open("POST", api + "/carta/delete1.php?idCarta=" + idCarta, false);
         xhttp.send();
     }
 
@@ -163,7 +163,7 @@ $(document).ready(function() {
                 $(id).text(nomSeccio);
             }
         };
-        xhttp.open("GET", api + "/seccio/update.php?idSeccio=" + idSeccio + "&nomSeccio=" + nomSeccio, true);
+        xhttp.open("POST", api + "/seccio/update.php?idSeccio=" + idSeccio + "&nomSeccio=" + nomSeccio, true);
         xhttp.send();
     }
 
@@ -175,7 +175,7 @@ $(document).ready(function() {
                 $(id).text(nomCarta);
             }
         };
-        xhttp.open("GET", api + "/carta/update.php?idCarta=" + idCarta + "&nomCarta=" + nomCarta, true);
+        xhttp.open("POST", api + "/carta/update.php?idCarta=" + idCarta + "&nomCarta=" + nomCarta, true);
         xhttp.send();
     }
 
@@ -186,7 +186,7 @@ $(document).ready(function() {
                 mostrarCartes();
             }
         };
-        xhttp.open("GET", api + "/carta/create.php?nomCarta=" + nomCarta + "&idEstabliment=" + idEstabliment, true);
+        xhttp.open("POST", api + "/carta/create.php?nomCarta=" + nomCarta + "&idEstabliment=" + idEstabliment, true);
         xhttp.send();
     }
 
@@ -197,7 +197,7 @@ $(document).ready(function() {
                 mostrarSeccions(idCarta);
             }
         };
-        xhttp.open("GET", api + "/seccio/create.php?nomSeccio=" + nomSeccio + "&idCarta=" + idCarta, true);
+        xhttp.open("POST", api + "/seccio/create.php?nomSeccio=" + nomSeccio + "&idCarta=" + idCarta, true);
         xhttp.send();
     }
 
@@ -230,7 +230,7 @@ $(document).ready(function() {
 
             }
         };
-        xhttp.open("GET", api + "/carta/activate.php?idCarta=" + idCarta, true);
+        xhttp.open("POST", api + "/carta/activate.php?idCarta=" + idCarta, true);
         xhttp.send();
     }
 
@@ -241,7 +241,7 @@ $(document).ready(function() {
 
             }
         };
-        xhttp.open("GET", api + "/carta/desactivate.php?idCarta=" + idCarta, true);
+        xhttp.open("POST", api + "/carta/desactivate.php?idCarta=" + idCarta, true);
         xhttp.send();
     }
 
