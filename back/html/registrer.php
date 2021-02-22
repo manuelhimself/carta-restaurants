@@ -57,7 +57,7 @@ include_once 'navbarLoginRegister.php';
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12" id="checkBox">
-                                <label>Especialització: </label>
+                                <label class="col-12">Especialització: </label>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Contrasenya</label>
