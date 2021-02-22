@@ -6,7 +6,7 @@
                 <ul class="m-0 p-0">
                     <li>- <a href="login.php">Inici sessió</a></li>
                     <li>- <a href="reserves.php">Consulta reserva</a></li>
-                    <li>- <a href="editarPerfil.php">Edita perfil</a></li>
+                    <li>- <a href="index.php">Edita perfil</a></li>
                     <li>- <a href="editarCarta.php">Edita cartes</a></li>
                 </ul>
             </div>
