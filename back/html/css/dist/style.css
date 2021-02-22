@@ -20,6 +20,7 @@
 }
 
 .editClick {
+  background-color: none;
   color: #d35151;
 }
 .editClick :hover {
