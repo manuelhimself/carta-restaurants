@@ -96,7 +96,7 @@ include_once 'navbarLoginRegister.php';
                         }
                     }
                 };
-                xhttp.open("GET", api + "/poblacio/poblacio.php", true);
+                xhttp.open("GET", "https://api.restaurat.me/controller/poblacio/poblacio.php", true);
                 xhttp.send();
             }
 
@@ -128,7 +128,7 @@ include_once 'navbarLoginRegister.php';
                         }
                     }
                 };
-                xhttp.open("GET", api + "/categoria/categoria.php", true);
+                xhttp.open("GET", "https://api.restaurat.me/controller/categoria/categoria.php", true);
                 xhttp.send();
             }
 
