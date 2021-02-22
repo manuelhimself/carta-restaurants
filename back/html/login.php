@@ -17,25 +17,34 @@
 
 
 <?php
-include_once 'navBar.php';
+include_once 'navbarLoginRegister.php';
 ?>
 
 <body>
-    <div class="container">
-        <h2>Inici de sessió</h2>
-        <div>
-            <div class="form-group col-md-6">
-                <label>Email : </label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+    <div id="contenidorPrincipal">
+        <div class="container" id="contenidorSecundari">
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-sm-12" id="contenidor">
+                    <div class="col-12">
+                        <h2>Inici de sessió</h2>
+                    </div>
+                    <div class="form-group col-12">
+                        <label>Email : </label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                    </div>
+                    <div class="form-group col-12">
+                        <label>Contrasenya : </label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <span id="m1" class="font-weight-bold ml-3">
+                    </span>
+                    <div class="col-12 mb-2" id="botons">
+                        <button id='inici' class="btn" onclick="logIn();">Inicia sessió</button>
+                        <a href="registrer.php" class="btn">Registrar-se</a>
+                    </div>
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label>Contrasenya : </label>
-                <input type="password" class="form-control" id="password" name="password">
-            </div>
-            <button id='inici' class="btn btn-primary" onclick="logIn();">Inicia sessió</button>
-            <a href="registrer.php"><input type="button" class="btn btn-primary" value="Registrar-se" /></a>
         </div>
-        <span id="m1"></span>
     </div>
 </body>
 
