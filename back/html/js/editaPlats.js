@@ -113,8 +113,8 @@ $(document).ready(function () {
             divImg.append(labelFileInput);
             cardDivBotons.append(cardA2, cardA1);
             cardDivP.append(cardInfo);
-            cardBody.append(divImg, cardH4, cardDivP, cardDivBotons);
-            cardDIV.append(cardBody);
+            cardBody.append(cardH4, cardDivP, cardDivBotons);
+            cardDIV.append(divImg, cardBody);
             colDIV.append(cardDIV);
             rowDIV.append(colDIV);
         }
