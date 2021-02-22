@@ -13,8 +13,8 @@
     <script src="js/api.js"></script>
     <script src="js/editaCarta.js"></script>
     <script src="js/closeSesion.js"></script>
-    <link rel="stylesheet" href="css/dist/style.css">
-    <link rel="stylesheet" href="css/dist/cartaSeccio.css">
+    <link rel="stylesheet" href="/css/dist/style.css">
+    <link rel="stylesheet" href="/css/dist/cartaSeccio.css">
     
 
     <title>Carta i Selecció de Seccions</title>

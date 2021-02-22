@@ -11,8 +11,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- Script per validar -->
     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
-    <link rel="stylesheet" href="css/dist/register.css">
-    <link rel="stylesheet" href="css/dist/style.css">
+    <link rel="stylesheet" href="/css/dist/register.css">
+    <link rel="stylesheet" href="/css/dist/style.css">
 
 </head>
 
