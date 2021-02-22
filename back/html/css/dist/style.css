@@ -165,3 +165,9 @@ a:hover{ /* posat per editarCarta i editarPlats */
   background-color: #84878a;
   color: #d35151;
 }
+
+.btn-link.btn:hover{
+  background-color: #84878a;
+  color: #d35151;
+  text-decoration: none;
+}
