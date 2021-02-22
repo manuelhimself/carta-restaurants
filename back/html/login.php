@@ -12,6 +12,7 @@
     <script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <link rel="stylesheet" href="/css/dist/style.css">
+    <link rel="stylesheet" href="/css/dist/login.css">
 </head>
 
 
