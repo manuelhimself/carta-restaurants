@@ -40,8 +40,8 @@ include_once 'navBar.php';
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary nomModal" data-dismiss="modal">Desa</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
+                        <button type="button" class="btn nomModal" data-dismiss="modal">Desa</button>
+                        <button type="button" class="btn" data-dismiss="modal">Tanca</button>
                     </div>
                 </div>
 
@@ -61,9 +61,9 @@ include_once 'navBar.php';
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="bAfegirCarta"
+                        <button type="button" class="btn" id="bAfegirCarta"
                             data-dismiss="modal">Afegir</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
+                        <button type="button" class="btn" data-dismiss="modal">Tanca</button>
                     </div>
                 </div>
             </div>
@@ -82,8 +82,8 @@ include_once 'navBar.php';
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="bAfegir" data-dismiss="modal">Desa</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
+                        <button type="button" class="btn" id="bAfegir" data-dismiss="modal">Desa</button>
+                        <button type="button" class="btn" data-dismiss="modal">Tanca</button>
                     </div>
                 </div>
             </div>
@@ -103,8 +103,8 @@ include_once 'navBar.php';
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary bModificarCarta" data-dismiss="modal">Desa</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tanca</button>
+                        <button type="button" class="btn bModificarCarta" data-dismiss="modal">Desa</button>
+                        <button type="button" class="btn" data-dismiss="modal">Tanca</button>
                     </div>
                 </div>
             </div>
@@ -117,8 +117,8 @@ include_once 'navBar.php';
                         <h4 class="modal-title w-100">Estàs segur que vols eliminar la carta?</h4>
                     </div>
                     <div class="modal-body">
-                        <button type="button" class="btn btn-" id="esborrarCarta" data-dismiss="modal">Eliminar</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel·la</button>
+                        <button type="button" class="btn" id="esborrarCarta" data-dismiss="modal">Eliminar</button>
+                        <button type="button" class="btn" data-dismiss="modal">Cancel·la</button>
                     </div>
                 </div>
             </div>
@@ -131,9 +131,9 @@ include_once 'navBar.php';
                         <h4 class="modal-title w-100">Estàs segur que vols eliminar la secció?</h4>
                     </div>
                     <div class="modal-body">
-                        <button type="button" class="btn btn-primary" id="esborrarSeccio"
+                        <button type="button" class="btn" id="esborrarSeccio"
                             data-dismiss="modal">Eliminar</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel·la</button>
+                        <button type="button" class="btn" data-dismiss="modal">Cancel·la</button>
                     </div>
                 </div>
             </div>
