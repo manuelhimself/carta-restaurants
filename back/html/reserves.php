@@ -51,7 +51,7 @@ include_once 'navBar.php';
                     <input type="date" id='data' class="form-control" name="data">
                 </div>
                 <div class="col-auto">
-                    <button class="btn btn-primary mb-2" type="button" onclick="loadData();" id="consulta">Consulta</button>
+                    <button class="btn mb-2" type="button" onclick="loadData();" id="consulta">Consulta</button>
                 </div>
             </form>
         </div>
