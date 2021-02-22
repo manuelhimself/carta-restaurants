@@ -63,14 +63,14 @@ include_once 'navBar.php';
 
                 <!-- header modal -->
 
-                <div class="modal-header text-center">
+                <div class="modal-header justify-content-center">
                     <h4 class="modal-title" id="exampleModalLabel">Edita nom de l'establiment</h4>
                 </div>
 
                 <!-- body modal -->
                 <div class="modal-body">
                     <form role="form" name="formEdita" action="edita.php" method="get">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-md-6">
                                 <label>Nom:</label>
                                 <input id="input-nom" type="text" class="form-control" name="nom">
@@ -98,7 +98,7 @@ include_once 'navBar.php';
 
                 <!-- header modal -->
 
-                <div class="modal-header">
+                <div class="modal-header justify-content-center">
                     <h5 class="modal-title" id="exampleModalLabel">Edita descripció de l'establiment</h5>
                 </div>
 
@@ -108,7 +108,7 @@ include_once 'navBar.php';
 
                 <div class="modal-body">
                     <form role="form" name="formEdita" action="edita.php" method="get">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-md-6">
                                 <label>Descripció:</label>
                                 <textarea id="input-descripcio" type="text" class="form-control" name="descripcio"></textarea>
@@ -135,7 +135,7 @@ include_once 'navBar.php';
 
                 <!-- header modal -->
 
-                <div class="modal-header">
+                <div class="modal-header justify-content-center">
                     <h5 class="modal-title" id="exampleModalLabel">Edita establiment</h5>
                 </div>
 
@@ -145,7 +145,7 @@ include_once 'navBar.php';
 
                 <div class="modal-body">
                     <form role="form" name="formEdita" action="edita.php" method="get">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-md-6">
                                 <label>Localitat:</label>
                                 <select name="localitat" id="localitat" class="form-control">
