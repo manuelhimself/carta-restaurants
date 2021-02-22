@@ -35,12 +35,12 @@ include_once 'navbarLoginRegister.php';
                         <label>Contrasenya : </label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
+                    <span id="m1" class="font-weight-bold ml-3">
+                    </span>
                     <div class="col-12" id="botons">
                         <button id='inici' class="btn" onclick="logIn();">Inicia sessió</button>
                         <a href="registrer.php" class="btn">Registrar-se</a>
                     </div>
-                    <span id="m1" class="font-weight-bold ml-3">
-                    </span>
                 </div>
             </div>
         </div>
