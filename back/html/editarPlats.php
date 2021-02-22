@@ -99,6 +99,14 @@ include_once 'navBar.php';
         <div class="container">
             <h1>Plats</h1>
             <br>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="editarCarta.php">Carta</a></li>
+                    <li class="breadcrumb-item"><a href="editarCarta.php">Seccions</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Plats</li>
+                </ol>
+            </nav>
+            <br>
             <button type="button" id="afegirPlat" class="btn">Afegir plat</button>
             <br>
             <form>
