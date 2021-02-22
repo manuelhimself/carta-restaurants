@@ -1,14 +1,15 @@
 .realBtn {
-  background-color: #d35151;
+  background-color: #A33E3E;
   color: white !important;
 }
 .realBtn :hover {
   transition: 0.5s;
+  color: lightslategray;
   background-color: #713b3b;
 }
 
 .btn-link {
-  color: #d35151;
+  color: #A33E3E;
 }
 
 #edita-perfil {
@@ -16,15 +17,15 @@
 }
 
 #logo {
-  height: 50px;
+  height: 60px;
 }
 
 .editClick {
-  background-color: none;
-  color: #d35151;
+  color: #A33E3E;
 }
 .editClick :hover {
-  color: #d35151;
+  color: #713b3b;
+  transition: 0.5s;
 }
 
 #perfilContainer {
@@ -69,13 +70,16 @@
   margin-bottom: 5px;
 }
 
+input[type=file] {
+  visibility: hidden;
+}
+
 .checkbox {
   margin-right: 3px;
 }
 
 .footer {
-  background-image: linear-gradient(#bfbfbf, #999 50%, #8f8f8f);
-  background-repeat: no-repeat;
+  background: #414749;
   color: white;
 }
 
@@ -88,7 +92,7 @@
 }
 .links li a :hover {
   text-decoration: none;
-  color: #d35151;
+  color: #A33E3E;
 }
 
 .location i {
@@ -97,80 +101,4 @@
 
 .copyright p {
   border-top: 1px solid grey;
-}
-
-.navbar{
-  background-image: linear-gradient(#bfbfbf, #999 50%, #8f8f8f);
-  background-repeat: no-repeat;
-  height: 100px;
-}
-
-body{
-  background-color: #eaeff1;
-}
-
-.modal { /* posat per editarCarta i editarPlats */
-  display: none;
-  width: 100%;
-  height: 100%;
-}
-
-.modal-content { /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
-}
-
-.modal-header { /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
-  color: #ffffff;
-}
-
-.modal-body { /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
-  color: #ffffff;
-  text-align: center;
-}
-
-.modal-footer { /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
-  color: #ffffff;
-}
-
-.card { /* posat per editarCarta i editarPlats */
-  color: #ffffff;
-  background-color: #84878a;
-  height: 100%;
-  border-radius: 20px;
-}
-
-.btn { /* posat per editarCarta i editarPlats */
-  background-color: #d35151;
-  color: #FFFFFF;
-  border:none;
-  border-radius: 10px;
-}
-
-a { /* posat per editarCarta i editarPlats */
-  color: #FFFFFF;
-}
-
-button:hover{ /* posat per editarCarta i editarPlats */
-  color: #FFFFFF !important;
-}
-
-a:hover{ /* posat per editarCarta i editarPlats */
-  color: #FFFFFF !important;
-}
-
-.btn-link.btn{
-  background-color: #84878a;
-  color: #d35151;
-}
-
-.btn-link.btn:hover{
-  background-color: #84878a;
-  color: #d35151 !important;
-  text-decoration: none;
-}
-.btn-link.btn:focus{
-  text-decoration: none;
 }

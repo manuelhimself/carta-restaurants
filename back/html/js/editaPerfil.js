@@ -107,7 +107,7 @@ $(document).ready(function() {
     }
 
     function editaPerfil() {
-        //var categories = getCategories();
+        var categories = getCategories();
         //deleteCategories();
         //for (var i = 0; i < categories.length; i++) {
         //updateCategories(1);
@@ -175,19 +175,46 @@ $(document).ready(function() {
         $("#nomEstabliment").text(establiment.nom);
         for (var i = 1; i <= 5; i++) {
             var div = $("<div/>", { class: "image-upload" });
-            var label = $("<label/>", { for: "file-input-" + i });
-            var input = $("<input/>", { id: "file-input-" + i });
+            var form = $("<form/>", {
+                enctype: "multipart/form-data",
+                action: "canviaFotoEstabliment.php",
+                method: "POST",
+                id: "form-" + establiment.id + "-" + i
+            });
+            var maxSizeFile = $("<input/>", {
+                type: "hidden",
+                name: "MAX_FILE_SIZE",
+                value: "3000000"
+            });
+            var imgName = $("<input/>", {
+                type: "hidden",
+                id: "input-name-" + establiment.id + "-" + i,
+                name: "filename",
+                value: establiment.id + "-" + i + ".jpg"
+            });
+            var label = $("<label/>", {
+                for: "file-input-" + establiment.id + "-" + i,
+            });
+            var input = $("<input/>", {
+                type: "file",
+                id: "file-input-" + establiment.id + "-" + i,
+                name: "file"
+            });
             input.attr("type", "file");
             var img = $("<img/>");
             img.attr("id", "pic" + i);
             img.attr(
                 "src",
-                "../images/establiment/" + establiment.id + "-" + i + ".jpg"
+                "images/establiment/" + establiment.id + "-" + i + ".jpg"
             );
+            img.attr("onerror", "this.onerror=null; this.src='images/establiment/default.jpg'");
             img.attr("alt", "Restaurant Image");
             label.append(img);
-            div.append(label);
-            div.append(input);
+            form.append(maxSizeFile);
+            form.append(imgName);
+            form.append(label);
+            form.append(input);
+            div.append(form);
             if (i != 1) {
                 div.addClass("col-md-3 col-6");
                 $("#smallPics").append(div);
@@ -230,6 +257,8 @@ $(document).ready(function() {
             for (var j = 0; j < establiment.categories.length; j++) {
                 if (categories[i].id == establiment.categories[j]) {
                     checkbox.attr("checked", "yes");
+                } else {
+                    checkbox.attr("checked", "no");
                 }
             }
 
@@ -249,5 +278,22 @@ $(document).ready(function() {
     });
     $(document).on("click", "#bEditaPerfil", function() {
         editaPerfil();
+    });
+    $(".checkbox").click();
+
+    $("#file-input-" + establiment.id + "-1").on("change", function() {
+        $("#form-" + establiment.id + "-1").submit();
+    });
+    $("#file-input-" + establiment.id + "-2").on("change", function() {
+        $("#form-" + establiment.id + "-2").submit();
+    });
+    $("#file-input-" + establiment.id + "-3").on("change", function() {
+        $("#form-" + establiment.id + "-3").submit();
+    });
+    $("#file-input-" + establiment.id + "-4").on("change", function() {
+        $("#form-" + establiment.id + "-4").submit();
+    });
+    $("#file-input-" + establiment.id + "-5").on("change", function() {
+        $("#form-" + establiment.id + "-5").submit();
     });
 });
