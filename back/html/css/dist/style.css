@@ -171,3 +171,6 @@ a:hover{ /* posat per editarCarta i editarPlats */
   color: #d35151 !important;
   text-decoration: none;
 }
+.btn-link.btn:focus{
+  outline: none;
+}
