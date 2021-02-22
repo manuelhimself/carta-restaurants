@@ -47,10 +47,6 @@ button:hover {
     text-align: center;
 }
 
-img{
-    border-radius: 10px;
-}
-
 input[type=file]{
     display: none;
 }
