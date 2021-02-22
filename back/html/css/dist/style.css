@@ -8,7 +8,8 @@
 }
 
 .btn-link {
-  color: #d35151;
+  background-color: #84878a;
+  color: #A33E3E;;
 }
 
 #edita-perfil {
@@ -24,6 +25,7 @@
 }
 .editClick :hover {
   color: #d35151;
+  transition: 0.5s
 }
 
 #perfilContainer {
@@ -81,14 +83,14 @@
 .links ul {
   list-style-type: none;
 }
-/*.links li a {
+.links li a {
   color: white;
   transition: color 0.2s;
 }
 .links li a :hover {
   text-decoration: none;
   color: #d35151;
-}*/
+}
 
 .location i {
   font-size: 18px;
