@@ -38,7 +38,7 @@ include_once 'navBar.php';
                     <div class="details col-md-6">
                         <div class="establiment-title-div">
                             <h3 class="establiment-nom" id="nomEstabliment"></h3>
-                            <button id="edita-nom" data-toggle="modal" data-target="#modalEditaNom" class="editClick btn btn-link p-0 m-0 d-inline align-baseline">Edita nom</button>
+                            <button id="edita-nom" data-toggle="modal" data-target="#modalEditaNom" class="editClick btn btn-link p-0 m-0 d-inline align-baseline" id="bEditaNom">Edita nom</button>
                         </div>
                         <br>
                         <div class="establiment-description-div">
