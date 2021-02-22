@@ -4,7 +4,7 @@ header('Access-Control-Allow-Credentials', 'true');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: DELETE');
 
-$conn = new mysqli("localhost", "root", "", "restaurat");
+$conn = new mysqli("localhost", "root", "password", "restaurat");
 
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
