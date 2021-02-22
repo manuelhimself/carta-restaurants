@@ -26,8 +26,8 @@ include_once 'navbarLoginRegister.php';
     <div id="contenidorPrincipal">
         <div class="container" id="contenidorSecundari">
             <div class="row justify-content-center">
-                <div class="col-md-8 col-sm-12" id="contenidor">
-                    <h2>Registre</h2>
+                <div class="col-md-8 col-sm-12 mt-2" id="contenidor">
+                    <h2 class="mt-2">Registre</h2>
                     <form method="POST" id="formulari">
                         <div class="form-row">
                             <div class="form-group col-md-6">
