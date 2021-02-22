@@ -5,3 +5,4 @@ models/config/database.php
 back/js/api.js
 
 api/models/config/database.php
+back/html/js/api.js
