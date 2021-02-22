@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     var alergens;
     var alergensPlat;
@@ -7,7 +7,7 @@ $(document).ready(function () {
     var idP;
     var last_idPlat;
 
-    if(idSeccio == null){
+    if (idSeccio == null) {
         window.location.replace("login.php");
     }
 
@@ -15,30 +15,30 @@ $(document).ready(function () {
     selectAlergen();
     mostraPlats();
 
-    function setTitol(){
+    function setTitol() {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var seccio = JSON.parse(this.responseText);
                 $("#direccioPlats").text("Plats de la secció " + seccio.nom);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/plat/readByIdSeccio.php?idSeccio=" + idSeccio, false);
+        xhttp.open("GET", api + "/plat/readByIdSeccio.php?idSeccio=" + idSeccio, false);
         xhttp.send();
     }
 
     function getAlergens() {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 alergens = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/alergen/read.php", false);
+        xhttp.open("GET", api + "/alergen/read.php", false);
         xhttp.send();
     }
 
-    function selectAlergen(){
+    function selectAlergen() {
         getAlergens();
         for (a in alergens) {
             var nom = alergens[a].nom;
@@ -48,25 +48,25 @@ $(document).ready(function () {
         }
     }
 
-    function totsPlats(idS){
+    function totsPlats(idS) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 plats = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/plat/readByIdSeccio.php?idSeccio="+idS, false);
+        xhttp.open("GET", api + "/plat/readByIdSeccio.php?idSeccio=" + idS, false);
         xhttp.send();
     }
 
-    function platsAlergen(idAlergen, idS){
+    function platsAlergen(idAlergen, idS) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 plats = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/plat/readByIdAlergen.php?idAlergen="+idAlergen +"&idSeccio="+idS, false);
+        xhttp.open("GET", api + "/plat/readByIdAlergen.php?idAlergen=" + idAlergen + "&idSeccio=" + idS, false);
         xhttp.send();
     }
 
@@ -74,9 +74,9 @@ $(document).ready(function () {
         $("#plats").empty();
         var idS = idSeccio;
         var idAlergen = $("#select").val();
-        if(idAlergen==0){
+        if (idAlergen == 0) {
             totsPlats(idS);
-        }else{
+        } else {
             platsAlergen(idAlergen, idS);
         }
         for (var i = 0; i < plats.length; i++) {
@@ -92,20 +92,20 @@ $(document).ready(function () {
             var colDIV = $("<div/>", { class: "col-md-4" });
             var cardDIV = $("<div/>", { class: "card rounded border-0 h-100", id: idPlat });
             var cardBody = $("<div/>", { class: "card-body p-4" });
-            var divImg = $("<div/>", {class: "image-upload"});
-            var cardImg = $("<img/>" , { class: "img-fluid d-block mx-auto mb-3", src: "/images/plat/"+idPlat+".jpg" });
+            var divImg = $("<div/>", { class: "image-upload" });
+            var cardImg = $("<img/>", { class: "img-fluid d-block mx-auto mb-3", src: "/images/plat/" + idPlat + ".jpg" });
             var cardIcon = $("<i/>", { class: "fa fa-trash" });
             var cardIcon1 = $("<i/>", { class: "fa fa-edit" });
             var cardDivP = $("<div/>");
             var cardDivBotons = $("<div/>", { class: "botons" });
-            var cardInfo = $("<p/>", { class: "card-text font-italic"});
-            var spanPreu = $("<span/>",{text: 'Preu: ' + preu});
-            var spanDescripcio = $("<span/>",{text: descripcio});
+            var cardInfo = $("<p/>", { class: "card-text font-italic" });
+            var spanPreu = $("<span/>", { text: 'Preu: ' + preu });
+            var spanDescripcio = $("<span/>", { text: descripcio });
             var br = $("<br>");
             var cardH4 = $("<h4/>", { text: nom });
             var cardA1 = $("<button/>", { type: "button", class: "editarPlat btn", id: "edP" + idPlat, text: "Edita" });
             var cardA2 = $("<a/>", { class: "eliminarPlat btn", id: "elP" + idPlat });
-            var labelFileInput = $("<label/>", { for: "file-input"});
+            var labelFileInput = $("<label/>", { for: "file-input" });
             cardA1.prepend(cardIcon1);
             cardA2.append(cardIcon);
             cardInfo.append(spanDescripcio, br, spanPreu);
@@ -122,115 +122,114 @@ $(document).ready(function () {
 
     function eliminarPlat(idPlat) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 mostraPlats();
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/plat/delete.php?idPlat=" + idPlat, false);
+        xhttp.open("GET", api + "/plat/delete.php?idPlat=" + idPlat, false);
         xhttp.send();
     }
 
-    function modificarPlat(idPlat,nom,descripcio,preu) {
+    function modificarPlat(idPlat, nom, descripcio, preu) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 mostraPlats();
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/plat/update.php?idPlat="+idPlat+"&nom="+nom+"&descripcio="+descripcio+"&preu="+preu, false);
+        xhttp.open("GET", api + "/plat/update.php?idPlat=" + idPlat + "&nom=" + nom + "&descripcio=" + descripcio + "&preu=" + preu, false);
         xhttp.send();
     }
 
-    function afegirCheckbox(){
+    function afegirCheckbox() {
         $(".checkbox").empty();
         var form = $(".checkbox");
-        for(var i=0;i<alergens.length;i++){
+        for (var i = 0; i < alergens.length; i++) {
             var id = alergens[i].idAlergen;
             var nom = alergens[i].nom;
-            var checkbox = $("<input/>",{ type: "checkbox", name: "idAlergens", value: nom, id: "chk"+id});
-            var label = $("<label>", {for: alergens[i].nom, text: alergens[i].nom});
+            var checkbox = $("<input/>", { type: "checkbox", name: "idAlergens", value: nom, id: "chk" + id });
+            var label = $("<label>", { for: alergens[i].nom, text: alergens[i].nom });
             form.append("<br>", label, checkbox);
         }
     }
 
-    function getAlergensPlat(idPlat){
+    function getAlergensPlat(idPlat) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 alergensPlat = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/alergen/readByIdPlat.php?idPlat=" + idPlat, false);
+        xhttp.open("GET", api + "/alergen/readByIdPlat.php?idPlat=" + idPlat, false);
         xhttp.send();
     }
 
-    function checkAlergens(idPlat){
+    function checkAlergens(idPlat) {
         getAlergensPlat(idPlat);
-        for(var i=0;i<alergens.length;i++){
-            for(var j=0;j<alergensPlat.length;j++){
+        for (var i = 0; i < alergens.length; i++) {
+            for (var j = 0; j < alergensPlat.length; j++) {
                 var idAlergen = alergensPlat[j].idAlergen;
-                if(alergens[i].idAlergen == alergensPlat[j].idAlergen){
+                if (alergens[i].idAlergen == alergensPlat[j].idAlergen) {
                     $("#chk" + idAlergen).prop("checked", true);
                 }
             }
         }
     }
 
-    function eliminarAlergensPlat(idPlat){
+    function eliminarAlergensPlat(idPlat) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                
+
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/alergen/deleteAllAlergenByIdPlat.php?idPlat="+idPlat, false);
+        xhttp.open("GET", api + "/alergen/deleteAllAlergenByIdPlat.php?idPlat=" + idPlat, false);
         xhttp.send();
     }
 
-    function afegirPlat(nom,descripcio,preu,idS){
+    function afegirPlat(nom, descripcio, preu, idS) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var plat = JSON.parse(this.responseText);
                 last_idPlat = plat.id;
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/plat/createPlat.php?nom="+nom+"&descripcio="+descripcio+"&preu="+preu+"&idSeccio="+idS, false);
+        xhttp.open("GET", api + "/plat/createPlat.php?nom=" + nom + "&descripcio=" + descripcio + "&preu=" + preu + "&idSeccio=" + idS, false);
         xhttp.send();
     }
 
-    function afegirAlergenPlat(idAlergen, idPlat){
+    function afegirAlergenPlat(idAlergen, idPlat) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-            }
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {}
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/plat/createAlergenPlat.php?idPlat="+idPlat+"&idAlergen="+idAlergen, false);
+        xhttp.open("GET", api + "/plat/createAlergenPlat.php?idPlat=" + idPlat + "&idAlergen=" + idAlergen, false);
         xhttp.send();
     }
 
     function cambiarFile(idCard) {
         const input = document.getElementById('file-input');
-        $("#" + idCard + " div label img").attr("src","../images/plat/" + input.files[0].name);
+        $("#" + idCard + " div label img").attr("src", "../images/plat/" + input.files[0].name);
     }
 
-    $(document).on("change", "#select", function(){
+    $(document).on("change", "#select", function() {
         $("#select option[value=0]").text("Tots els plats");
         mostraPlats();
     });
 
-    $(document).on("click", ".eliminarPlat", function () {
+    $(document).on("click", ".eliminarPlat", function() {
         var idBoto = $(this).attr("id");
         idP = idBoto.substr(3, idBoto.length);
         $("#modal2").modal("toggle");
     });
 
-    $(document).on("click", "#esborrarPlat", function () {
+    $(document).on("click", "#esborrarPlat", function() {
         eliminarPlat(idP);
     });
 
-    $(document).on("click", ".editarPlat", function () {
+    $(document).on("click", ".editarPlat", function() {
         afegirCheckbox();
         var idBoto = $(this).attr("id");
         idP = idBoto.substr(3, idBoto.length);
@@ -246,46 +245,46 @@ $(document).ready(function () {
         $("#preuPlat").val(preu);
     });
 
-    $(document).on("click", "#edita", function () {
+    $(document).on("click", "#edita", function() {
         var nom = $("#nomPlat").val();
         idP = $("#idPlat").val();
         var preu = $("#preuPlat").val();
         var descripcio = $("#descripcioPlat").val();
-        modificarPlat(idP,nom,descripcio,preu);
+        modificarPlat(idP, nom, descripcio, preu);
         var alergensChecked = Array();
         $("input:checkbox[name=idAlergens]:checked").each(function() {
-            alergensChecked.push($(this).attr("id").substr(3,$(this).attr("id").length));
+            alergensChecked.push($(this).attr("id").substr(3, $(this).attr("id").length));
         });
         eliminarAlergensPlat(idP);
-        for(var i=0;i<alergensChecked.length;i++){
+        for (var i = 0; i < alergensChecked.length; i++) {
             var idAlergen = alergensChecked[i];
-            afegirAlergenPlat(idAlergen,idP);
+            afegirAlergenPlat(idAlergen, idP);
         }
-        
+
     });
 
-    $(document).on("click", "#afegirPlat", function(){
+    $(document).on("click", "#afegirPlat", function() {
         afegirCheckbox();
         $("#modal3").modal("toggle");
     });
 
-    $(document).on("click", "#afegir", function (){
+    $(document).on("click", "#afegir", function() {
         var nom = $("#nomP").val();
         var descripcio = $("#descripcioP").val();
         var preu = $("#preuP").val();
         afegirPlat(nom, descripcio, preu, idSeccio);
         var alergensChecked = Array();
         $("input:checkbox[name=idAlergens]:checked").each(function() {
-            alergensChecked.push($(this).attr("id").substr(3,$(this).attr("id").length));
-        }); 
-        for(var i=0;i<alergensChecked.length;i++){
+            alergensChecked.push($(this).attr("id").substr(3, $(this).attr("id").length));
+        });
+        for (var i = 0; i < alergensChecked.length; i++) {
             var idAlergen = alergensChecked[i];
-            afegirAlergenPlat(idAlergen,last_idPlat);
+            afegirAlergenPlat(idAlergen, last_idPlat);
         }
         mostraPlats();
     });
 
-    $(document).on("change", "#file-input", function(){
+    $(document).on("change", "#file-input", function() {
         cambiarFile(59);
     });
 

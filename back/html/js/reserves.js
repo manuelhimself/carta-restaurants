@@ -40,7 +40,7 @@ function loadData() {
             });
         }
     };
-    xhttp.open("POST","https://api.restaurat.me/controller/reserves/reserves.php?data=" + d + "&id=" + id, false);
+    xhttp.open("POST", api + "/reserves/reserves.php?data=" + d + "&id=" + id, false);
     xhttp.send();
 }
 
@@ -61,7 +61,7 @@ var svg = d3
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("https://api.restaurat.me/controller/reserves/graficReserves.php?id="+id, function(data) {
+d3.json(api + "/reserves/graficReserves.php?id=" + id, function(data) {
     data.sort(function(b, a) {
         return a.Value - b.Value;
     });

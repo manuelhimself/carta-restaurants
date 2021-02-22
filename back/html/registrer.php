@@ -11,8 +11,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- Script per validar -->
     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
-    <link rel="stylesheet" href="/css/dist/register.css">
-    <link rel="stylesheet" href="/css/dist/style.css">
+    <link rel="stylesheet" href="css/dist/register.css">
+    <link rel="stylesheet" href="css/dist/style.css">
 
 </head>
 
@@ -96,7 +96,7 @@ include_once 'navbarLoginRegister.php';
                         }
                     }
                 };
-                xhttp.open("GET", "https://api.restaurat.me/controller/poblacio/poblacio.php", true);
+                xhttp.open("GET", api + "/poblacio/poblacio.php", true);
                 xhttp.send();
             }
 
@@ -128,7 +128,7 @@ include_once 'navbarLoginRegister.php';
                         }
                     }
                 };
-                xhttp.open("GET", "https://api.restaurat.me/controller/categoria/categoria.php", true);
+                xhttp.open("GET", api + "/categoria/categoria.php", true);
                 xhttp.send();
             }
 

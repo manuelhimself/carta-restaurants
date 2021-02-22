@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     var carta;
     var seccions;
@@ -8,7 +8,7 @@ $(document).ready(function () {
     var idEstabliment = sessionStorage.getItem('key');
     console.log(idEstabliment);
 
-    if(idEstabliment == null){
+    if (idEstabliment == null) {
         window.location.replace("login.php");
     }
 
@@ -16,34 +16,34 @@ $(document).ready(function () {
 
     function getCarta(id) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 carta = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/carta/readByIdCarta.php?idCarta=" + id, false);
+        xhttp.open("GET", api + "/carta/readByIdCarta.php?idCarta=" + id, false);
         xhttp.send();
     }
 
     function getCartes() {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 cartes = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/carta/readByIdEstabliment.php?idEstabliment=" + idEstabliment, false);
+        xhttp.open("GET", api + "/carta/readByIdEstabliment.php?idEstabliment=" + idEstabliment, false);
         xhttp.send();
     }
 
     function getSeccions(idC) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 seccions = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/seccio/readByIdCarta.php?idCarta=" + idC, false);
+        xhttp.open("GET", api + "/seccio/readByIdCarta.php?idCarta=" + idC, false);
         xhttp.send();
     }
 
@@ -61,13 +61,13 @@ $(document).ready(function () {
             var cardDIV = $("<div/>", { class: "card border-0 h-100", id: "idC" + id });
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var cardRow = $("<div/>", { class: "row" });
-            var cardCol1 = $("<div/>", {class: "col-md-7 text-center my-auto"});
-            var cardCol2 = $("<div/>", {class: "col-md-5 text-center botons"});
+            var cardCol1 = $("<div/>", { class: "col-md-7 text-center my-auto" });
+            var cardCol2 = $("<div/>", { class: "col-md-5 text-center botons" });
             var cardIcon = $("<i/>", { class: "fa fa-trash" });
             var cardIcon1 = $("<i/>", { class: "fa fa-edit" });
-            var cardIcon2 = $("<i/>", { class: "fa fa-eye"});
+            var cardIcon2 = $("<i/>", { class: "fa fa-eye" });
             var cardH3 = $("<h3/>", { text: nom });
-            var cardA1 = $("<a/>", { type: "button", class: "editarCarta btn", id: "edC" + id, text: "Seccions", href: "#seccions"});
+            var cardA1 = $("<a/>", { type: "button", class: "editarCarta btn", id: "edC" + id, text: "Seccions", href: "#seccions" });
             var cardA2 = $("<a/>", { class: "eliminarCarta btn", id: "elC" + id });
             var cardA3 = $("<button/>", { type: "button", class: "editarNomCarta btn", id: "edN" + id });
             var divForm = $("<div/>", { class: "form-check form-switch" });
@@ -75,12 +75,12 @@ $(document).ready(function () {
             var labelCheck = $("<label/>", { class: "form-check-label", for: "chk" + id, text: "Activar/Desactivar" });
 
             divForm.append(inputCheck, labelCheck);
-            cardCol1.append(cardH3,divForm);
+            cardCol1.append(cardH3, divForm);
             cardA1.prepend(cardIcon2);
             cardA3.append(cardIcon1);
             cardA2.append(cardIcon);
-            cardCol2.append(cardA3,cardA2,cardA1);
-            cardRow.append(cardCol1,cardCol2);
+            cardCol2.append(cardA3, cardA2, cardA1);
+            cardRow.append(cardCol1, cardCol2);
             cardBody.append(cardRow);
             cardDIV.append(cardBody);
             colDIV.append(cardDIV);
@@ -102,14 +102,14 @@ $(document).ready(function () {
             var id = seccions[i].idSeccio;
             var idCarta = seccions[i].idCarta;
             if (i % 1 == 0) {
-                var rowDIV = $("<div/>", {class: "row justify-content-center"});
+                var rowDIV = $("<div/>", { class: "row justify-content-center" });
                 $("#seccions").append(rowDIV);
             }
             var colDIV = $("<div/>", { class: "col-md-8" });
             var cardDIV = $("<div/>", { class: "card border-0 h-100", id: "idS" + id });
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var rowCard = $("<div/>", { class: "row" });
-            var colDivButton = $("<div/>", { class: "col-md-4 text-center botonsSeccio"});
+            var colDivButton = $("<div/>", { class: "col-md-4 text-center botonsSeccio" });
             var colDivH3 = $("<div/>", { class: "col-md-8 text-center my-auto" });
             var cardH3 = $("<h3/>", { text: nom });
             var cardIcon1 = $("<i/>", { class: "fa fa-trash" });
@@ -123,81 +123,81 @@ $(document).ready(function () {
             cardA2.prepend(cardIcon2);
             cardA3.append(cardIcon1);
             colDivH3.append(cardH3);
-            colDivButton.append(cardA1,cardA3,cardA2);
+            colDivButton.append(cardA1, cardA3, cardA2);
             rowCard.append(colDivH3, colDivButton);
             cardBody.append(rowCard);
             cardDIV.append(cardBody);
             colDIV.append(cardDIV);
             rowDIV.append(colDIV);
         }
-        
+
     }
 
     function eliminarSeccio(idSeccio, idCarta) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 mostrarSeccions(idCarta);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/seccio/delete1.php?idSeccio=" + idSeccio, false);
+        xhttp.open("GET", api + "/seccio/delete1.php?idSeccio=" + idSeccio, false);
         xhttp.send();
     }
 
     function eliminarCarta(idCarta) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 mostrarCartes();
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/carta/delete1.php?idCarta=" + idCarta, false);
+        xhttp.open("GET", api + "/carta/delete1.php?idCarta=" + idCarta, false);
         xhttp.send();
     }
 
     function actualitzarNomSeccio(idSeccio, nomSeccio) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var id = "#idS" + idSeccio + " div div div h3";
                 $(id).text(nomSeccio);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/seccio/update.php?idSeccio=" + idSeccio + "&nomSeccio=" + nomSeccio, true);
+        xhttp.open("GET", api + "/seccio/update.php?idSeccio=" + idSeccio + "&nomSeccio=" + nomSeccio, true);
         xhttp.send();
     }
 
     function actualitzarNomCarta(idCarta, nomCarta) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var id = "#idC" + idCarta + " div div div h3";
                 $(id).text(nomCarta);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/carta/update.php?idCarta=" + idCarta + "&nomCarta=" + nomCarta, true);
+        xhttp.open("GET", api + "/carta/update.php?idCarta=" + idCarta + "&nomCarta=" + nomCarta, true);
         xhttp.send();
     }
 
     function afegirCarta(nomCarta) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 mostrarCartes();
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/carta/create.php?nomCarta=" + nomCarta + "&idEstabliment=" + idEstabliment, true);
+        xhttp.open("GET", api + "/carta/create.php?nomCarta=" + nomCarta + "&idEstabliment=" + idEstabliment, true);
         xhttp.send();
     }
 
     function afegirSeccio(nomSeccio, idCarta) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 mostrarSeccions(idCarta);
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/seccio/create.php?nomSeccio=" + nomSeccio + "&idCarta=" + idCarta, true);
+        xhttp.open("GET", api + "/seccio/create.php?nomSeccio=" + nomSeccio + "&idCarta=" + idCarta, true);
         xhttp.send();
     }
 
@@ -225,44 +225,44 @@ $(document).ready(function () {
 
     function activarCarta(idCarta) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
 
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/carta/activate.php?idCarta=" + idCarta, true);
+        xhttp.open("GET", api + "/carta/activate.php?idCarta=" + idCarta, true);
         xhttp.send();
     }
 
     function desactivarCarta(idCarta) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
 
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/carta/desactivate.php?idCarta=" + idCarta, true);
+        xhttp.open("GET", api + "/carta/desactivate.php?idCarta=" + idCarta, true);
         xhttp.send();
     }
 
-    $(document).on("click", ".editarCarta", function () {
+    $(document).on("click", ".editarCarta", function() {
         var idBoto = $(this).attr("id");
         var idCarta = idBoto.substr(3, idBoto.length);
         mostrarSeccions(idCarta);
     });
 
-    $(document).on("click", ".eliminarSeccio", function () {
+    $(document).on("click", ".eliminarSeccio", function() {
         var idBoto = $(this).attr("id");
         idS = idBoto.substr(3, idBoto.length);
         idC = $(this).attr("idCarta");
         $("#modal6").modal("toggle");
     });
 
-    $(document).on("click", "#esborrarSeccio", function () {
+    $(document).on("click", "#esborrarSeccio", function() {
         eliminarSeccio(idS, idC);
     });
 
-    $(document).on("click", ".editarSeccioNom", function () {
+    $(document).on("click", ".editarSeccioNom", function() {
         var idBoto = $(this).attr("id");
         var idSeccio = idBoto.substr(3, idBoto.length);
         var nomS = $("#idS" + idSeccio + " div div div h3").text();
@@ -271,13 +271,13 @@ $(document).ready(function () {
         $("#nomSeccioForm").val(nomS);
     });
 
-    $(document).on("click", ".nomModal", function () {
+    $(document).on("click", ".nomModal", function() {
         var nomSeccio = $("#nomSeccioForm").val();
         var idSeccio = $("#idSeccioForm").val();
         actualitzarNomSeccio(idSeccio, nomSeccio);
     });
 
-    $(document).on("click", ".editarNomCarta", function () {
+    $(document).on("click", ".editarNomCarta", function() {
         var idBoto = $(this).attr("id");
         var idCarta = idBoto.substr(3, idBoto.length);
         var nomC = $("#idC" + idCarta + " div div div h3").text();
@@ -286,46 +286,46 @@ $(document).ready(function () {
         $("#idCartaForm").val(idCarta);
     });
 
-    $(document).on("click", ".bModificarCarta", function () {
+    $(document).on("click", ".bModificarCarta", function() {
         var nomCarta = $("#nomC").val();
         var idCarta = $("#idCartaForm").val();
         actualitzarNomCarta(idCarta, nomCarta);
     });
 
-    $(document).on("click", ".eliminarCarta", function () {
+    $(document).on("click", ".eliminarCarta", function() {
         var idBoto = $(this).attr("id");
         idC = idBoto.substr(3, idBoto.length);
         $("#modal5").modal("toggle");
     });
 
-    $(document).on("click", "#esborrarCarta", function () {
+    $(document).on("click", "#esborrarCarta", function() {
         eliminarCarta(idC);
         $("#seccions").empty();
     });
 
-    $(document).on("click", "#afegirCarta", function () {
+    $(document).on("click", "#afegirCarta", function() {
         $("#modal2").modal("toggle");
         $("#nomCartaForm").val("");
     });
 
-    $(document).on("click", "#bAfegirCarta", function () {
+    $(document).on("click", "#bAfegirCarta", function() {
         var nomCarta = $("#nomCartaForm").val();
         afegirCarta(nomCarta);
         $("#seccions").empty();
     });
 
-    $(document).on("click", "#afegirSeccio", function () {
+    $(document).on("click", "#afegirSeccio", function() {
         $("#modal3").modal("toggle");
         $("#nomS").val("");
     });
 
-    $(document).on("click", "#bAfegir", function () {
+    $(document).on("click", "#bAfegir", function() {
         var nomSeccio = $("#nomS").val();
         var idCarta = $("#afegirSeccio").attr("idCarta");
         afegirSeccio(nomSeccio, idCarta);
     });
 
-    $(document).on("change", ".estatCarta", function () {
+    $(document).on("change", ".estatCarta", function() {
         var idBoto = $(this).attr("id");
         var idCarta = idBoto.substr(3, idBoto.length);
         getCarta(idCarta);
@@ -338,11 +338,11 @@ $(document).ready(function () {
         }
     });
 
-    $(document).on("click", ".editarPlats", function () {
+    $(document).on("click", ".editarPlats", function() {
         var idBoto = $(this).attr("id");
         var idSeccio = idBoto.substr(3, idBoto.length);
         console.log(idSeccio);
-        sessionStorage.setItem('idSeccio',idSeccio);
+        sessionStorage.setItem('idSeccio', idSeccio);
     });
 
 });
