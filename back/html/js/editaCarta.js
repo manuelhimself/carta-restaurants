@@ -130,7 +130,7 @@ $(document).ready(function() {
             var cardA3 = $("<a/>", { class: "eliminarSeccio btn", id: "elS" + id, idCarta: idCarta });
             var cardIcon2 = $("<i/>", { class: "fa fa-eye" });
             var cardIcon3 = $("<i/>", { class: "fa fa-edit" });
-            var abbrPlats = $("<abbr/>", {title: "Mostrar seccions"});
+            var abbrPlats = $("<abbr/>", {title: "Mostrar plats"});
             var abbrEliminar = $("<abbr/>", {title: "Eliminar"});
             var abbrModificar = $("<abbr/>", {title: "Editar"});
 
