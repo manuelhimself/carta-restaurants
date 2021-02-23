@@ -226,7 +226,7 @@ $(document).ready(function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                $("#idC" + idCarta).css("background-color","blue");
+                $("#idC" + idCarta).css("background-color","#b0bcbf");
             }
         };
         xhttp.open("POST", api + "/carta/activate.php?idCarta=" + idCarta, true);

@@ -15,7 +15,7 @@
     <script src="js/closeSesion.js"></script>
     <link rel="stylesheet" href="/css/dist/style.css">
     <link rel="stylesheet" href="/css/dist/cartaSeccio.css">
-    
+
 
     <title>Carta i Selecció de Seccions</title>
 </head>
@@ -61,8 +61,7 @@ include_once 'navBar.php';
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn" id="bAfegirCarta"
-                            data-dismiss="modal">Afegir</button>
+                        <button type="button" class="btn" id="bAfegirCarta" data-dismiss="modal">Afegir</button>
                         <button type="button" class="btn" data-dismiss="modal">Tanca</button>
                     </div>
                 </div>
@@ -131,8 +130,7 @@ include_once 'navBar.php';
                         <h4 class="modal-title w-100">Estàs segur que vols eliminar la secció?</h4>
                     </div>
                     <div class="modal-body">
-                        <button type="button" class="btn" id="esborrarSeccio"
-                            data-dismiss="modal">Eliminar</button>
+                        <button type="button" class="btn" id="esborrarSeccio" data-dismiss="modal">Eliminar</button>
                         <button type="button" class="btn" data-dismiss="modal">Cancel·la</button>
                     </div>
                 </div>
@@ -140,8 +138,14 @@ include_once 'navBar.php';
         </div>
 
         <div class="container">
-            <h1 id="cartesh1">Cartes</h1>
-            <button type="button" id="afegirCarta" class="btn">Afegir carta</button>
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 id="cartesh1">Cartes</h1>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" id="afegirCarta" class="btn">Afegir carta</button>
+                </div>
+            </div>
             <div id="cartes"></div>
             <hr>
             <div id="seccions"></div>
