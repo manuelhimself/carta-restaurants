@@ -141,7 +141,7 @@ $(document).ready(function() {
             cardA3.append(cardIcon1);
             abbrEliminar.append(cardA3);
             colDivH3.append(cardH3);
-            colDivButton.append(abbrModificar, abbrPlats, abbr2Eliminar);
+            colDivButton.append(abbrModificar, abbrPlats, abbrEliminar);
             rowCard.append(colDivH3, colDivButton);
             cardBody.append(rowCard);
             cardDIV.append(cardBody);
