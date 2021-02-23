@@ -1,5 +1,5 @@
 .realBtn {
-  background-color: #d35151;
+  background-color: #94bfbe;
   color: white !important;
 }
 .realBtn :hover {
@@ -8,7 +8,7 @@
 }
 
 .btn-link {
-  color: #d35151;
+  color: #94bfbe;
 }
 
 #edita-perfil {
@@ -21,10 +21,10 @@
 
 .editClick {
   background-color: none;
-  color: #d35151;
+  color: #94bfbe;
 }
 .editClick :hover {
-  color: #d35151;
+  color: #94bfbe;
 }
 
 #perfilContainer {
@@ -88,7 +88,7 @@
 }
 .links li a :hover {
   text-decoration: none;
-  color: #d35151;
+  color: #94bfbe;
 }
 
 .location i {
@@ -100,9 +100,17 @@
 }
 
 .navbar{
-  background-image: linear-gradient(#bfbfbf, #999 50%, #8f8f8f);
+  background-color: #f4f4f6;
   background-repeat: no-repeat;
   height: 100px;
+}
+
+.nav-link{
+  color: #76797c;
+}
+
+.nav-link:hover{
+  color: #76797c !important;
 }
 
 body{
@@ -143,7 +151,7 @@ body{
 }
 
 .btn { /* posat per editarCarta i editarPlats */
-  background-color: #d35151;
+  background-color: #94bfbe;
   color: #FFFFFF;
   border:none;
   border-radius: 10px;
@@ -163,12 +171,12 @@ a:hover{ /* posat per editarCarta i editarPlats */
 
 .btn-link.btn{
   background-color: #84878a;
-  color: #d35151;
+  color: #94bfbe;
 }
 
 .btn-link.btn:hover{
   background-color: #84878a;
-  color: #d35151 !important;
+  color: #94bfbe !important;
   text-decoration: none;
 }
 .btn-link.btn:focus{
