@@ -143,7 +143,7 @@ include_once 'navBar.php';
                     <h1 id="cartesh1">Cartes</h1>
                 </div>
                 <div class="col-md-4">
-                    <button type="button" id="afegirCarta" class="btn">Afegir carta</button>
+                    <button type="button" id="afegirCarta" class="btn float-right mt-3">Afegir carta</button>
                 </div>
             </div>
             <div id="cartes"></div>
