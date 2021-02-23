@@ -11,7 +11,7 @@ $(document).ready(function() {
         window.location.replace("login.php");
     }
 
-    setTitol();
+    setNomSeccioTitol(idSeccio);
     selectAlergen();
     mostraPlats();
 
@@ -24,6 +24,21 @@ $(document).ready(function() {
             }
         };
         xhttp.open("POST", api + "/plat/readByIdSeccio.php?idSeccio=" + idSeccio, false);
+        xhttp.send();
+    }
+
+    function setNomSeccioTitol(idSeccio){
+        var xhttp = new XMLHttpRequest();
+        var titol = $("#titol");
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var seccio = JSON.parse(this.responseText);
+                var nom = seccio.nom;
+                titol.empty();
+                titol.text(nom);
+            }
+        };
+        xhttp.open("POST", api + "/seccio/readByIdSeccio.php?idSeccio=" + idSeccio, false);
         xhttp.send();
     }
 

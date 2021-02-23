@@ -97,7 +97,7 @@ include_once 'navBar.php';
         </div>
 
         <div class="container">
-            <h1>Plats</h1>
+            <h1 id="titol">Plats</h1>
             <br>
             <button type="button" id="afegirPlat" class="btn">Afegir plat</button>
             <br>
