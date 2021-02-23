@@ -53,40 +53,39 @@ $(document).ready(function() {
         for (var i = 0; i < cartes.length; i++) {
             var nom = cartes[i].nom;
             var id = cartes[i].idCarta;
-            if (i % 2 == 0) {
+            if (i % 3 == 0) {
                 var rowDIV = $("<div/>", { class: "row" });
                 $("#cartes").append(rowDIV);
             }
-            var colDIV = $("<div/>", { class: "col-md-6" });
+            var colDIV = $("<div/>", { class: "col-md-4 col-sm-12" });
             var cardDIV = $("<div/>", { class: "card border-0 h-100", id: "idC" + id });
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var cardRow = $("<div/>", { class: "row" });
-            var cardCol1 = $("<div/>", { class: "col-md-7 text-center my-auto" });
-            var cardCol2 = $("<div/>", { class: "col-md-5 text-center botons" });
+            var cardCol1 = $("<div/>", { class: "col-4 my-auto" });
+            var cardCol2 = $("<div/>", { class: "col-8 text-center botons" });
             var cardIcon = $("<i/>", { class: "fa fa-trash" });
             var cardIcon1 = $("<i/>", { class: "fa fa-edit" });
             var cardIcon2 = $("<i/>", { class: "fa fa-eye" });
+            var cardIcon3 = $("<i/>", { class: "fa fa-power-off" });
             var cardH3 = $("<h3/>", { text: nom });
-            var cardA1 = $("<a/>", { type: "button", class: "editarCarta btn", id: "edC" + id, text: "Seccions", href: "#seccions" });
+            var cardA1 = $("<a/>", { type: "button", class: "editarCarta btn", id: "edC" + id, href: "#seccions" });
+            var cardA4 = $("<a/>", { type: "button", class: "estatCarta btn", id: "actC" + id });
             var cardA2 = $("<a/>", { class: "eliminarCarta btn", id: "elC" + id });
             var cardA3 = $("<button/>", { type: "button", class: "editarNomCarta btn", id: "edN" + id });
-            var divForm = $("<div/>", { class: "form-check form-switch" });
-            var inputCheck = $("<input/>", { class: "form-check-input estatCarta", type: "checkbox", id: "chk" + id });
-            var labelCheck = $("<label/>", { class: "form-check-label", for: "chk" + id, text: "Activar/Desactivar" });
 
-            divForm.append(inputCheck, labelCheck);
-            cardCol1.append(cardH3, divForm);
+            cardCol1.append(cardH3);
             cardA1.prepend(cardIcon2);
             cardA3.append(cardIcon1);
             cardA2.append(cardIcon);
-            cardCol2.append(cardA3, cardA2, cardA1);
+            cardA4.append(cardIcon3);
+            cardCol2.append(cardA3, cardA2, cardA1, cardA4);
             cardRow.append(cardCol1, cardCol2);
             cardBody.append(cardRow);
             cardDIV.append(cardBody);
             colDIV.append(cardDIV);
             rowDIV.append(colDIV);
         }
-        actualitzarCheckCartes();
+        actualitzarColorCartes();
     }
 
     function mostrarSeccions(idC) {
@@ -211,14 +210,14 @@ $(document).ready(function() {
         }
     }
 
-    function actualitzarCheckCartes() {
+    function actualitzarColorCartes() {
         var idCarta;
         for (var i = 0; i < cartes.length; i++) {
             idCarta = cartes[i].idCarta;
             if (cartes[i].actiu == 0) {
-                $("#chk" + idCarta).prop("checked", false);
+                $("#idC" + idCarta).css("background-color","#84878a");
             } else {
-                $("#chk" + idCarta).prop("checked", true);
+                $("#idC" + idCarta).css("background-color","#b0bcbf");
             }
         }
     }
@@ -227,7 +226,7 @@ $(document).ready(function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-
+                $("#idC" + idCarta).css("background-color","blue");
             }
         };
         xhttp.open("POST", api + "/carta/activate.php?idCarta=" + idCarta, true);
@@ -238,7 +237,7 @@ $(document).ready(function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-
+                $("#idC" + idCarta).css("background-color","#84878a");
             }
         };
         xhttp.open("POST", api + "/carta/desactivate.php?idCarta=" + idCarta, true);
@@ -325,16 +324,15 @@ $(document).ready(function() {
         afegirSeccio(nomSeccio, idCarta);
     });
 
-    $(document).on("change", ".estatCarta", function() {
+    $(document).on("click", ".estatCarta", function() {
         var idBoto = $(this).attr("id");
-        var idCarta = idBoto.substr(3, idBoto.length);
+        var idCarta = idBoto.substr(4, idBoto.length);
         getCarta(idCarta);
         if (carta.actiu == 1) {
             desactivarCarta(idCarta);
         } else {
             activarCarta(idCarta);
             desactivarAltresCartes(idCarta);
-            $('.estatCarta').not(this).prop('checked', false);
         }
     });
 

@@ -3,8 +3,8 @@ html {
 }
 
 .botons .btn {
-    margin-top: 8%;
-    margin-left: 1.5%;
+    margin-left: 1%;
+    margin-top: 1%;
 }
 
 .botonsSeccio .btn {
@@ -21,8 +21,8 @@ html {
 }
 
 @media (max-width: 767px) {
-    .col-md-6 {
-        margin-bottom: 6%;
+    .col-md-4 {
+        margin-bottom: 2%;
     }
 }
 
