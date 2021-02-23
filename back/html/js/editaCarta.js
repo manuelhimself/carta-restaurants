@@ -113,7 +113,7 @@ $(document).ready(function() {
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var rowCard = $("<div/>", { class: "row" });
             var colDivButton = $("<div/>", { class: "col-md-6 text-center botonsSeccio" });
-            var colDivH3 = $("<div/>", { class: "col-md-8 text-center my-auto" });
+            var colDivH3 = $("<div/>", { class: "col-md-6 text-center my-auto" });
             var cardH3 = $("<h3/>", { text: nom });
             var cardIcon1 = $("<i/>", { class: "fa fa-trash" });
             var cardA1 = $("<button/>", { type: "button", class: "editarSeccioNom btn", id: "edS" + id, idCarta: idCarta });
