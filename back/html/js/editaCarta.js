@@ -72,13 +72,22 @@ $(document).ready(function() {
             var cardA4 = $("<a/>", { type: "button", class: "estatCarta btn", id: "actC" + id });
             var cardA2 = $("<a/>", { class: "eliminarCarta btn", id: "elC" + id });
             var cardA3 = $("<button/>", { type: "button", class: "editarNomCarta btn", id: "edN" + id });
+            var abbrSeccions = $("<abbr/>", {title: "Mostrar seccions"});
+            var abbrEliminar = $("<abbr/>", {title: "Eliminar"});
+            var abbrModificar = $("<abbr/>", {title: "Editar"});
+            var abbrEstat = $("<abbr/>", {title: "Activar/Desactivar"});
 
             cardCol1.append(cardH3);
             cardA1.prepend(cardIcon2);
+            abbrSeccions.append(cardA1);
             cardA3.append(cardIcon1);
+            abbrModificar.append(cardA3);
             cardA2.append(cardIcon);
+            abbrEliminar.append(cardA2);
             cardA4.append(cardIcon3);
-            cardCol2.append(cardA3, cardA2, cardA1, cardA4);
+            abbrEstat.append(cardA4);
+
+            cardCol2.append(abbrModificar, abbrSeccions, abbrEliminar, abbrEstat);
             cardRow.append(cardCol1, cardCol2);
             cardBody.append(cardRow);
             cardDIV.append(cardBody);
@@ -121,12 +130,18 @@ $(document).ready(function() {
             var cardA3 = $("<a/>", { class: "eliminarSeccio btn", id: "elS" + id, idCarta: idCarta });
             var cardIcon2 = $("<i/>", { class: "fa fa-eye" });
             var cardIcon3 = $("<i/>", { class: "fa fa-edit" });
+            var abbrPlats = $("<abbr/>", {title: "Mostrar seccions"});
+            var abbrEliminar = $("<abbr/>", {title: "Eliminar"});
+            var abbrModificar = $("<abbr/>", {title: "Editar"});
 
             cardA1.append(cardIcon3);
+            abbrModificar.append(cardA1);
             cardA2.prepend(cardIcon2);
+            abbrPlats.append(cardA2);
             cardA3.append(cardIcon1);
+            abbrEliminar.append(cardA3);
             colDivH3.append(cardH3);
-            colDivButton.append(cardA1, cardA3, cardA2);
+            colDivButton.append(abbrModificar, abbrPlats, abbr2Eliminar);
             rowCard.append(colDivH3, colDivButton);
             cardBody.append(rowCard);
             cardDIV.append(cardBody);
