@@ -221,7 +221,7 @@ $(document).ready(function() {
             if (cartes[i].actiu == 0) {
                 $("#idC" + idCarta).css("background-color","#84878a");
             } else {
-                $("#idC" + idCarta).css("background-color","#b0bcbf");
+                $("#idC" + idCarta).css("background-color","#545658");
             }
         }
     }
@@ -230,7 +230,7 @@ $(document).ready(function() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                $("#idC" + idCarta).css("background-color","#b0bcbf");
+                $("#idC" + idCarta).css("background-color","#545658");
             }
         };
         xhttp.open("POST", api + "/carta/activate.php?idCarta=" + idCarta, true);
