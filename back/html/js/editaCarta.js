@@ -89,26 +89,30 @@ $(document).ready(function() {
     }
 
     function mostrarSeccions(idC) {
-        var divHead = $("<div/>");
-        var botoAfegirSeccio = $("<button/>", { type: "button", class: "btn", id: "afegirSeccio", idCarta: idC, text: "Afegir secció" });
+        var divRow = $("<div/>", {class: "row"});
+        var divColTitol = $("<div/>", {class: "col-md-8"});
+        var divColBoto = $("<div/>", {class: "col-md-4"});
+        var botoAfegirSeccio = $("<button/>", { type: "button", class: "btn float-right mt-2", id: "afegirSeccio", idCarta: idC, text: "Afegir secció" });
         getCarta(idC);
         var titol = $("<h3/>", { text: "Seccions de la carta " + carta.nom, id: "titol" });
-        divHead.append(titol, botoAfegirSeccio);
-        $("#seccions").html(divHead);
+        divColTitol.append(titol);
+        divColBoto.append(botoAfegirSeccio);
+        divRow.append(divColTitol, divColBoto);
+        $("#seccions").html(divRow);
         getSeccions(idC);
         for (var i = 0; i < seccions.length; i++) {
             var nom = seccions[i].nom;
             var id = seccions[i].idSeccio;
             var idCarta = seccions[i].idCarta;
-            if (i % 1 == 0) {
+            if (i % 2 == 0) {
                 var rowDIV = $("<div/>", { class: "row justify-content-center" });
                 $("#seccions").append(rowDIV);
             }
-            var colDIV = $("<div/>", { class: "col-md-8" });
+            var colDIV = $("<div/>", { class: "col-md-6" });
             var cardDIV = $("<div/>", { class: "card border-0 h-100", id: "idS" + id });
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var rowCard = $("<div/>", { class: "row" });
-            var colDivButton = $("<div/>", { class: "col-md-4 text-center botonsSeccio" });
+            var colDivButton = $("<div/>", { class: "col-md-6 text-center botonsSeccio" });
             var colDivH3 = $("<div/>", { class: "col-md-8 text-center my-auto" });
             var cardH3 = $("<h3/>", { text: nom });
             var cardIcon1 = $("<i/>", { class: "fa fa-trash" });
