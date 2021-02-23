@@ -100,14 +100,13 @@
 }
 
 .navbar{
-  background-color: #f4f4f6;
+  background-image: linear-gradient(#bfbfbf, #999 50%, #8f8f8f);
   background-repeat: no-repeat;
   height: 100px;
-  color: black !important;
 }
 
 body{
-  background-color: #ffffff;
+  background-color: #eaeff1;
 }
 
 .modal { /* posat per editarCarta i editarPlats */
@@ -138,13 +137,13 @@ body{
 
 .card { /* posat per editarCarta i editarPlats */
   color: #ffffff;
-  background-color: #e6e6e9;
+  background-color: #84878a;
   height: 100%;
   border-radius: 20px;
 }
 
 .btn { /* posat per editarCarta i editarPlats */
-  background-color: #9999a1;
+  background-color: #d35151;
   color: #FFFFFF;
   border:none;
   border-radius: 10px;
