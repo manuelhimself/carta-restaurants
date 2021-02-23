@@ -103,7 +103,7 @@
   background-color: #f4f4f6;
   background-repeat: no-repeat;
   height: 100px;
-  color: black;
+  color: black !important;
 }
 
 body{
