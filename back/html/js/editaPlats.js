@@ -35,7 +35,7 @@ $(document).ready(function() {
                 var seccio = JSON.parse(this.responseText);
                 var nom = seccio.nom;
                 titol.empty();
-                titol.text(nom);
+                titol.text("Plats de la secció " + nom);
             }
         };
         xhttp.open("POST", api + "/seccio/readByIdSeccio.php?idSeccio=" + idSeccio, false);
