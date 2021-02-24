@@ -32,9 +32,6 @@ html {
 }
 
 @media (min-width:768px) {
-    .row {
-        margin-bottom: 2%;
-    }
 
     .col-lg-4 {
         margin-bottom: 2%;
