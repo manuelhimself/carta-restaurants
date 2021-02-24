@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg sticky-top">
     <!--Logo-->
     <a class="navbar-brand" href="index.php">
-        <img id="logo" src="images/icon/logo.png" alt="Logo">
+        <img id="logo" src="images/icon/icone.png" alt="Logo">
         <script src="js/closeSesion.js"></script>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
