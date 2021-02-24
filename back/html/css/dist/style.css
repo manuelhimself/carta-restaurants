@@ -4,27 +4,28 @@
 }
 .realBtn :hover {
   transition: 0.5s;
-  background-color: #713b3b;
-}
-
-.btn-link {
-  color: #94bfbe;
+  color: lightslategray;
+  background-color: #94bfbe;
 }
 
 #edita-perfil {
   margin-right: 10px !important;
 }
 
+#edita-nom {
+  margin-left: 10px;
+}
+
 #logo {
-  height: 150px;
+  height: 60px;
 }
 
 .editClick {
-  background-color: none;
   color: #94bfbe;
 }
 .editClick :hover {
   color: #94bfbe;
+  transition: 0.5s;
 }
 
 #perfilContainer {
@@ -33,6 +34,29 @@
 
 #perfilCard {
   margin-top: 15px;
+}
+
+.establiment-title-div {
+  margin-top: 30px;
+}
+
+.establiment-description-div {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.action {
+  margin-top: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.card {
+  border: none !important;
 }
 
 #images {
@@ -69,13 +93,24 @@
   margin-bottom: 5px;
 }
 
+#imagesDiv {
+  background-color: white;
+}
+
+input[type=file] {
+  visibility: hidden;
+}
+
+label {
+  margin-bottom: 0px;
+}
+
 .checkbox {
   margin-right: 3px;
 }
 
 .footer {
-  background-image: linear-gradient(#bfbfbf, #999 50%, #8f8f8f);
-  background-repeat: no-repeat;
+  background: #414749;
   color: white;
 }
 
@@ -99,86 +134,28 @@
   border-top: 1px solid grey;
 }
 
-.navbar{
-  background-color: #f4f4f6;
-  background-repeat: no-repeat;
-  height: 100px;
-}
-
-.nav-link{
-  color: #76797c;
-}
-
-.nav-link:hover{
-  color: #76797c !important;
-}
-
-body{
-  background-color: #eaeff1;
-}
-
-.modal { /* posat per editarCarta i editarPlats */
+.modal {
   display: none;
   width: 100%;
   height: 100%;
 }
 
-.modal-content { /* posat per editarCarta i editarPlats */
+.modal-content {
   background-color: #84878a;
 }
 
-.modal-header { /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
-  color: #ffffff;
-}
-
-.modal-body { /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
-  color: #ffffff;
-  text-align: center;
-}
-
-.modal-footer { /* posat per editarCarta i editarPlats */
+.modal-header {
   background-color: #84878a;
   color: #ffffff;
 }
 
-.card { /* posat per editarCarta i editarPlats */
+.modal-body {
+  background-color: #84878a;
   color: #ffffff;
+  text-align: center !important;
+}
+
+.modal-footer {
   background-color: #84878a;
-  height: 100%;
-  border-radius: 20px;
-}
-
-.btn { /* posat per editarCarta i editarPlats */
-  background-color: #94bfbe;
-  color: #FFFFFF;
-  border:none;
-  border-radius: 10px;
-}
-
-a { /* posat per editarCarta i editarPlats */
-  color: #FFFFFF;
-}
-
-button:hover{ /* posat per editarCarta i editarPlats */
-  color: #FFFFFF !important;
-}
-
-a:hover{ /* posat per editarCarta i editarPlats */
-  color: #FFFFFF !important;
-}
-
-.btn-link.btn{
-  background-color: #84878a;
-  color: #94bfbe;
-}
-
-.btn-link.btn:hover{
-  background-color: #84878a;
-  color: #94bfbe !important;
-  text-decoration: none;
-}
-.btn-link.btn:focus{
-  text-decoration: none;
+  color: #ffffff;
 }
