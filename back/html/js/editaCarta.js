@@ -57,7 +57,7 @@ $(document).ready(function() {
                 var rowDIV = $("<div/>", { class: "row" });
                 $("#cartes").append(rowDIV);
             }
-            var colDIV = $("<div/>", { class: "col-md-4 col-sm-12" });
+            var colDIV = $("<div/>", { class: "col-md-6 col-lg-4 col-sm-12" });
             var cardDIV = $("<div/>", { class: "card border-0 h-100", id: "idC" + id });
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var cardRow = $("<div/>", { class: "row" });
