@@ -53,7 +53,7 @@ $(document).ready(function() {
         for (var i = 0; i < cartes.length; i++) {
             var nom = cartes[i].nom;
             var id = cartes[i].idCarta;
-            if (i % 3 == 0) {
+            if (i % 6 == 0) {
                 var rowDIV = $("<div/>", { class: "row" });
                 $("#cartes").append(rowDIV);
             }
