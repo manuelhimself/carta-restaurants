@@ -67,6 +67,7 @@ $(document).ready(function() {
             var cardIcon1 = $("<i/>", { class: "fa fa-edit" });
             var cardIcon2 = $("<i/>", { class: "fa fa-eye" });
             var cardIcon3 = $("<i/>", { class: "fa fa-power-off" });
+            var titolMoviment = $("<marquee/>", {direction: "left"});
             var cardH3 = $("<h5/>", { text: nom });
             var cardA1 = $("<a/>", { type: "button", class: "editarCarta btn", id: "edC" + id, href: "#seccions" });
             var cardA4 = $("<a/>", { type: "button", class: "estatCarta btn", id: "actC" + id });
@@ -77,7 +78,8 @@ $(document).ready(function() {
             var abbrModificar = $("<abbr/>", {title: "Editar"});
             var abbrEstat = $("<abbr/>", {title: "Activar/Desactivar"});
 
-            cardCol1.append(cardH3);
+            titolMoviment.append(cardH3);
+            cardCol1.append(titolMoviment);
             cardA1.prepend(cardIcon2);
             abbrSeccions.append(cardA1);
             cardA3.append(cardIcon1);
