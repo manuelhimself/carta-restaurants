@@ -1,7 +1,9 @@
-$(document).ready(function() {
+var estabCategNom = new Array();
+$(document).ready(function () {
     var establiment;
     var poblacions;
     var categories;
+    var estabPobNom;
     var id = sessionStorage.getItem("key");
 
     // comprova si sa sessio esta iniciada //
@@ -16,7 +18,7 @@ $(document).ready(function() {
     //Update profile functions
     function updateNom(nom) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 $("#nomEstabliment").text(nom);
             }
@@ -31,7 +33,7 @@ $(document).ready(function() {
 
     function updateDescripcio(descripcio) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 $("#descripcioEstabliment").text(descripcio);
             }
@@ -48,19 +50,20 @@ $(document).ready(function() {
         xhttp.send();
     }
 
-    function updateCategories(i) {
-        var categories = getCategories();
+    function updateCategories(categId) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {}
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Funciona per " + establiment.id + "-" + categId);
+            }
         };
         xhttp.open(
-            "POST",
+            "GET",
             api +
             "/establiment_categoria/insert.php?Establiment_id=" +
             establiment.id +
-            "&CategoriaId=" +
-            categories[i],
+            "&Categoria_id=" +
+            categId,
             false
         );
         xhttp.send();
@@ -68,8 +71,8 @@ $(document).ready(function() {
 
     function deleteCategories() {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {}
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) { }
         };
         xhttp.open(
             "POST",
@@ -85,8 +88,8 @@ $(document).ready(function() {
         var pobId = getPoblacioId();
         console.log(pobId);
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {}
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) { }
         };
         xhttp.open(
             "POST",
@@ -107,11 +110,12 @@ $(document).ready(function() {
     }
 
     function editaPerfil() {
-        var categories = getCategories();
-        //deleteCategories();
-        //for (var i = 0; i < categories.length; i++) {
-        //updateCategories(1);
-        //}
+        var categ = getCategories();
+        deleteCategories();
+        for (var i = 0; i < categ.length; i++) {
+            console.log(categ[i]);
+            updateCategories(categ[i]);
+        }
         updateOthers();
     }
 
@@ -127,7 +131,7 @@ $(document).ready(function() {
         for (var i = 1; i < categories.length + 1; i++) {
             var checkbox = $("#boxCateg" + i);
             var checkboxId = checkbox.attr("id").replace("boxCateg", "");
-            if (checkbox.attr("checked")) {
+            if (checkbox.is(":checked")) {
                 checkedboxes.push(checkboxId);
             }
         }
@@ -137,11 +141,9 @@ $(document).ready(function() {
     //Inicializer functions
 
     function getEstabliment(id) {
-        console.log(id);
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
                 establiment = JSON.parse(this.responseText);
             }
         };
@@ -151,7 +153,7 @@ $(document).ready(function() {
 
     function getPoblacions() {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 poblacions = JSON.parse(this.responseText);
             }
@@ -162,7 +164,7 @@ $(document).ready(function() {
 
     function getCategoriesFromDB() {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 categories = JSON.parse(this.responseText);
             }
@@ -172,6 +174,7 @@ $(document).ready(function() {
     }
 
     function placeEstablimentVars() {
+        console.log(establiment);
         $("#nomEstabliment").text(establiment.nom);
         for (var i = 1; i <= 5; i++) {
             var div = $("<div/>", { class: "image-upload" });
@@ -179,18 +182,18 @@ $(document).ready(function() {
                 enctype: "multipart/form-data",
                 action: "canviaFotoEstabliment.php",
                 method: "POST",
-                id: "form-" + establiment.id + "-" + i
+                id: "form-" + establiment.id + "-" + i,
             });
             var maxSizeFile = $("<input/>", {
                 type: "hidden",
                 name: "MAX_FILE_SIZE",
-                value: "3000000"
+                value: "3000000",
             });
             var imgName = $("<input/>", {
                 type: "hidden",
                 id: "input-name-" + establiment.id + "-" + i,
                 name: "filename",
-                value: establiment.id + "-" + i + ".jpg"
+                value: establiment.id + "-" + i + ".jpg",
             });
             var label = $("<label/>", {
                 for: "file-input-" + establiment.id + "-" + i,
@@ -198,7 +201,8 @@ $(document).ready(function() {
             var input = $("<input/>", {
                 type: "file",
                 id: "file-input-" + establiment.id + "-" + i,
-                name: "file"
+                name: "file",
+                style: "display: none",
             });
             input.attr("type", "file");
             var img = $("<img/>");
@@ -207,7 +211,10 @@ $(document).ready(function() {
                 "src",
                 "images/establiment/" + establiment.id + "-" + i + ".jpg"
             );
-            img.attr("onerror", "this.onerror=null; this.src='images/establiment/default.jpg'");
+            img.attr(
+                "onerror",
+                "this.onerror=null; this.src='images/establiment/default.jpg'"
+            );
             img.attr("alt", "Restaurant Image");
             label.append(img);
             form.append(maxSizeFile);
@@ -256,9 +263,8 @@ $(document).ready(function() {
 
             for (var j = 0; j < establiment.categories.length; j++) {
                 if (categories[i].id == establiment.categories[j]) {
+                    window.estabCategNom.push(categories[i].nom);
                     checkbox.attr("checked", "yes");
-                } else {
-                    checkbox.attr("checked", "no");
                 }
             }
 
@@ -266,34 +272,132 @@ $(document).ready(function() {
         }
     }
 
+
+    function mapStuff() {
+        document.getElementById("x").value = establiment.lat;
+        document.getElementById("y").value = establiment.lng;
+        if (establiment.lat == 0 && establiment.lng == 0) {
+            var map = L.map("map").setView(
+                [39.60017583077754, 2.9943578633572976],
+                9
+            );
+        } else {
+            var map = L.map("map").setView([establiment.lat, establiment.lng], 17);
+            L.marker([establiment.lat, establiment.lng]).addTo(map).bindPopup("Les cordenades del restaurant son (" + establiment.lat + ", " + establiment.lng + ")").openPopup();
+        }
+        var url = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+        L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18,
+        }).addTo(map);
+
+        var popup = L.popup();
+
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("Heu fet clic al mapa a " + e.latlng.toString())
+                .openOn(map);
+
+            var lat = e.latlng.lat.toString();
+            var lng = e.latlng.lng.toString();
+
+            document.getElementById("x").value = lat;
+            document.getElementById("y").value = lng;
+        }
+
+        map.on("click", onMapClick);
+
+        $("#b1").click(function () {
+            var lat = $("#x").val();
+            var lng = $("#y").val();
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    mark = this.responseText;
+                    alert(mark);
+                }
+            };
+            xhttp.open(
+                "POST",
+                api +
+                "/establiment/setCoordenades.php?lat=" +
+                lat +
+                "&lng=" +
+                lng +
+                "&id=" +
+                id,
+                true
+            );
+            xhttp.send();
+            location.reload();
+        });
+    }
+
+    mapStuff();
+
     //Execution
     placeEstablimentVars();
-    $(document).on("click", "#bEditaNom", function() {
+
+    estabPobNom = $("#localitat").children("option:selected").val();
+    var liPob = $("<li/>").html(
+        "<i class='fa fa-map-marker'></i> " + estabPobNom
+    );
+    var liTel = $("<li/>").html(
+        "<i class='fa fa-phone-alt'></i> " + establiment.telefon
+    );
+    var liEmail = $("<li/>").html(
+        "<i class='fa fa-envelope'></i> " + establiment.correu_electronic
+    );
+    var liNcomens = $("<li/>").html(
+        "<i class='fa fa-user'></i> " + establiment.num_comensals
+    );
+    var textEspecialitats = "<i class='fas fa-utensils'></i> ";
+    for (var i = 0; i < window.estabCategNom.length; i++) {
+        console.log(window.estabCategNom[i]);
+        if (i == window.estabCategNom.length - 1) {
+            textEspecialitats = textEspecialitats.concat(window.estabCategNom[i]);
+        } else {
+            textEspecialitats = textEspecialitats.concat(
+                window.estabCategNom[i] + ", "
+            );
+        }
+    }
+    var liEspecialitats = $("<li/>").html(textEspecialitats);
+    $("#altresEstabliment").append(liPob);
+    $("#altresEstabliment").append(liTel);
+    $("#altresEstabliment").append(liEmail);
+    $("#altresEstabliment").append(liNcomens);
+    $("#altresEstabliment").append(liEspecialitats);
+
+    $(document).on("click", "#bEditaNom", function () {
         var nom = $("#input-nom").val();
         updateNom(nom);
     });
-    $(document).on("click", "#bEditaDescripcio", function() {
+    $(document).on("click", "#bEditaDescripcio", function () {
         var descripcio = $("#input-descripcio").val();
         updateDescripcio(descripcio);
     });
     $(document).on("click", "#bEditaPerfil", function() {
         editaPerfil();
+        location.reload();
     });
-    $(".checkbox").click();
 
-    $("#file-input-" + establiment.id + "-1").on("change", function() {
+    $("#file-input-" + establiment.id + "-1").on("change", function () {
         $("#form-" + establiment.id + "-1").submit();
     });
-    $("#file-input-" + establiment.id + "-2").on("change", function() {
+    $("#file-input-" + establiment.id + "-2").on("change", function () {
         $("#form-" + establiment.id + "-2").submit();
     });
-    $("#file-input-" + establiment.id + "-3").on("change", function() {
+    $("#file-input-" + establiment.id + "-3").on("change", function () {
         $("#form-" + establiment.id + "-3").submit();
     });
-    $("#file-input-" + establiment.id + "-4").on("change", function() {
+    $("#file-input-" + establiment.id + "-4").on("change", function () {
         $("#form-" + establiment.id + "-4").submit();
     });
-    $("#file-input-" + establiment.id + "-5").on("change", function() {
+    $("#file-input-" + establiment.id + "-5").on("change", function () {
         $("#form-" + establiment.id + "-5").submit();
     });
 });

@@ -36,6 +36,11 @@ class establiment_categoria
 
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('ii', $this->Establiment_id, $this->Categoria_id);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
     }
 
     //GETTERS

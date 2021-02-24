@@ -36,7 +36,9 @@ while ($row = $result->fetch_assoc()){
         'num_comensals' => $row['num_comensals'],
         'telefon' => $row['telefon'],
 		'poblacio_id' => $row['Poblacio_id'],
-		'descripcio' => $row['descripcio']
+		'descripcio' => $row['descripcio'],
+        'lat' => $row['lat'],
+        'lng' => $row['lng']
     );
     array_push($categories_arr, $row['id_categoria']);
 }

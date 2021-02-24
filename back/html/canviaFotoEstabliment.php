@@ -15,7 +15,7 @@ if (isset($_FILES['file']['name']) && isset($_REQUEST['filename'])) {
 
       // file selection error
       echo "Please select a file to upload.";
-   } elseif ($_FILES["file"]["size"] > 200000) {
+   } elseif ($_FILES["file"]["size"] > 3000000) {
 
       // file size error
       echo "The file you are trying to upload is too large.";

@@ -14,6 +14,8 @@ class establiment
   private $poblacio_id;
   private $password;
   private $descripcio;
+  private $lat;
+  private $lng;
 
   //Constructor
   public function __construct($db)
@@ -35,7 +37,7 @@ class establiment
   public function readById()
   {
     $query = "SELECT categoria.id AS id_categoria, establiment.id, establiment.nom, establiment.correu_electronic, establiment.num_comensals, 
-    establiment.telefon, establiment.Poblacio_id, establiment.descripcio FROM categoria, categoria_establiment, establiment 
+    establiment.telefon, establiment.Poblacio_id, establiment.descripcio, establiment.lat, establiment.lng FROM categoria, categoria_establiment, establiment 
     WHERE categoria_establiment.Categoria_id = categoria.id AND categoria_establiment.Establiment_id = establiment.id AND establiment.id = ?";
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param('i', $this->id);
@@ -78,6 +80,20 @@ class establiment
       $this->password,
       $this->descripcio
     );
+  }
+
+  public function setCoordenades()
+  {
+    //die(var_dump($this->id));
+    $query = "UPDATE establiment SET lat = ?, lng = ? WHERE id = ?";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param('ddi', $this->lat, $this->lng, $this->id);
+
+    if ($stmt->execute()) {
+      return true;
+    }
+    return false;
   }
 
   // Update user
@@ -211,6 +227,18 @@ class establiment
     return $this->descripcio;
   }
 
+  //id
+  public function getLat()
+  {
+    return $this->lat;
+  }
+
+  //id
+  public function getLng()
+  {
+    return $this->lng;
+  }
+
 
   //SETTERS
 
@@ -260,5 +288,15 @@ class establiment
   public function setDescripcio($descripcio)
   {
     $this->descripcio = $descripcio;
+  }
+
+  public function setLat($lat)
+  {
+    $this->lat = $lat;
+  }
+
+  public function setLng($lng)
+  {
+    $this->lng = $lng;
   }
 }
