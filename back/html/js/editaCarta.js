@@ -61,8 +61,8 @@ $(document).ready(function() {
             var cardDIV = $("<div/>", { class: "card border-0 h-100", id: "idC" + id });
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var cardRow = $("<div/>", { class: "row" });
-            var cardCol1 = $("<div/>", { class: "col-4 my-auto" });
-            var cardCol2 = $("<div/>", { class: "col-8 text-center botons" });
+            var cardCol1 = $("<div/>", { class: "col-12 text-center my-auto" });
+            var cardCol2 = $("<div/>", { class: "col-12 text-center botons" });
             var cardIcon = $("<i/>", { class: "fa fa-trash" });
             var cardIcon1 = $("<i/>", { class: "fa fa-edit" });
             var cardIcon2 = $("<i/>", { class: "fa fa-eye" });
