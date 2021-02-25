@@ -92,10 +92,6 @@ li {
   margin-bottom: 5px;
 }
 
-#imagesDiv {
-  background-color: white;
-}
-
 input[type=file] {
   visibility: hidden;
 }

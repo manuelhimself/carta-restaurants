@@ -31,7 +31,7 @@ include_once 'navBar.php';
         <div class="card" id="perfilCard">
             <div>
                 <div class="wrapper row">
-                    <div class="col-md-6" id="imagesDiv">
+                    <div class="col-md-6">
                         <div class="nav" id="images">
                             <div class="row" id="bigPic">
                             </div>
@@ -69,7 +69,7 @@ include_once 'navBar.php';
         <div class="card" id="perfilCard">
             <div>
                 <div class="wrapper row">
-                    <div class="col-md-6" id="imagesDiv">
+                    <div class="col-md-6">
                         <div class="wrapper col-" id="map" style="width:100%;height:400px;margin:10px; float:left;"></div>
                     </div>
                     <div class="details col-md-6">
