@@ -15,12 +15,15 @@
   margin-right: 10px !important;
 }
 
+#edita-nom {
+  margin-left: 10px;
+}
+
 /*#logo {
   height: 100px;
 }*/
 
 .editClick {
-  background-color: none;
   color: #94bfbe;
 }
 .editClick :hover {
@@ -34,6 +37,26 @@
 #perfilCard {
   margin-top: 15px;
 }
+
+.establiment-title-div {
+  margin-top: 30px;
+}
+
+.establiment-description-div {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.action {
+  margin-top: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
 
 #images {
   padding-left: 0px !important;
@@ -69,6 +92,18 @@
   margin-bottom: 5px;
 }
 
+#imagesDiv {
+  background-color: white;
+}
+
+input[type=file] {
+  visibility: hidden;
+}
+
+label {
+  margin-bottom: 0px;
+}
+
 .checkbox {
   margin-right: 3px;
 }
@@ -82,10 +117,12 @@
 .links ul {
   list-style-type: none;
 }
+
 .links li a {
   color: white;
   transition: color 0.2s;
 }
+
 .links li a :hover {
   text-decoration: none;
   color: #94bfbe;
