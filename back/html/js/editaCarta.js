@@ -114,7 +114,7 @@ $(document).ready(function() {
             var id = seccions[i].idSeccio;
             var idCarta = seccions[i].idCarta;
             if (i % 2 == 0) {
-                var rowDIV = $("<div/>", { class: "row" });
+                var rowDIV = $("<div/>", { class: "row rowSeccions" });
                 $("#seccions").append(rowDIV);
             }
             var colDIV = $("<div/>", { class: "col-md-6" });
