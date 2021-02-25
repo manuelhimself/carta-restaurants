@@ -67,7 +67,7 @@ $(document).ready(function() {
             var cardIcon1 = $("<i/>", { class: "fa fa-edit" });
             var cardIcon2 = $("<i/>", { class: "fa fa-eye" });
             var cardIcon3 = $("<i/>", { class: "fa fa-power-off" });
-            var cardH3 = $("<h4/>", { text: nom });
+            var cardH3 = $("<h3/>", { text: nom });
             var cardA1 = $("<a/>", { type: "button", class: "editarCarta btn", id: "edC" + id, href: "#seccions" });
             var cardA4 = $("<a/>", { type: "button", class: "estatCarta btn", id: "actC" + id });
             var cardA2 = $("<a/>", { class: "eliminarCarta btn", id: "elC" + id });
