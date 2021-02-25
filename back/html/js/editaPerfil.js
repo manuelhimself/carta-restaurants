@@ -216,6 +216,7 @@ $(document).ready(function () {
                 "this.onerror=null; this.src='images/establiment/default.jpg'"
             );
             img.attr("alt", "Restaurant Image");
+            img.attr("class", "imgTopEsquerreRodona");
             label.append(img);
             form.append(maxSizeFile);
             form.append(imgName);

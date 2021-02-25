@@ -216,7 +216,11 @@ a:hover{ /* posat per editarCarta i editarPlats */
   text-decoration: none;
 }
 
-img{
+.imgRodona{
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+.imgTopEsquerreRodona{
+  border-top-left-radius: 5px;
 }
