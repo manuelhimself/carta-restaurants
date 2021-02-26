@@ -23,14 +23,15 @@
     <script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>
     <script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="icon" href="/images/icon/icon.png">
-    <script type="text/javascript" src="/js/reserves.js"></script>
+    <!-- <script type="text/javascript" src="/js/reserves.js"></script> -->
     <script src="/js/closeSesion.js"></script>
 
 
@@ -70,6 +71,102 @@ include_once 'navBar.php';
         <div class="col-md-6" id="svg"></div>
     </div>
 </body>
+<script>
+var reserves;
+var grafic;
+var taula;
+var id = sessionStorage.getItem('key');
+
+if (id == null) {
+    window.location.replace("iniciSesio.php");
+}
+
+function loadData() {
+    var d = $("#data").val();
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            reserves = JSON.parse(this.responseText);
+            taula = $("#reserva").DataTable({
+                data: reserves,
+                dom: "Bfrtip",
+                resposive: true,
+                buttons: ["copy", "excel", "pdf"],
+                columns: [{
+                        data: "nomUsuari",
+                    },
+                    {
+                        data: "hora",
+                    },
+                    {
+                        data: "comensals",
+                    },
+                ],
+                responsive: true,
+                order: [
+                    [1, "asc"]
+                ],
+                language: {
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Catalan.json",
+                },
+                select: true,
+                destroy: true,
+            });
+        }
+    };
+    xhttp.open("POST", "https://api.restaurat.me/controller/reserves/reserves.php?data=" + d + "&id=" + id, false);
+    xhttp.send();
+}
+
+
+var margin = { top: 30, right: 30, bottom: 70, left: 60 },
+            width = 460 - margin.left - margin.right,
+            height = 460 - margin.top - margin.bottom;
+
+        var svg = d3.select("#svg")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.json("https://api.restaurat.me/controller/reserves/graficReserves.php?id=" + id, function (data) {
+            data.sort(function (b, a) {
+                return a.Value - b.Value;
+            });
+
+            var x = d3.scaleBand()
+                .range([0, width])
+                .domain(data.map(function (d) { return d.mes; }))
+                .padding(0.2);
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                .attr("transform", "translate(-10,0)rotate(-45)")
+                .style("text-anchor", "end");
+
+            var y = d3.scaleLinear()
+                .domain([0, 100])
+                .range([height, 0]);
+            svg.append("g")
+                .call(d3.axisLeft(y));
+
+            svg.selectAll("mybar")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("x", function (d) { return x(d.mes); })
+                .attr("y", function (d) { return y(d.suma); })
+                .attr("width", x.bandwidth())
+                .attr("height", function (d) { return height - y(d.suma); })
+                .attr("fill", "#94bfbe")
+        })
+
+
+
+</script>
 
 <?php
 include_once 'footer.php';
