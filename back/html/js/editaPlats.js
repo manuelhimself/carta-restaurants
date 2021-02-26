@@ -160,6 +160,7 @@ $(document).ready(function() {
     function afegirCheckbox() {
         $(".checkbox").empty(); 
         var form = $(".checkbox");
+        form.text("Alergens:");
         for (var i = 0; i < alergens.length; i++) {
             var id = alergens[i].idAlergen;
             var nom = alergens[i].nom;
