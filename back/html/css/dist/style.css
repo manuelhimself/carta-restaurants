@@ -223,3 +223,8 @@ a:hover{ /* posat per editarCarta i editarPlats */
 #smallPics .image-upload:first-child form label img{
   border-bottom-left-radius: 20px;
 }
+
+#map{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
