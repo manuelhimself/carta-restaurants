@@ -49,7 +49,7 @@ include_once 'navBar.php';
                                     <input type="text" name="preuPlat" id="preuPlat">
                                 </div>
                                 <div class="col-4 offset-3">
-                                    <div class="checkbox ml-2"></div>
+                                    <div class="checkbox ml-3"></div>
                                 </div>
                             </div>
                         </form>
