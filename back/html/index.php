@@ -84,7 +84,7 @@ include_once 'navBar.php';
                                 <input type="text" class="form-control" id="y" value="0">
                             </div>
                             <div class="col-12">
-                                <button id="b1" class="btn realBtn float-right" style="margin-top: 10px;">Guardar</button>
+                                <button id="b1" class="btn realBtn float-right mb-2" style="margin-top: 10px;">Guardar</button>
                             </div>
                         </div>
                     </div>
