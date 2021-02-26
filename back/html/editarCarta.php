@@ -35,8 +35,12 @@ include_once 'navBar.php';
                     <div class="modal-body">
                         <form method="GET">
                             <input type="hidden" name="idSeccio" id="idSeccioForm">
-                            <label for="nomSeccioForm">Nom secció:</label><br>
-                            <input type="text" name="nomSeccio" id="nomSeccioForm">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="nomSeccioForm">Nom secció:</label><br>
+                                    <input type="text" name="nomSeccio" id="nomSeccioForm">
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -56,8 +60,11 @@ include_once 'navBar.php';
                     </div>
                     <div class="modal-body">
                         <form method="GET">
-                            <label for="nomCartaForm">Nom carta: </label><br>
-                            <input type="text" name="nomCarta" id="nomCartaForm">
+                            <div class="row">
+                                <div class="col-12"><label for="nomCartaForm">Nom carta: </label><br>
+                                    <input type="text" name="nomCarta" id="nomCartaForm">
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -76,8 +83,12 @@ include_once 'navBar.php';
                     </div>
                     <div class="modal-body">
                         <form method="GET">
-                            <label for="nomS">Nom secció: </label><br>
-                            <input type="text" name="nomSeccio" id="nomS">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="nomS">Nom secció: </label><br>
+                                    <input type="text" name="nomSeccio" id="nomS">
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -97,8 +108,12 @@ include_once 'navBar.php';
                     <div class="modal-body">
                         <form method="GET">
                             <input type="hidden" name="idSeccio" id="idCartaForm">
-                            <label for="nomC">Nom carta: </label><br>
-                            <input type="text" name="nomCarta" id="nomC">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="nomC">Nom carta: </label><br>
+                                    <input type="text" name="nomCarta" id="nomC">
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
