@@ -6,23 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/buttons/1.3.1/css/buttons.bootstrap4.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.7/css/select.bootstrap4.min.css" />
-    <link rel="stylesheet" href="/css/dist/style.css">
-    <!-- js -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>
-    <script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
 
 
@@ -51,7 +56,7 @@ include_once 'navBar.php';
                     <input type="date" id='data' class="form-control" name="data">
                 </div>
                 <div class="col-auto">
-                    <button class="btn mb-2" type="button" onclick="loadData();" id="consulta">Consulta</button>
+                    <button class="btn mb-2" type="button" id="consulta">Consulta</button>
                 </div>
             </form>
         </div>
@@ -63,7 +68,8 @@ include_once 'navBar.php';
                     <tr>
                         <th>Nom</th>
                         <th>Hora</th>
-                        <th>Pax</th>
+                        <th>comensals</th>
+                     
                     </tr>
                 </thead>
             </table>
@@ -73,50 +79,59 @@ include_once 'navBar.php';
 </body>
 <script>
 var reserves;
-var grafic;
-var taula;
-var id = sessionStorage.getItem('key');
+    var grafic;
+    var taula;
+    var id = sessionStorage.getItem('key');
 
-if (id == null) {
-    window.location.replace("iniciSesio.php");
-}
+    if (id == null) {
+        window.location.replace("iniciSesio.php");
+    }
 
-function loadData() {
-    var d = $("#data").val();
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            reserves = JSON.parse(this.responseText);
-            taula = $("#reserva").DataTable({
-                data: reserves,
-                dom: "Bfrtip",
-                resposive: true,
-                buttons: ["copy", "excel", "pdf"],
-                columns: [{
-                        data: "nomUsuari",
-                    },
-                    {
-                        data: "hora",
-                    },
-                    {
-                        data: "comensals",
-                    },
-                ],
-                responsive: true,
-                order: [
-                    [1, "asc"]
-                ],
-                language: {
-                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Catalan.json",
-                },
-                select: true,
-                destroy: true,
-            });
-        }
-    };
-    xhttp.open("POST", "https://api.restaurat.me/controller/reserves/reserves.php?data=" + d + "&id=" + id, false);
-    xhttp.send();
-}
+    function loadData() {
+        var d = $("#data").val();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                reserves = JSON.parse(this.responseText);
+            }
+        };
+        xhttp.open("POST", "https://api.restaurat.me/controller/reserves/reserves.php?data=" + d + "&id=" + id, false);
+        xhttp.send();
+    }
+
+    $(document).on("click", "#consulta", function () {
+        loadData();
+        var t = $('#reserva').DataTable({
+            data: reserves,
+            dom: "Bfrtip",
+            resposive: true,
+            buttons: ["copy", "excel", "pdf"],
+            columns: [
+                { data: "nomUsuari" },
+                { data: "hora" },
+                { data: "comensals" },
+
+            ],
+            language: {
+                url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Catalan.json"
+            },
+            order: [
+                [1, "asc"]
+            ],
+            responsive:true,
+            select: true,
+            destroy: true,
+
+            select: {
+                style: 'os',
+                items: 'row'
+            }
+        });
+        $('#b1').click(function () {
+            t.select.style('os');
+        });
+    });
+
 
 
 var margin = { top: 30, right: 30, bottom: 70, left: 60 },
