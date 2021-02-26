@@ -159,7 +159,9 @@ $(document).ready(function() {
 
     function afegirCheckbox() {
         $(".checkbox").empty();
+        var p = $("<p/>", {text: "Alergens: "});
         var form = $(".checkbox");
+        form.append(p);
         for (var i = 0; i < alergens.length; i++) {
             var id = alergens[i].idAlergen;
             var nom = alergens[i].nom;
