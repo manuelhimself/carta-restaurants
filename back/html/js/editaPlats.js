@@ -114,7 +114,7 @@ $(document).ready(function() {
             var cardDivP = $("<div/>");
             var cardDivBotons = $("<div/>", { class: "botons" });
             var cardInfo = $("<p/>", { class: "card-text font-italic" });
-            var spanPreu = $("<span/>", { text: 'Preu: ' + preu });
+            var spanPreu = $("<span/>", { text: 'Preu: ' + preu + "€" });
             var spanDescripcio = $("<span/>", { text: descripcio });
             var br = $("<br>");
             var cardH4 = $("<h4/>", { text: nom });
