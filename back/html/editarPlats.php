@@ -41,15 +41,15 @@ include_once 'navBar.php';
                                     <input type="text" name="nomPlat" id="nomPlat">
                                 </div>
                                 <div class="col-12">
-                                    <label for="descripcioPlat" class= "mt-2">Descripció plat:</label><br>
+                                    <label for="descripcioPlat" class="mt-2">Descripció plat:</label><br>
                                     <input type="text" name="descripcioPlat" id="descripcioPlat">
                                 </div>
                                 <div class="col-12">
-                                    <label for="preuPlat" class= "mt-2">Preu plat:</label><br>
+                                    <label for="preuPlat" class="mt-2">Preu plat:</label><br>
                                     <input type="text" name="preuPlat" id="preuPlat">
                                 </div>
                                 <div class="col-4 offset-3">
-                                    <div class="checkbox ml-3 text-left"></div>
+                                    <div class="checkbox ml-3 mt-2 text-left"></div>
                                 </div>
                             </div>
                         </form>
@@ -85,15 +85,23 @@ include_once 'navBar.php';
                     </div>
                     <div class="modal-body">
                         <form method="GET">
-                            <label for="nomPlat">Nom plat:</label><br>
-                            <input type="text" name="nomPlat" id="nomP">
-                            <br>
-                            <label for="descripcioPlat" class= "mt-2">Descripció plat:</label><br>
-                            <input type="text" name="descripcioPlat" id="descripcioP">
-                            <br>
-                            <label for="preuPlat" class= "mt-2">Preu plat:</label><br>
-                            <input type="text" name="preuPlat" id="preuP">
-                            <div class="checkbox"></div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="nomPlat">Nom plat:</label><br>
+                                    <input type="text" name="nomPlat" id="nomP">
+                                </div>
+                                <div class="col-12">
+                                    <label for="descripcioPlat" class="mt-2">Descripció plat:</label><br>
+                                    <input type="text" name="descripcioPlat" id="descripcioP">
+                                </div>
+                                <div class="col-12">
+                                    <label for="preuPlat" class="mt-2">Preu plat:</label><br>
+                                    <input type="text" name="preuPlat" id="preuP">
+                                </div>
+                                <div class="col-12">
+                                    <div class="checkbox ml-3 mt-2 text-left"></div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
