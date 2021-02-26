@@ -74,12 +74,15 @@ include_once 'navBar.php';
                     </div>
                     <div class="details col-md-6">
                         <h4 style="margin-top: 2%;">Coordenades :</h4>
-                        <div class="col-" style="margin-top: 10px;">
-                            <label for="inlineFormCustomSelect">Lat: </label>
-                            <input type="text" class="form-control col-4" id="x" value="0">
-
-                            <label for="inlineFormCustomSelect">Lng: </label>
-                            <input type="text" class="form-control col-4" id="y" value="0">
+                        <div class="row">
+                            <div class="col-md-6" style="margin-top: 10px;">
+                                <label for="inlineFormCustomSelect">Lat: </label>
+                                <input type="text" class="form-control" id="x" value="0">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inlineFormCustomSelect">Lng: </label>
+                                <input type="text" class="form-control" id="y" value="0">
+                            </div>
                             <button id="b1" class="btn realBtn" style="margin-top: 10px;">Guardar</button>
                         </div>
                     </div>
