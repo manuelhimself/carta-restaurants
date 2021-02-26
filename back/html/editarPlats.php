@@ -98,7 +98,7 @@ include_once 'navBar.php';
                                     <label for="preuPlat" class="mt-2">Preu plat:</label><br>
                                     <input type="text" name="preuPlat" id="preuP">
                                 </div>
-                                <div class="col-12">
+                                <div class="col-4 offset-3">
                                     <div class="checkbox ml-3 mt-2 text-left"></div>
                                 </div>
                             </div>
