@@ -164,8 +164,8 @@ $(document).ready(function() {
         for (var i = 0; i < alergens.length; i++) {
             var id = alergens[i].idAlergen;
             var nom = alergens[i].nom;
-            var checkbox = $("<input/>", { type: "checkbox", name: "idAlergens", value: nom, id: "chk" + id, class:"float-left mt-2" });
-            var label = $("<label>", { for: alergens[i].nom, text: alergens[i].nom, class:"float-left" });
+            var checkbox = $("<input/>", { type: "checkbox", name: "idAlergens", value: nom, id: "chk" + id, class:"mt-2" });
+            var label = $("<label>", { for: alergens[i].nom, text: alergens[i].nom});
             form.append("<br>", checkbox, label);
         }
     }
