@@ -158,7 +158,8 @@ $(document).ready(function() {
     }
 
     function afegirCheckbox() {
-        $(".checkbox").empty();
+        $(".checkbox").empty(); 
+        var form = $(".checkbox");
         for (var i = 0; i < alergens.length; i++) {
             var id = alergens[i].idAlergen;
             var nom = alergens[i].nom;
