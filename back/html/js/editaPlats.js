@@ -108,7 +108,7 @@ $(document).ready(function() {
             var cardDIV = $("<div/>", { class: "card rounded border-0 h-100", id: idPlat });
             var cardBody = $("<div/>", { class: "card-body p-4" });
             var divImg = $("<div/>", { class: "image-upload" });
-            var cardImg = $("<img/>", { class: "img-fluid d-block mx-auto mb-3 imgRodona", alt: "plat", src: "/images/plat/" + idPlat + ".jpg", onerror:"this.onerror=null", "this.src": "/images/plat/default.jpg"});
+            var cardImg = $("<img/>", { class: "img-fluid d-block mx-auto mb-3 imgRodona", alt: "plat", src: "/images/plat/" + idPlat + ".jpg", onerror:"this.onerror=null; this.src= '/images/plat/default.jpg'"});
             var cardIcon = $("<i/>", { class: "fa fa-trash" });
             var cardIcon1 = $("<i/>", { class: "fa fa-edit" });
             var cardDivP = $("<div/>");
