@@ -83,7 +83,9 @@ include_once 'navBar.php';
                                 <label for="inlineFormCustomSelect">Lng: </label>
                                 <input type="text" class="form-control" id="y" value="0">
                             </div>
-                            <button id="b1" class="btn realBtn" style="margin-top: 10px;">Guardar</button>
+                            <div class="col-12">
+                                <button id="b1" class="btn realBtn float-right" style="margin-top: 10px;">Guardar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
