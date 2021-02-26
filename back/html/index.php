@@ -70,7 +70,7 @@ include_once 'navBar.php';
             <div>
                 <div class="wrapper row">
                     <div class="col-md-6">
-                        <div class="wrapper col-" id="map" style="width:100%;height:400px;margin:10px; float:left;"></div>
+                        <div class="wrapper col-" id="map" style="width:100%;height:400px; float:left;"></div>
                     </div>
                     <div class="details col-md-6">
                         <h4 style="margin-top: 2%;">Coordenades :</h4>

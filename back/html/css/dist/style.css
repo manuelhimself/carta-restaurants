@@ -228,3 +228,11 @@ a:hover{ /* posat per editarCarta i editarPlats */
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
+
+@media (max-width: 767px) {
+  #map {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 20px;
+  }
+}
