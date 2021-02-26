@@ -35,15 +35,23 @@ include_once 'navBar.php';
                     <div class="modal-body">
                         <form method="GET">
                             <input type="hidden" name="idPlat" id="idPlat">
-                            <label for="nomPlat">Nom plat:</label><br>
-                            <input type="text" name="nomPlat" id="nomPlat">
-                            <br>
-                            <label for="descripcioPlat">Descripció plat:</label><br>
-                            <input type="text" name="descripcioPlat" id="descripcioPlat">
-                            <br>
-                            <label for="preuPlat">Preu plat:</label><br>
-                            <input type="text" name="preuPlat" id="preuPlat">
-                            <div class="checkbox"></div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="nomPlat">Nom plat:</label><br>
+                                    <input type="text" name="nomPlat" id="nomPlat">
+                                </div>
+                                <div class="col-12">
+                                    <label for="descripcioPlat">Descripció plat:</label><br>
+                                    <input type="text" name="descripcioPlat" id="descripcioPlat">
+                                </div>
+                                <div class="col-12">
+                                    <label for="preuPlat">Preu plat:</label><br>
+                                    <input type="text" name="preuPlat" id="preuPlat">
+                                </div>
+                                <div class="col-4 offset-3">
+                                    <div class="checkbox ml-2"></div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">

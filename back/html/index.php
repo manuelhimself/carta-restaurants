@@ -118,7 +118,7 @@ include_once 'navBar.php';
                 <!-- footer modal -->
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                    <button type="button" class="btn" data-dismiss="modal">Tancar</button>
                     <button id="bEditaNom" type="button" class="btn realBtn" data-dismiss="modal">Guardar</button>
                 </div>
             </div>
@@ -153,7 +153,7 @@ include_once 'navBar.php';
                 <!-- footer modal -->
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                    <button type="button" class="btn" data-dismiss="modal">Tancar</button>
                     <button id="bEditaNom" type="button" class="btn realBtn" data-dismiss="modal">Guardar</button>
                 </div>
             </div>
@@ -192,7 +192,7 @@ include_once 'navBar.php';
                 <!-- footer modal -->
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                    <button type="button" class="btn" data-dismiss="modal">Tancar</button>
                     <button id="bEditaDescripcio" type="button" class="btn realBtn" data-dismiss="modal">Guardar</button>
                 </div>
             </div>
@@ -257,7 +257,7 @@ include_once 'navBar.php';
                 <!-- footer modal -->
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                    <button type="button" class="btn" data-dismiss="modal">Tancar</button>
                     <button id="bEditaPerfil" type="button" class="btn realBtn" data-dismiss="modal">Guardar</button>
                 </div>
             </div>
