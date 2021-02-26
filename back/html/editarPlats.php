@@ -49,6 +49,7 @@ include_once 'navBar.php';
                                     <input type="text" name="preuPlat" id="preuPlat">
                                 </div>
                                 <div class="col-4 offset-3">
+                                    <p>Alergens:</p>
                                     <div class="checkbox ml-3"></div>
                                 </div>
                             </div>
