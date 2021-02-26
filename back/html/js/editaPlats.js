@@ -165,7 +165,7 @@ $(document).ready(function() {
             var id = alergens[i].idAlergen;
             var nom = alergens[i].nom;
             var checkbox = $("<input/>", { type: "checkbox", name: "idAlergens", value: nom, id: "chk" + id, class:"mt-2" });
-            var label = $("<label>", { for: alergens[i].nom, text: alergens[i].nom});
+            var label = $("<label>", { for: alergens[i].nom, text: alergens[i].nom, class: "mt-2"});
             form.append("<br>", checkbox, label);
         }
     }
