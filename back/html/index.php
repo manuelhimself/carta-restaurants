@@ -73,19 +73,19 @@ include_once 'navBar.php';
                         <div class="wrapper col-" id="map" style="width:100%;height:400px; float:left;"></div>
                     </div>
                     <div class="details col-md-6 my-auto">
-                        <div class="row" style="width: 95%;">
-                            <div class="col-12">
+                        <div class="row justify-content-center mr-2">
+                            <div class="col-12 offset-2">
                                 <h4>Coordenades :</h4>
                             </div>
-                            <div class="col-6">
+                            <div class="col-5">
                                 <label for="inlineFormCustomSelect">Lat: </label>
                                 <input type="text" class="form-control" id="x" value="0">
                             </div>
-                            <div class="col-6">
+                            <div class="col-5">
                                 <label for="inlineFormCustomSelect">Lng: </label>
                                 <input type="text" class="form-control" id="y" value="0">
                             </div>
-                            <div class="col-12">
+                            <div class="col-10">
                                 <button id="b1" class="btn realBtn float-right mt-3">Guardar</button>
                             </div>
                         </div>
