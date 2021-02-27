@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <title>Reserves</title>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,24 +62,26 @@ include_once 'navBar.php';
             </form>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6" id="taula">
-            <table id="reserva" class="table table-striped table-bordered" width="100%">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Hora</th>
-                        <th>comensals</th>
-                     
-                    </tr>
-                </thead>
-            </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="taula">
+                <table id="reserva" class="table table-striped table-bordered" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Hora</th>
+                            <th>comensals</th>
+
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="col-md-6" id="svg"></div>
         </div>
-        <div class="col-md-6" id="svg"></div>
     </div>
 </body>
 <script>
-var reserves;
+    var reserves;
     var grafic;
     var taula;
     var id = sessionStorage.getItem('key');
@@ -90,7 +93,7 @@ var reserves;
     function loadData() {
         var d = $("#data").val();
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 reserves = JSON.parse(this.responseText);
             }
@@ -99,17 +102,22 @@ var reserves;
         xhttp.send();
     }
 
-    $(document).on("click", "#consulta", function () {
+    $(document).on("click", "#consulta", function() {
         loadData();
         var t = $('#reserva').DataTable({
             data: reserves,
             dom: "Bfrtip",
             resposive: true,
             buttons: ["copy", "excel", "pdf"],
-            columns: [
-                { data: "nomUsuari" },
-                { data: "hora" },
-                { data: "comensals" },
+            columns: [{
+                    data: "nomUsuari"
+                },
+                {
+                    data: "hora"
+                },
+                {
+                    data: "comensals"
+                },
 
             ],
             language: {
@@ -118,7 +126,7 @@ var reserves;
             order: [
                 [1, "asc"]
             ],
-            responsive:true,
+            responsive: true,
             select: true,
             destroy: true,
 
@@ -127,60 +135,70 @@ var reserves;
                 items: 'row'
             }
         });
-        $('#b1').click(function () {
+        $('#b1').click(function() {
             t.select.style('os');
         });
     });
 
 
 
-var margin = { top: 30, right: 30, bottom: 70, left: 60 },
-            width = 460 - margin.left - margin.right,
-            height = 460 - margin.top - margin.bottom;
+    var margin = {
+            top: 30,
+            right: 30,
+            bottom: 70,
+            left: 60
+        },
+        width = 460 - margin.left - margin.right,
+        height = 460 - margin.top - margin.bottom;
 
-        var svg = d3.select("#svg")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")");
+    var svg = d3.select("#svg")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.json("https://api.restaurat.me/controller/reserves/graficReserves.php?id=" + id, function (data) {
-            data.sort(function (b, a) {
-                return a.Value - b.Value;
-            });
+    d3.json("https://api.restaurat.me/controller/reserves/graficReserves.php?id=" + id, function(data) {
+        data.sort(function(b, a) {
+            return a.Value - b.Value;
+        });
 
-            var x = d3.scaleBand()
-                .range([0, width])
-                .domain(data.map(function (d) { return d.mes; }))
-                .padding(0.2);
-            svg.append("g")
-                .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x))
-                .selectAll("text")
-                .attr("transform", "translate(-10,0)rotate(-45)")
-                .style("text-anchor", "end");
+        var x = d3.scaleBand()
+            .range([0, width])
+            .domain(data.map(function(d) {
+                return d.mes;
+            }))
+            .padding(0.2);
+        svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .attr("transform", "translate(-10,0)rotate(-45)")
+            .style("text-anchor", "end");
 
-            var y = d3.scaleLinear()
-                .domain([0, 100])
-                .range([height, 0]);
-            svg.append("g")
-                .call(d3.axisLeft(y));
+        var y = d3.scaleLinear()
+            .domain([0, 100])
+            .range([height, 0]);
+        svg.append("g")
+            .call(d3.axisLeft(y));
 
-            svg.selectAll("mybar")
-                .data(data)
-                .enter()
-                .append("rect")
-                .attr("x", function (d) { return x(d.mes); })
-                .attr("y", function (d) { return y(d.suma); })
-                .attr("width", x.bandwidth())
-                .attr("height", function (d) { return height - y(d.suma); })
-                .attr("fill", "#94bfbe")
-        })
-
-
-
+        svg.selectAll("mybar")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("x", function(d) {
+                return x(d.mes);
+            })
+            .attr("y", function(d) {
+                return y(d.suma);
+            })
+            .attr("width", x.bandwidth())
+            .attr("height", function(d) {
+                return height - y(d.suma);
+            })
+            .attr("fill", "#94bfbe")
+    })
 </script>
 
 <?php

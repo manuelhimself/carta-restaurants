@@ -212,7 +212,7 @@ include_once 'navBar.php';
                         <div class="row justify-content-center mt-2">
                             <div class="col-md-6 text-left">
                                 <span>Especialitats:</span>
-                                <fieldset id="especialitats">
+                                <fieldset id="especialitats" class="mt-1">
                                 </fieldset>
                             </div>
                         </div>
