@@ -235,6 +235,9 @@ a:hover{ /* posat per editarCarta i editarPlats */
     border-bottom-left-radius: 0px;
     border-top-right-radius: 20px;
   }
+  #bigPic div form label img{
+    border-top-right-radius: 20px;
+  }
 }
 
 .navbar-collapse{
