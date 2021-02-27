@@ -267,15 +267,15 @@ a:hover {
   color: #ffffff;
 }
 
-.page-item.active .page-link{
-  background-color: #94bfbe !important;
-  color: #ffffff;
-}
-
 .page-item.active{
+  background-color: #94bfbe !important;
   background-color: #ffffff !important;
 }
 
 .page-item{
   padding: 0 !important;
+}
+
+.page-item .page-link{
+padding: 0 !important;
 }
