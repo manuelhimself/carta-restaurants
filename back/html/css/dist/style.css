@@ -239,3 +239,7 @@ a:hover{ /* posat per editarCarta i editarPlats */
 .navbar-collapse{
   background-color: #f4f4f6;
 }
+
+.dt-button{
+  background-color: #94bfbe;
+}
