@@ -276,10 +276,6 @@ a:hover {
   background-color: #ffffff !important;
 }
 
-.page-item:hover{
-  background-color: #ffffff !important;
-}
-
-.page-item.active:hover{
-  background-color: #ffffff !important;
+.page-item{
+  padding: 0 !important;
 }
