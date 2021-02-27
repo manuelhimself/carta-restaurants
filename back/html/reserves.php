@@ -71,7 +71,7 @@ include_once 'navBar.php';
         </div>
 
         <div class="row">
-            <div class="col-md-4" id="taula">
+            <div class="col-md-8" id="taula">
                 <table id="reserva" class="table table-striped table-bordered" width="100%">
                     <thead>
                         <tr>
@@ -83,7 +83,7 @@ include_once 'navBar.php';
                     </thead>
                 </table>
             </div>
-            <div class="col-md-6" id="svg"></div>
+            <div class="col-md-4" id="svg"></div>
         </div>
     </div>
 </body>
