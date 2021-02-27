@@ -266,3 +266,12 @@ a:hover {
   background-color: #94bfbe;
   color: #ffffff;
 }
+
+.page-item.active .page-link{
+  background-color: #94bfbe !important;
+  color: #ffffff;
+}
+
+.page-item.active{
+  background-color: #eaeff1 !important;
+}
