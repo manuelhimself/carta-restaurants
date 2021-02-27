@@ -128,42 +128,6 @@ include_once 'navBar.php';
     </div>
 
 
-
-    <!-- Modal Edita nom -->
-    <div id="modalEditaNom" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- header modal -->
-
-                <div class="modal-header text-center border-0">
-                    <h4 class="modal-title" id="exampleModalLabel">Edita nom de l'establiment</h4>
-                </div>
-
-                <!-- body modal -->
-                <div class="modal-body">
-                    <form role="form" name="formEdita" action="edita.php" method="get">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Nom:</label>
-                                <input id="input-nom" type="text" class="form-control" name="nom">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- footer modal -->
-
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Tancar</button>
-                    <button id="bEditaNom" type="button" class="btn realBtn" data-dismiss="modal">Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
     <!-- Modal Edita Descripció -->
     <div id="modalEditaDescripcio" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -171,7 +135,7 @@ include_once 'navBar.php';
 
                 <!-- header modal -->
 
-                <div class="modal-header">
+                <div class="modal-header justify-content-center">
                     <h5 class="modal-title" id="exampleModalLabel">Edita descripció de l'establiment</h5>
                 </div>
 
@@ -181,10 +145,10 @@ include_once 'navBar.php';
 
                 <div class="modal-body">
                     <form role="form" name="formEdita" action="edita.php" method="get">
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10">
                                 <label>Descripció:</label>
-                                <textarea id="input-descripcio" type="text" class="form-control" name="descripcio"></textarea>
+                                <textarea id="input-descripcio" type="text" class="form-control" name="descripcio" style="height: 150px;"></textarea>
                             </div>
                         </div>
                     </form>
