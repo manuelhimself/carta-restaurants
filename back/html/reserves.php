@@ -51,21 +51,27 @@ include_once 'navBar.php';
     <div class="container-fluid">
         <h1 class="text-center">Reserves</h1>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <form class="form-inline">
                     <div class="form-check mb-2 mr-sm-2">
-                        <label for="consulta" class="form-date">Seleciona un dia</label><br>
-                        <input type="date" id='data' class="form-control" name="data">
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn mb-2" type="button" id="consulta">Consulta</button>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="consulta" class="form-date">Seleciona un dia</label><br>
+                            </div>
+                            <div class="col-3">
+                                <button class="btn mb-2" type="button" id="consulta">Consulta</button>
+                            </div>
+                            <div class="col-6">
+                                <input type="date" id='data' class="form-control" name="data">
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-6" id="taula">
+            <div class="col-md-4" id="taula">
                 <table id="reserva" class="table table-striped table-bordered" width="100%">
                     <thead>
                         <tr>
