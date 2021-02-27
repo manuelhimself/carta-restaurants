@@ -189,7 +189,7 @@ include_once 'navBar.php';
                                 </select>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center mt-2">
                             <div class="col-md-6">
                                 <label>Telefon:</label>
                                 <input name="telefon" id="telefon" class="form-control">
@@ -197,20 +197,20 @@ include_once 'navBar.php';
                                 </input>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center mt-2">
                             <div class="col-md-6">
                                 <label>Correu electrònic:</label>
                                 <input type="email" name="correu_electronic" id="correu_electronic" class="form-control"></select>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center mt-2">
                             <div class="col-md-6">
                                 <label>Nombre de comensals:</label>
                                 <input type="number" id="nComensals" name="nComensals" class="form-control">
                             </div>
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="col-md-6">
+                        <div class="row justify-content-center mt-2">
+                            <div class="col-md-6 text-left">
                                 <span>Especialitats:</span>
                                 <fieldset id="especialitats">
                                 </fieldset>
