@@ -56,7 +56,7 @@ include_once 'navBar.php';
                     <div class="form-check mb-2 mr-sm-2">
                         <div class="row">
                             <div class="col-12">
-                                <label for="consulta" class="form-date">Seleciona un dia</label><br>
+                                <span class="float-left">Seleciona un dia</span>
                             </div>
                             <div class="col-6">
                                 <input type="date" id='data' class="form-control" name="data">
