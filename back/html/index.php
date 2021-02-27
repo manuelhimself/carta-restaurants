@@ -56,7 +56,7 @@ include_once 'navBar.php';
                         </div>
                         <br>
                         <div class="action col-md-12">
-                            <button class="float-right btn realBtn mb-3" data-toggle="modal" data-target="#modalEditaPerfil" type="button" id="edita-perfil" style="margin-right: 10px">Edita perfil</button>
+                            <button class="float-right btn realBtn mb-3" data-toggle="modal" data-target="#modalEditaPerfil" type="button" id="edita-perfil">Edita perfil</button>
                         </div>
                     </div>
                 </div>
