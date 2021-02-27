@@ -279,3 +279,9 @@ a:hover {
 .page-item{
   padding: 0 !important;
 }
+
+@media screen and (max-width: 640px){
+  div.dt-buttons{
+    float:left !important;
+  }
+}
