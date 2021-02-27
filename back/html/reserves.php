@@ -94,7 +94,7 @@ include_once 'navBar.php';
     var id = sessionStorage.getItem('key');
 
     if (id == null) {
-        window.location.replace("iniciSesio.php");
+        window.location.replace("login.php");
     }
 
     function loadData() {
