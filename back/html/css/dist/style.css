@@ -242,4 +242,10 @@ a:hover{ /* posat per editarCarta i editarPlats */
 
 #reserva_wrapper .dt-buttons button{
   background-color: #94bfbe;
+  color: #ffffff;
+}
+
+#reserva_wrapper .dt-buttons button:hover{
+  background-color: #94bfbe;
+  color: #ffffff;
 }
