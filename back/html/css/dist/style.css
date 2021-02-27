@@ -279,3 +279,7 @@ a:hover {
 .page-item:hover{
   background-color: #ffffff !important;
 }
+
+.page-item.active:hover{
+  background-color: #ffffff !important;
+}
