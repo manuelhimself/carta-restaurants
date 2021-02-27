@@ -61,5 +61,6 @@ $(document).ready(function () {
     bootstrapValidate('#tlfn', 'numeric:Caracter no valid');
     bootstrapValidate('#pswd', 'Les contrasenyes han de coincidir!');
     bootstrapValidate('#pswdR', 'matches:#pswd:Les contrasenyes han de coincidir!');
+    $("#formulari").attr("action", api + "/establiment/addEstabliment.php");
 
 });

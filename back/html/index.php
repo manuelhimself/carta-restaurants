@@ -73,7 +73,7 @@ include_once 'navBar.php';
                         <div class="wrapper col-" id="map" style="width:100%;height:400px; float:left;"></div>
                     </div>
                     <div class="details col-md-6 my-auto">
-                        <div class="row justify-content-center mr-2">
+                        <div class="row justify-content-center mr-2 mt-2">
                             <div class="col-12 offset-2">
                                 <h4>Coordenades :</h4>
                             </div>
@@ -86,7 +86,7 @@ include_once 'navBar.php';
                                 <input type="text" class="form-control" id="y" value="0">
                             </div>
                             <div class="col-10">
-                                <button id="b1" class="btn realBtn float-right mt-3">Guardar</button>
+                                <button id="b1" class="btn realBtn float-right mt-3 mb-3">Guardar</button>
                             </div>
                         </div>
                     </div>
