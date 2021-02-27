@@ -282,6 +282,6 @@ a:hover {
 
 @media screen and (max-width: 640px){
   div.dt-buttons{
-    float:left !important;
+    text-align: left !important;
   }
 }
