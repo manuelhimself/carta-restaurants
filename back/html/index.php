@@ -183,33 +183,38 @@ include_once 'navBar.php';
                 <div class="modal-body">
                     <form role="form" name="formEdita" action="edita.php" method="get">
                         <div class="row justify-content-center">
-                            <div class="col-12">
+                            <div class="col-md-6">
                                 <label>Localitat:</label>
                                 <select name="localitat" id="localitat" class="form-control">
                                 </select>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <label>Telefon:</label>
-                            <input name="telefon" id="telefon" class="form-control">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <label>Telefon:</label>
+                                <input name="telefon" id="telefon" class="form-control">
 
-                            </input>
+                                </input>
+                            </div>
                         </div>
-
-                        <div class="col-12">
-                            <label>Correu electrònic:</label>
-                            <input type="email" name="correu_electronic" id="correu_electronic" class="form-control"></select>
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <label>Correu electrònic:</label>
+                                <input type="email" name="correu_electronic" id="correu_electronic" class="form-control"></select>
+                            </div>
                         </div>
-
-                        <div class="col-12">
-                            <label>Nombre de comensals:</label>
-                            <input type="number" id="nComensals" name="nComensals" class="form-control">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <label>Nombre de comensals:</label>
+                                <input type="number" id="nComensals" name="nComensals" class="form-control">
+                            </div>
                         </div>
-
-                        <div class="col-12">
-                            <span>Especialitats:</span>
-                            <fieldset id="especialitats">
-                            </fieldset>
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <span>Especialitats:</span>
+                                <fieldset id="especialitats">
+                                </fieldset>
+                            </div>
                         </div>
                     </form>
                 </div>
