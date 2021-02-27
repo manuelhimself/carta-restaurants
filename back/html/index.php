@@ -172,7 +172,7 @@ include_once 'navBar.php';
 
                 <!-- header modal -->
 
-                <div class="modal-header">
+                <div class="modal-header justify-content-center">
                     <h5 class="modal-title" id="exampleModalLabel">Edita establiment</h5>
                 </div>
 
@@ -182,39 +182,34 @@ include_once 'navBar.php';
 
                 <div class="modal-body">
                     <form role="form" name="formEdita" action="edita.php" method="get">
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
                                 <label>Localitat:</label>
                                 <select name="localitat" id="localitat" class="form-control">
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Telefon:</label>
-                                <input name="telefon" id="telefon" class="form-control">
+                        <div class="col-12">
+                            <label>Telefon:</label>
+                            <input name="telefon" id="telefon" class="form-control">
 
-                                </input>
-                            </div>
+                            </input>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Correu electrònic:</label>
-                                <input type="email" name="correu_electronic" id="correu_electronic" class="form-control"></select>
-                            </div>
+
+                        <div class="col-12">
+                            <label>Correu electrònic:</label>
+                            <input type="email" name="correu_electronic" id="correu_electronic" class="form-control"></select>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Nombre de comensals:</label>
-                                <input type="number" id="nComensals" name="nComensals" class="form-control">
-                            </div>
+
+                        <div class="col-12">
+                            <label>Nombre de comensals:</label>
+                            <input type="number" id="nComensals" name="nComensals" class="form-control">
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <span>Especialitats:</span>
-                                <fieldset id="especialitats">
-                                </fieldset>
-                            </div>
+
+                        <div class="col-12">
+                            <span>Especialitats:</span>
+                            <fieldset id="especialitats">
+                            </fieldset>
                         </div>
                     </form>
                 </div>
