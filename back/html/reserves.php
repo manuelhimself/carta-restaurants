@@ -55,14 +55,14 @@ include_once 'navBar.php';
                 <form class="form-inline">
                     <div class="form-check mb-2 mr-sm-2">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-12">
                                 <label for="consulta" class="form-date">Seleciona un dia</label><br>
-                            </div>
-                            <div class="col-3">
-                                <button class="btn mb-2" type="button" id="consulta">Consulta</button>
                             </div>
                             <div class="col-6">
                                 <input type="date" id='data' class="form-control" name="data">
+                            </div>
+                            <div class="col-3">
+                                <button class="btn mb-2" type="button" id="consulta">Consulta</button>
                             </div>
                         </div>
                     </div>
