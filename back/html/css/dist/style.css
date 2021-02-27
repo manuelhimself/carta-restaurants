@@ -273,5 +273,7 @@ a:hover {
 }
 
 .page-item{
+  background-color: #94bfbe !important;
+  background-color: #ffffff !important;
   padding: 0 !important;
 }
