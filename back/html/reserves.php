@@ -49,12 +49,12 @@ include_once 'navBar.php';
 
 <body>
     <div class="container-fluid">
-        <h1>Reserves</h1>
+        <h1 class="text-center">Reserves</h1>
         <div class="row">
             <div class="col-md-6">
                 <form class="form-inline">
                     <div class="form-check mb-2 mr-sm-2">
-                        <label for="consulta" class="form-date">Seleciona un dia</label>
+                        <label for="consulta" class="form-date">Seleciona un dia</label><br>
                         <input type="date" id='data' class="form-control" name="data">
                     </div>
                     <div class="col-auto">
