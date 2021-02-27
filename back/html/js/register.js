@@ -61,6 +61,6 @@ $(document).ready(function () {
     bootstrapValidate('#tlfn', 'numeric:Caracter no valid');
     bootstrapValidate('#pswd', 'Les contrasenyes han de coincidir!');
     bootstrapValidate('#pswdR', 'matches:#pswd:Les contrasenyes han de coincidir!');
-    $("#formulari").attr("action","https://api.restaurat.me//establiment/addEstabliment.php");
+    $("#formulari").attr("action","https://api.restaurat.me/controller/establiment/addEstabliment.php");
 
 });
