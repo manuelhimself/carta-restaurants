@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     var alergens;
     var alergensPlat;
     var idSeccio = sessionStorage.getItem('idSeccio');
@@ -8,7 +7,7 @@ $(document).ready(function() {
     var last_idPlat;
 
     if (idSeccio == null) {
-        window.location.replace("login.php");
+        window.location.replace('login.php');
     }
 
     setNomSeccioTitol(idSeccio);
@@ -20,25 +19,25 @@ $(document).ready(function() {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var seccio = JSON.parse(this.responseText);
-                $("#direccioPlats").text("Plats de la secció " + seccio.nom);
+                $('#direccioPlats').text('Plats de la secció ' + seccio.nom);
             }
         };
-        xhttp.open("POST", api + "/plat/readByIdSeccio.php?idSeccio=" + idSeccio, false);
+        xhttp.open('POST', api + '/plat/readByIdSeccio.php?idSeccio=' + idSeccio, false);
         xhttp.send();
     }
 
-    function setNomSeccioTitol(idSeccio){
+    function setNomSeccioTitol(idSeccio) {
         var xhttp = new XMLHttpRequest();
-        var titol = $("#titol");
+        var titol = $('#titol');
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var seccio = JSON.parse(this.responseText);
                 var nom = seccio.nom;
                 titol.empty();
-                titol.text("Plats de la secció " + nom);
+                titol.text('Plats de la secció ' + nom);
             }
         };
-        xhttp.open("POST", api + "/seccio/readByIdSeccio.php?idSeccio=" + idSeccio, false);
+        xhttp.open('POST', api + '/seccio/readByIdSeccio.php?idSeccio=' + idSeccio, false);
         xhttp.send();
     }
 
@@ -49,7 +48,7 @@ $(document).ready(function() {
                 alergens = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", api + "/alergen/read.php", false);
+        xhttp.open('POST', api + '/alergen/read.php', false);
         xhttp.send();
     }
 
@@ -58,8 +57,8 @@ $(document).ready(function() {
         for (a in alergens) {
             var nom = alergens[a].nom;
             var id = alergens[a].idAlergen;
-            var selectAlergen = $("<option/>", { value: id, text: nom });
-            $("#select").append(selectAlergen);
+            var selectAlergen = $('<option/>', { value: id, text: nom });
+            $('#select').append(selectAlergen);
         }
     }
 
@@ -70,7 +69,7 @@ $(document).ready(function() {
                 plats = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", api + "/plat/readByIdSeccio.php?idSeccio=" + idS, false);
+        xhttp.open('POST', api + '/plat/readByIdSeccio.php?idSeccio=' + idS, false);
         xhttp.send();
     }
 
@@ -81,14 +80,14 @@ $(document).ready(function() {
                 plats = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", api + "/plat/readByIdAlergen.php?idAlergen=" + idAlergen + "&idSeccio=" + idS, false);
+        xhttp.open('POST', api + '/plat/readByIdAlergen.php?idAlergen=' + idAlergen + '&idSeccio=' + idS, false);
         xhttp.send();
     }
 
     function mostraPlats() {
-        $("#plats").empty();
+        $('#plats').empty();
         var idS = idSeccio;
-        var idAlergen = $("#select").val();
+        var idAlergen = $('#select').val();
         if (idAlergen == 0) {
             totsPlats(idS);
         } else {
@@ -100,32 +99,69 @@ $(document).ready(function() {
             var descripcio = plats[i].descripcio;
             var preu = plats[i].preu;
             if (i % 3 == 0) {
-                var rowDIV = $("<div/>", { class: "row" });
-                $("#plats").append(rowDIV);
+                var rowDIV = $('<div/>', { class: 'row' });
+                $('#plats').append(rowDIV);
             }
 
-            var colDIV = $("<div/>", { class: "col-md-4" });
-            var cardDIV = $("<div/>", { class: "card rounded border-0 h-100", id: idPlat });
-            var cardBody = $("<div/>", { class: "card-body p-4" });
-            var divImg = $("<div/>", { class: "image-upload" });
-            var cardImg = $("<img/>", { class: "img-fluid d-block mx-auto mb-3 imgRodona", alt: "plat", src: "/images/plat/" + idPlat + ".jpg", onerror:"this.onerror=null; this.src= '/images/plat/default.jpg'"});
-            var cardIcon = $("<i/>", { class: "fa fa-trash" });
-            var cardIcon1 = $("<i/>", { class: "fa fa-edit" });
-            var cardDivP = $("<div/>");
-            var cardDivBotons = $("<div/>", { class: "botons" });
-            var cardInfo = $("<p/>", { class: "card-text font-italic" });
-            var spanPreu = $("<span/>", { text: 'Preu: ' + preu + "€" });
-            var spanDescripcio = $("<span/>", { text: descripcio });
-            var br = $("<br>");
-            var cardH4 = $("<h4/>", { text: nom });
-            var cardA1 = $("<button/>", { type: "button", class: "editarPlat btn", id: "edP" + idPlat, text: "Edita" });
-            var cardA2 = $("<a/>", { class: "eliminarPlat btn", id: "elP" + idPlat });
-            var labelFileInput = $("<label/>", { for: "file-input" });
+            var colDIV = $('<div/>', { class: 'col-md-4' });
+            var cardDIV = $('<div/>', { class: 'card rounded border-0 h-100', id: idPlat });
+            var cardBody = $('<div/>', { class: 'card-body p-4' });
+            var formImg = $('<form/>', {
+                id: 'form-' + idPlat,
+                enctype: 'multipart/form-data',
+                action: 'canviaFotoPlat.php',
+                method: 'POST',
+            });
+            var maxSizeFile = $('<input/>', {
+                type: 'hidden',
+                name: 'MAX_FILE_SIZE',
+                value: '3000000',
+            });
+            var imgName = $('<input/>', {
+                type: 'hidden',
+                id: 'input-name-' + idPlat,
+                name: 'filename',
+                value: idPlat + '.jpg',
+            });
+            var label = $('<label/>', {
+                for: 'file-input-' + idPlat,
+            });
+            var input = $('<input/>', {
+                type: 'file',
+                id: 'file-input-' + idPlat,
+                name: 'file',
+                style: 'display: none',
+                type: 'file',
+                class: 'file-input',
+            });
+            var divImg = $('<div/>', { class: 'image-upload' });
+            var cardImg = $('<img/>', {
+                id: 'pic' + idPlat,
+                class: 'img-fluid d-block mx-auto mb-3 imgRodona',
+                alt: 'plat',
+                src: '/images/plat/' + idPlat + '.jpg',
+                onerror: "this.onerror=null; this.src= '/images/plat/default.jpg'",
+            });
+            var cardIcon = $('<i/>', { class: 'fa fa-trash' });
+            var cardIcon1 = $('<i/>', { class: 'fa fa-edit' });
+            var cardDivP = $('<div/>');
+            var cardDivBotons = $('<div/>', { class: 'botons' });
+            var cardInfo = $('<p/>', { class: 'card-text font-italic' });
+            var spanPreu = $('<span/>', { text: 'Preu: ' + preu + '€' });
+            var spanDescripcio = $('<span/>', { text: descripcio });
+            var br = $('<br>');
+            var cardH4 = $('<h4/>', { text: nom });
+            var cardA1 = $('<button/>', { type: 'button', class: 'editarPlat btn', id: 'edP' + idPlat, text: 'Edita' });
+            var cardA2 = $('<a/>', { class: 'eliminarPlat btn', id: 'elP' + idPlat });
             cardA1.prepend(cardIcon1);
             cardA2.append(cardIcon);
             cardInfo.append(spanDescripcio, br, spanPreu);
-            labelFileInput.append(cardImg);
-            divImg.append(labelFileInput);
+            label.append(cardImg);
+            formImg.append(label);
+            formImg.append(maxSizeFile);
+            formImg.append(imgName);
+            formImg.append(input);
+            divImg.append(form);
             cardDivBotons.append(cardA2, cardA1);
             cardDivP.append(cardInfo);
             cardBody.append(cardH4, cardDivP, cardDivBotons);
@@ -142,7 +178,7 @@ $(document).ready(function() {
                 mostraPlats();
             }
         };
-        xhttp.open("POST", api + "/plat/delete.php?idPlat=" + idPlat, false);
+        xhttp.open('POST', api + '/plat/delete.php?idPlat=' + idPlat, false);
         xhttp.send();
     }
 
@@ -153,20 +189,30 @@ $(document).ready(function() {
                 mostraPlats();
             }
         };
-        xhttp.open("POST", api + "/plat/update.php?idPlat=" + idPlat + "&nom=" + nom + "&descripcio=" + descripcio + "&preu=" + preu, false);
+        xhttp.open(
+            'POST',
+            api + '/plat/update.php?idPlat=' + idPlat + '&nom=' + nom + '&descripcio=' + descripcio + '&preu=' + preu,
+            false
+        );
         xhttp.send();
     }
 
     function afegirCheckbox() {
-        $(".checkbox").empty(); 
-        var form = $(".checkbox");
-        form.text("Alergens:");
+        $('.checkbox').empty();
+        var form = $('.checkbox');
+        form.text('Alergens:');
         for (var i = 0; i < alergens.length; i++) {
             var id = alergens[i].idAlergen;
             var nom = alergens[i].nom;
-            var checkbox = $("<input/>", { type: "checkbox", name: "idAlergens", value: nom, id: "chk" + id, class:"mt-2" });
-            var label = $("<label>", { for: alergens[i].nom, text: alergens[i].nom, class: "mt-1"});
-            form.append("<br>", checkbox, label);
+            var checkbox = $('<input/>', {
+                type: 'checkbox',
+                name: 'idAlergens',
+                value: nom,
+                id: 'chk' + id,
+                class: 'mt-2',
+            });
+            var label = $('<label>', { for: alergens[i].nom, text: alergens[i].nom, class: 'mt-1' });
+            form.append('<br>', checkbox, label);
         }
     }
 
@@ -177,7 +223,7 @@ $(document).ready(function() {
                 alergensPlat = JSON.parse(this.responseText);
             }
         };
-        xhttp.open("POST", api + "/alergen/readByIdPlat.php?idPlat=" + idPlat, false);
+        xhttp.open('POST', api + '/alergen/readByIdPlat.php?idPlat=' + idPlat, false);
         xhttp.send();
     }
 
@@ -187,7 +233,7 @@ $(document).ready(function() {
             for (var j = 0; j < alergensPlat.length; j++) {
                 var idAlergen = alergensPlat[j].idAlergen;
                 if (alergens[i].idAlergen == alergensPlat[j].idAlergen) {
-                    $("#chk" + idAlergen).prop("checked", true);
+                    $('#chk' + idAlergen).prop('checked', true);
                 }
             }
         }
@@ -196,11 +242,9 @@ $(document).ready(function() {
     function eliminarAlergensPlat(idPlat) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-
-            }
+            if (this.readyState == 4 && this.status == 200) {}
         };
-        xhttp.open("POST", api + "/alergen/deleteAllAlergenByIdPlat.php?idPlat=" + idPlat, false);
+        xhttp.open('POST', api + '/alergen/deleteAllAlergenByIdPlat.php?idPlat=' + idPlat, false);
         xhttp.send();
     }
 
@@ -212,7 +256,19 @@ $(document).ready(function() {
                 last_idPlat = plat.id;
             }
         };
-        xhttp.open("POST", api + "/plat/createPlat.php?nom=" + nom + "&descripcio=" + descripcio + "&preu=" + preu + "&idSeccio=" + idS, false);
+        xhttp.open(
+            'POST',
+            api +
+            '/plat/createPlat.php?nom=' +
+            nom +
+            '&descripcio=' +
+            descripcio +
+            '&preu=' +
+            preu +
+            '&idSeccio=' +
+            idS,
+            false
+        );
         xhttp.send();
     }
 
@@ -221,77 +277,80 @@ $(document).ready(function() {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {}
         };
-        xhttp.open("POST", api + "/plat/createAlergenPlat.php?idPlat=" + idPlat + "&idAlergen=" + idAlergen, false);
+        xhttp.open('POST', api + '/plat/createAlergenPlat.php?idPlat=' + idPlat + '&idAlergen=' + idAlergen, false);
         xhttp.send();
     }
 
     function cambiarFile(idCard) {
         const input = document.getElementById('file-input');
-        $("#" + idCard + " div label img").attr("src", "../images/plat/" + input.files[0].name);
+        $('#' + idCard + ' div label img').attr('src', '../images/plat/' + input.files[0].name);
     }
 
-    $(document).on("change", "#select", function() {
-        $("#select option[value=0]").text("Tots els plats");
+    $(document).on('change', '#select', function() {
+        $('#select option[value=0]').text('Tots els plats');
         mostraPlats();
     });
 
-    $(document).on("click", ".eliminarPlat", function() {
-        var idBoto = $(this).attr("id");
+    $(document).on('click', '.eliminarPlat', function() {
+        var idBoto = $(this).attr('id');
         idP = idBoto.substr(3, idBoto.length);
-        $("#modal2").modal("toggle");
+        $('#modal2').modal('toggle');
     });
 
-    $(document).on("click", "#esborrarPlat", function() {
+    $(document).on('click', '#esborrarPlat', function() {
         eliminarPlat(idP);
     });
 
-    $(document).on("click", ".editarPlat", function() {
+    $(document).on('click', '.editarPlat', function() {
         afegirCheckbox();
-        var idBoto = $(this).attr("id");
+        var idBoto = $(this).attr('id');
         idP = idBoto.substr(3, idBoto.length);
         checkAlergens(idP);
-        var nomP = $("#" + idP + " div h4").text();
-        var desc = $("#" + idP + " div p").find("span:eq(0)").text();
-        var textPreu = $("#" + idP + " div div p").find("span:eq(1)").text();
+        var nomP = $('#' + idP + ' div h4').text();
+        var desc = $('#' + idP + ' div p')
+            .find('span:eq(0)')
+            .text();
+        var textPreu = $('#' + idP + ' div div p')
+            .find('span:eq(1)')
+            .text();
         var preu = textPreu.substr(6, textPreu.length);
-        $("#modal1").modal("toggle");
-        $("#idPlat").val(idP);
-        $("#nomPlat").val(nomP);
-        $("#descripcioPlat").val(desc);
-        $("#preuPlat").val(preu);
+        $('#modal1').modal('toggle');
+        $('#idPlat').val(idP);
+        $('#nomPlat').val(nomP);
+        $('#descripcioPlat').val(desc);
+        $('#preuPlat').val(preu);
     });
 
-    $(document).on("click", "#edita", function() {
-        var nom = $("#nomPlat").val();
-        idP = $("#idPlat").val();
-        var preu = $("#preuPlat").val();
-        var descripcio = $("#descripcioPlat").val();
+    $(document).on('click', '#edita', function() {
+        var nom = $('#nomPlat').val();
+        idP = $('#idPlat').val();
+        var preu = $('#preuPlat').val();
+        var descripcio = $('#descripcioPlat').val();
         modificarPlat(idP, nom, descripcio, preu);
         var alergensChecked = Array();
-        $("input:checkbox[name=idAlergens]:checked").each(function() {
-            alergensChecked.push($(this).attr("id").substr(3, $(this).attr("id").length));
+        $('input:checkbox[name=idAlergens]:checked').each(function() {
+            alergensChecked.push($(this).attr('id').substr(3, $(this).attr('id').length));
         });
         eliminarAlergensPlat(idP);
         for (var i = 0; i < alergensChecked.length; i++) {
             var idAlergen = alergensChecked[i];
             afegirAlergenPlat(idAlergen, idP);
         }
-
     });
 
-    $(document).on("click", "#afegirPlat", function() {
+    $(document).on('click', '#afegirPlat', function() {
         afegirCheckbox();
-        $("#modal3").modal("toggle");
+        $('#modal3').modal('toggle');
     });
 
-    $(document).on("click", "#afegir", function() {
-        var nom = $("#nomP").val();
-        var descripcio = $("#descripcioP").val();
-        var preu = $("#preuP").val();
+    $(document).on('click', '#afegir', function() {
+        var nom = $('#nomP').val();
+        var descripcio = $('#descripcioP').val();
+        var preu = $('#preuP').val();
         afegirPlat(nom, descripcio, preu, idSeccio);
         var alergensChecked = Array();
-        $("input:checkbox[name=idAlergens]:checked").each(function() {
-            alergensChecked.push($(this).attr("id").substr(3, $(this).attr("id").length));
+        $('input:checkbox[name=idAlergens]:checked').each(function() {
+            alergensChecked.push($(this).attr('id').substr(3, $(this).attr('id').length));
         });
         for (var i = 0; i < alergensChecked.length; i++) {
             var idAlergen = alergensChecked[i];
@@ -300,8 +359,11 @@ $(document).ready(function() {
         mostraPlats();
     });
 
-    $(document).on("change", "#file-input", function() {
+    $(document).on('change', '#file-input', function() {
         cambiarFile(59);
     });
 
+    $('.file-input').on('change', function() {
+        $(this).parent().submit();
+    });
 });
