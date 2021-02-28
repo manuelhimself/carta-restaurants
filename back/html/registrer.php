@@ -29,7 +29,7 @@ include_once 'navbarLoginRegister.php';
             <div class="row justify-content-center">
                 <div class="col-md-8 col-sm-12 mt-2" id="contenidor">
                     <h2 class="mt-2">Registre</h2>
-                    <form method="POST" id="formulari" >
+                    <form method="POST" id="formulari" action="https://api.restaurat.me/controller/establiment/addEstabliment.php">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Nom restaurant</label>
