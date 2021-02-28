@@ -42,9 +42,6 @@ if($conn->query($sql) === TRUE){
 
   }
 } else {
-      echo "<script> 
-      alert('No ha estat posible el registre'); 
-      window.location.replace('https://admin.restaurat.me/registrer.php'); 
-      </script>"; 
+  header("location:https://admin.restaurat.me/registrer.php");
 }
 ?>
