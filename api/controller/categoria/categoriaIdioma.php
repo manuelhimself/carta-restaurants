@@ -13,7 +13,16 @@ inner join traduccio_categoria tc on tc.id_categoria = c.id
 inner join llenguatge l on l.id = tc.id_llenguatge and l.nom = '$idioma' ");
 $select -> execute();
 $resultat = $select->get_result();
-$mostrar = $resultat->fetch_all(MYSQLI_ASSOC);
 
-echo json_encode($mostrar);
+$traduccions = array();
+
+while ($row = $result->fetch_assoc()) {
+    $traduccionActual = array(
+        'id' => $row['id'],
+        'nom' => $row['nom'],
+    );
+    array_push($traduccions, $traduccionActual);
+}
+
+echo json_encode($traduccions);
 ?>
