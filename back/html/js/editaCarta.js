@@ -268,7 +268,7 @@ $(document).ready(function() {
         var idCarta = idBoto.substr(3, idBoto.length);
         mostrarSeccions(idCarta);
         var altura = $("#cartes").height();
-        window.scrollTo(0,altura+100);
+        window.scrollTo(0,altura+90);
     });
 
     $(document).on("click", ".eliminarSeccio", function() {
