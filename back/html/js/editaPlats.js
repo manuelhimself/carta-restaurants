@@ -161,7 +161,7 @@ $(document).ready(function() {
             formImg.append(maxSizeFile);
             formImg.append(imgName);
             formImg.append(input);
-            divImg.append(form);
+            divImg.append(formImg);
             cardDivBotons.append(cardA2, cardA1);
             cardDivP.append(cardInfo);
             cardBody.append(cardH4, cardDivP, cardDivBotons);
