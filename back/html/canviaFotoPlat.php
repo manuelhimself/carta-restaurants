@@ -9,7 +9,7 @@ if (isset($_FILES['file']['name']) && isset($_REQUEST['filename'])) {
 
    if (in_array($file_ext, $allowed_file_types)) {
       if (move_uploaded_file($_FILES["file"]["tmp_name"],  getcwd() . $dir . $newfilename)) {
-         header("Location: index.php");
+         header("Location: editarPlats.php");
       };
    } elseif (empty($file_basename)) {
 
