@@ -21,13 +21,17 @@ $conn = new mysqli("localhost","root","password","restaurat");
    
 $sql="SELECT distinct establiment.nom as nom, establiment.lat as lat , establiment.lng as lng, establiment.id as id, establiment.correu_electronic, poblacio.nom as p, establiment.telefon
 FROM establiment, categoria_establiment, categoria, poblacio where establiment.id = categoria_establiment.Establiment_id
-and categoria_establiment.Categoria_id = categoria.id and establiment.Poblacio_id = poblacio.id";  
+and categoria_establiment.Categoria_id = categoria.id and establiment.Poblacio_id = poblacio.id ";  
 
 if ( !empty($categoria) ) {
    $sql = $sql . "and categoria.id =". $categoria ; 
 }
 if ( !empty($poblacio) ){
    $sql = $sql ." and poblacio.id =". $poblacio;
+}
+if ( !empty($nom) )
+{
+   $sql = $sql . " and establiment.nom like '%" . $nom . "%'"; 
 }
 
 
