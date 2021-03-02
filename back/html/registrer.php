@@ -13,8 +13,8 @@
     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
     <link rel="stylesheet" href="/css/dist/register.css">
     <link rel="stylesheet" href="/css/dist/style.css">
-    <!--<script src="js/register.js"></script>
-    <script src="js/api.js"></script>-->
+    <!--<script src="js/register.js"></script>-->
+    <script src="js/api.js"></script>
 
 </head>
 
