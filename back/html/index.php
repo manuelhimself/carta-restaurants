@@ -86,7 +86,7 @@ include_once 'navBar.php';
                                 <input type="text" class="form-control" id="y" value="0">
                             </div>
                             <div class="col-10">
-                                <button id="b1" class="btn realBtn float-right mt-3 mb-3">Guardar</button>
+                                <button id="b1" class="btn realBtn float-right mt-3 mb-3">Desa</button>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@ include_once 'navBar.php';
 
                 <div class="modal-footer">
                     <button type="button" class="btn" data-dismiss="modal">Tancar</button>
-                    <button id="bEditaNom" type="button" class="btn realBtn" data-dismiss="modal">Guardar</button>
+                    <button id="bEditaNom" type="button" class="btn realBtn" data-dismiss="modal">Desa</button>
                 </div>
             </div>
         </div>
@@ -159,7 +159,7 @@ include_once 'navBar.php';
 
                 <div class="modal-footer">
                     <button type="button" class="btn" data-dismiss="modal">Tancar</button>
-                    <button id="bEditaDescripcio" type="button" class="btn realBtn" data-dismiss="modal">Guardar</button>
+                    <button id="bEditaDescripcio" type="button" class="btn realBtn" data-dismiss="modal">Desa</button>
                 </div>
             </div>
         </div>
@@ -224,7 +224,7 @@ include_once 'navBar.php';
 
                 <div class="modal-footer">
                     <button type="button" class="btn" data-dismiss="modal">Tancar</button>
-                    <button id="bEditaPerfil" type="button" class="btn realBtn" data-dismiss="modal">Guardar</button>
+                    <button id="bEditaPerfil" type="button" class="btn realBtn" data-dismiss="modal">Desa</button>
                 </div>
             </div>
         </div>
