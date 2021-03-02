@@ -120,7 +120,7 @@ include_once 'navBar.php';
                 <!-- footer modal -->
 
                 <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Tancar</button>
+                    <button type="button" class="btn" data-dismiss="modal">Tanca</button>
                     <button id="bEditaNom" type="button" class="btn realBtn" data-dismiss="modal">Desa</button>
                 </div>
             </div>
@@ -158,7 +158,7 @@ include_once 'navBar.php';
                 <!-- footer modal -->
 
                 <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Tancar</button>
+                    <button type="button" class="btn" data-dismiss="modal">Tanca</button>
                     <button id="bEditaDescripcio" type="button" class="btn realBtn" data-dismiss="modal">Desa</button>
                 </div>
             </div>
@@ -223,7 +223,7 @@ include_once 'navBar.php';
                 <!-- footer modal -->
 
                 <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Tancar</button>
+                    <button type="button" class="btn" data-dismiss="modal">Tanca</button>
                     <button id="bEditaPerfil" type="button" class="btn realBtn" data-dismiss="modal">Desa</button>
                 </div>
             </div>
