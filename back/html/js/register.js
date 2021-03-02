@@ -16,7 +16,7 @@ $(document).ready(function () {
                 }
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/poblacio/poblacio.php", true);
+        xhttp.open("POST", api + "/poblacio/poblacio.php", true);
         xhttp.send();
     }
 
@@ -48,7 +48,7 @@ $(document).ready(function () {
                 }
             }
         };
-        xhttp.open("GET", "https://api.restaurat.me/controller/categoria/categoria.php", true);
+        xhttp.open("POST", api + "/categoria/categoria.php", true);
         xhttp.send();
     }
 
@@ -61,6 +61,6 @@ $(document).ready(function () {
     bootstrapValidate('#tlfn', 'numeric:Caracter no valid');
     bootstrapValidate('#pswd', 'Les contrasenyes han de coincidir!');
     bootstrapValidate('#pswdR', 'matches:#pswd:Les contrasenyes han de coincidir!');
-    /*$("#formulari").attr("action","https://api.restaurat.me/controller/establiment/addEstabliment.php");*/
+    $("#formulari").attr("action", api + "/establiment/addEstabliment.php");
 
 });
