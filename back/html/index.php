@@ -229,7 +229,6 @@ include_once 'navBar.php';
             </div>
         </div>
     </div>
-    <a href="email.php">Email</a>
 </body>
 
 <?php
