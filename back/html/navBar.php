@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Niconne">
 <nav class="navbar navbar-expand-lg navbar-light sticky-top">
     <!--Logo-->
     <a class="navbar-brand" href="index.php">

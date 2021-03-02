@@ -1,19 +1,19 @@
 .realBtn {
-  background-color: #94bfbe;
-  color: white !important;
+	background-color: #94bfbe;
+	color: white !important;
 }
 
 .realBtn :hover {
-  transition: 0.5s;
-  background-color: #94bfbe;
+	transition: 0.5s;
+	background-color: #94bfbe;
 }
 
 .btn-link {
-  color: #94bfbe;
+	color: #94bfbe;
 }
 
 #edita-nom {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
 /*#logo {
@@ -21,267 +21,268 @@
 }*/
 
 .editClick {
-  color: #94bfbe;
+	color: #94bfbe;
 }
 
 .editClick :hover {
-  color: #94bfbe;
+	color: #94bfbe;
 }
 
 #perfilContainer {
-  margin-top: 60px;
+	margin-top: 60px;
 }
 
 #perfilCard {
-  margin-top: 15px;
+	margin-top: 15px;
 }
 
 .establiment-title-div {
-  margin-top: 30px;
+	margin-top: 30px;
 }
 
 .establiment-description-div {
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .action {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
 li {
-  list-style-type: none;
+	list-style-type: none;
 }
 
-
 #images {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
 }
 
 .row {
-  padding-left: 0px;
-  padding-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .image-upload {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
 }
 
-.image-upload>input {
-  display: none !important;
+.image-upload > input {
+	display: none !important;
 }
 
 .image-upload img {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  max-width: 100%;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	max-width: 100%;
 }
 
 #bigPic,
 #smallPics {
-  margin-right: 0px !important;
-  margin-left: 0px !important;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
 }
 
 #bigPic {
-  margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
-input[type=file] {
-  visibility: hidden;
+input[type='file'] {
+	visibility: hidden;
 }
 
 label {
-  margin-bottom: 0px;
+	margin-bottom: 0px;
 }
 
 .checkbox {
-  margin-right: 3px;
+	margin-right: 3px;
 }
 
 .footer {
-  background-image: linear-gradient(#bfbfbf, #999 50%, #8f8f8f);
-  background-repeat: no-repeat;
-  color: white;
+	background-image: linear-gradient(#bfbfbf, #999 50%, #8f8f8f);
+	background-repeat: no-repeat;
+	color: white;
 }
 
 .links ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 .links li a {
-  color: white;
-  transition: color 0.2s;
+	color: white;
+	transition: color 0.2s;
 }
 
 .links li a :hover {
-  text-decoration: none;
-  color: #94bfbe;
+	text-decoration: none;
+	color: #94bfbe;
 }
 
 .location i {
-  font-size: 18px;
+	font-size: 18px;
 }
 
 .copyright p {
-  border-top: 1px solid grey;
+	border-top: 1px solid grey;
 }
 
 .navbar {
-  background-color: #f4f4f6;
-  background-repeat: no-repeat;
-  height: 100px;
+	background-color: #f4f4f6;
+	background-repeat: no-repeat;
+	height: 100px;
 }
 
 .nav-link {
-  color: #76797c;
+	color: #76797c;
+	font-family: 'Niconne';
+	font-size: x-large;
 }
 
 .nav-link:hover {
-  color: #76797c !important;
+	color: #76797c !important;
 }
 
 body {
-  background-color: #eaeff1;
+	background-color: #eaeff1;
 }
 
 .modal {
-  /* posat per editarCarta i editarPlats */
-  display: none;
-  width: 100%;
-  height: 100%;
+	/* posat per editarCarta i editarPlats */
+	display: none;
+	width: 100%;
+	height: 100%;
 }
 
 .modal-content {
-  /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
+	/* posat per editarCarta i editarPlats */
+	background-color: #84878a;
 }
 
 .modal-header {
-  /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
-  color: #ffffff;
+	/* posat per editarCarta i editarPlats */
+	background-color: #84878a;
+	color: #ffffff;
 }
 
 .modal-body {
-  /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
-  color: #ffffff;
-  text-align: center;
+	/* posat per editarCarta i editarPlats */
+	background-color: #84878a;
+	color: #ffffff;
+	text-align: center;
 }
 
 .modal-footer {
-  /* posat per editarCarta i editarPlats */
-  background-color: #84878a;
-  color: #ffffff;
+	/* posat per editarCarta i editarPlats */
+	background-color: #84878a;
+	color: #ffffff;
 }
 
 .card {
-  /* posat per editarCarta i editarPlats */
-  color: #ffffff;
-  background-color: #84878a;
-  height: 100%;
-  border-radius: 20px;
+	/* posat per editarCarta i editarPlats */
+	color: #ffffff;
+	background-color: #84878a;
+	height: 100%;
+	border-radius: 20px;
 }
 
 .btn {
-  /* posat per editarCarta i editarPlats */
-  background-color: #94bfbe;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 10px;
+	/* posat per editarCarta i editarPlats */
+	background-color: #94bfbe;
+	color: #ffffff;
+	border: none;
+	border-radius: 10px;
 }
 
 a {
-  /* posat per editarCarta i editarPlats */
-  color: #FFFFFF;
+	/* posat per editarCarta i editarPlats */
+	color: #ffffff;
 }
 
 button:hover {
-  /* posat per editarCarta i editarPlats */
-  color: #FFFFFF !important;
+	/* posat per editarCarta i editarPlats */
+	color: #ffffff !important;
 }
 
 a:hover {
-  /* posat per editarCarta i editarPlats */
-  color: #FFFFFF !important;
+	/* posat per editarCarta i editarPlats */
+	color: #ffffff !important;
 }
 
 .btn-link.btn {
-  background-color: #84878a;
-  color: #94bfbe;
+	background-color: #84878a;
+	color: #94bfbe;
 }
 
 .btn-link.btn:hover {
-  background-color: #84878a;
-  color: #94bfbe !important;
-  text-decoration: none;
+	background-color: #84878a;
+	color: #94bfbe !important;
+	text-decoration: none;
 }
 
 .btn-link.btn:focus {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 #bigPic div form label img {
-  border-top-left-radius: 20px;
+	border-top-left-radius: 20px;
 }
 
 #smallPics .image-upload:first-child form label img {
-  border-bottom-left-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 
 #map {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 
 @media (max-width: 767px) {
-  #map {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 0px;
-    border-top-right-radius: 20px;
-  }
+	#map {
+		border-top-left-radius: 20px;
+		border-bottom-left-radius: 0px;
+		border-top-right-radius: 20px;
+	}
 
-  #bigPic div form label img {
-    border-top-right-radius: 20px;
-  }
+	#bigPic div form label img {
+		border-top-right-radius: 20px;
+	}
 }
 
 .navbar-collapse {
-  background-color: #f4f4f6;
+	background-color: #f4f4f6;
 }
 
 #reserva_wrapper .dt-buttons button {
-  background-color: #94bfbe;
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
+	background-color: #94bfbe;
+	color: #ffffff;
+	border: none;
+	border-radius: 10px;
 }
 
 #reserva_wrapper .dt-buttons button:hover {
-  background-color: #94bfbe;
-  color: #ffffff;
+	background-color: #94bfbe;
+	color: #ffffff;
 }
 
-.page-item.active .page-link{
-  background-color: #94bfbe !important;
-  color: #ffffff;
+.page-item.active .page-link {
+	background-color: #94bfbe !important;
+	color: #ffffff;
 }
 
-.page-item.active{
-  background-color: #ffffff !important;
+.page-item.active {
+	background-color: #ffffff !important;
 }
 
-.page-item{
-  padding: 0 !important;
+.page-item {
+	padding: 0 !important;
 }
 
-@media screen and (max-width: 640px){
-  div.dt-buttons{
-    text-align: left !important;
-  }
+@media screen and (max-width: 640px) {
+	div.dt-buttons {
+		text-align: left !important;
+	}
 }
