@@ -16,7 +16,7 @@ $(document).ready(function () {
                 }
             }
         };
-        xhttp.open("POST", api + "/poblacio/poblacio.php", true);
+        xhttp.open("GET", api + "/poblacio/poblacio.php", true);
         xhttp.send();
     }
 
@@ -48,7 +48,7 @@ $(document).ready(function () {
                 }
             }
         };
-        xhttp.open("POST", api + "/categoria/categoria.php", true);
+        xhttp.open("GET", api + "/categoria/categoria.php", true);
         xhttp.send();
     }
 
