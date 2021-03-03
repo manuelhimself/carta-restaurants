@@ -13,13 +13,14 @@ $db = new DataBase();
 $dbConn = $db->connect();
 
 $categoria = new categoria($dbConn);
-$result = $categoria->readById();
 
 if (isset($_REQUEST['id'])) {
 	$categoria->setId($_REQUEST['id']);
 } else {
 	die();
 }
+
+$result = $categoria->readById();
 
 while ($row = $result->fetch_assoc()) {
 	$categoria = array(
