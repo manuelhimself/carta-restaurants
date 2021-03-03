@@ -1,5 +1,6 @@
 <?php
-class categoria{
+class categoria
+{
 
     private $conn;
 
@@ -8,12 +9,14 @@ class categoria{
     private $nom;
 
     //Constructor
-    public function __construct($db){
+    public function __construct($db)
+    {
         $this->conn = $db;
     }
 
     //Get establiments
-    public function read() {
+    public function read()
+    {
         $query = "SELECT * FROM
                 categoria";
         $stmt = $this->conn->prepare($query);
@@ -21,15 +24,28 @@ class categoria{
         return $stmt->get_result();
     }
 
+    //Get establiment
+    public function readById()
+    {
+        $query = "SELECT * FROM
+                categoria WHERE id=?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $this->id);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
     //GETTERS
 
     //id
-    public function getId(){
+    public function getId()
+    {
         return $this->id;
     }
 
     //nom
-    public function getNom(){
+    public function getNom()
+    {
         return $this->nom;
     }
 
@@ -37,14 +53,14 @@ class categoria{
     //SETTERS
 
     //id
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
     //nom
-    public function setNom($nom) {
+    public function setNom($nom)
+    {
         $this->nom = $nom;
     }
-
 }
-?>

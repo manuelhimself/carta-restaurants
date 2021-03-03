@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-header('Access-Control-Allow-Origin: *'); 
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Credentials', 'true');
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
@@ -13,16 +13,14 @@ $db = new DataBase();
 $dbConn = $db->connect();
 
 $categoria = new categoria($dbConn);
-$result = $categoria->read();
+$result = $categoria->readById();
 
-$categories = array();
 
 while ($row = $result->fetch_assoc()) {
-	$categoriaActual = array(
+	$categoria = array(
 		'id' => $row['id'],
 		'nom' => $row['nom']
 	);
-	array_push($categories, $categoriaActual);
 }
 
-echo json_encode($categories);
+echo json_encode($categoria);
