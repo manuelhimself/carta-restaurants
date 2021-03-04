@@ -1,6 +1,7 @@
 <?php
 
-class poblacio{
+class poblacio
+{
 
     private $conn;
 
@@ -10,12 +11,14 @@ class poblacio{
     private $cp;
 
     //Constructor
-    public function __construct($db){
+    public function __construct($db)
+    {
         $this->conn = $db;
     }
 
-    //Get establiments
-    public function read() {
+    //Get poblacions
+    public function read()
+    {
         $query = "SELECT * FROM
                 poblacio";
         $stmt = $this->conn->prepare($query);
@@ -23,20 +26,34 @@ class poblacio{
         return $stmt->get_result();
     }
 
+    //Get poblacio
+    public function readById()
+    {
+        $query = "SELECT * FROM
+                poblacio WHERE id=?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $this->id);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
     //GETTERS
 
     //id
-    public function getId(){
+    public function getId()
+    {
         return $this->id;
     }
 
     //nom
-    public function getNom(){
+    public function getNom()
+    {
         return $this->nom;
     }
 
     //cp
-    public function getCp(){
+    public function getCp()
+    {
         return $this->nom;
     }
 
@@ -44,18 +61,20 @@ class poblacio{
     //SETTERS
 
     //id
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
     //nom
-    public function setNom($nom) {
+    public function setNom($nom)
+    {
         $this->nom = $nom;
     }
 
     //cp
-    public function setCp($cp) {
+    public function setCp($cp)
+    {
         $this->cp = $cp;
     }
-
 }
