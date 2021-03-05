@@ -11,27 +11,27 @@ if ($conn->connect_error) {
 }
 
 if (isset(
-    $_GET['idEstabliment'])&&isset(
-    $_GET['nom'])&&isset(
-    $_GET['llinatges'])&&isset(
-    $_GET['tel'])&&isset(
-    $_GET['correu'])&&isset(
-    $_GET['dia'])&&isset(
-    $_GET['hora'])&&isset(
-    $_GET['comensals'])&&isset(
-    $_GET['observacions'])
+    $_REQUEST['idEstabliment'])&&isset(
+    $_REQUEST['nom'])&&isset(
+    $_REQUEST['llinatges'])&&isset(
+    $_REQUEST['tel'])&&isset(
+    $_REQUEST['correu'])&&isset(
+    $_REQUEST['dia'])&&isset(
+    $_REQUEST['hora'])&&isset(
+    $_REQUEST['comensals'])&&isset(
+    $_REQUEST['observacions'])
 ) {
 
-    $idEstabliment = $_GET['idEstabliment'];
-    $nom = $_GET['nom'];
-    $llinatges = $_GET['llinatges'];
-    $tlfn = $_GET['tel'];
-    $correu = $_GET['correu'];
-    $dia = $_GET['dia'];
+    $idEstabliment = $_REQUEST['idEstabliment'];
+    $nom = $_REQUEST['nom'];
+    $llinatges = $_REQUEST['llinatges'];
+    $tlfn = $_REQUEST['tel'];
+    $correu = $_REQUEST['correu'];
+    $dia = $_REQUEST['dia'];
     $_date = date("Ymd", strtotime($dia));
-    $hora = $_GET['hora'];
-    $comensals = $_GET['comensals'];
-    $observacions = $_GET['observacions'];
+    $hora = $_REQUEST['hora'];
+    $comensals = $_REQUEST['comensals'];
+    $observacions = $_REQUEST['observacions'];
 }
 
 $sql = "INSERT INTO usuari (nom,llinatge,telefon,correu) VALUES ('$nom','$llinatges',$tlfn,'$correu')";
