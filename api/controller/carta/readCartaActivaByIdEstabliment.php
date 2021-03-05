@@ -18,7 +18,7 @@ $cartes = array();
 
 if(isset($_REQUEST["idEstabliment"])){
     $carta->setIdEstabliment($_REQUEST["idEstabliment"]);
-    $result = $carta->readByIdEstabliment();
+    $result = $carta->readCartaActivaByIdEstabliment();
     while ($row = $result->fetch_assoc()) {
         $cartaActual = array(
             'idCarta' => $row['idCarta'],
@@ -33,5 +33,3 @@ if(isset($_REQUEST["idEstabliment"])){
 
 
 echo json_encode($cartes);
-
-?>
