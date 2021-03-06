@@ -13,12 +13,12 @@ if ($conn->connect_error) {
 $email = $_REQUEST["email"];
 $psswd = $_REQUEST["password"];
 
-$sql = "SELECT nom, password FROM usuari WHERE email = '" . $email . "' and password='".$psswd."';";
+$sql = "SELECT nom, password FROM usuari WHERE correu = '" . $email . "' and password='".$psswd."';";
 
 $query=mysqli_query($conn,$sql);
 $counter=mysqli_num_rows($query);
 if ($counter==1){
-		$sqly = "SELECT idUsuari FROM usuari WHERE email = '" . $email . "' and password='".$psswd."';";
+		$sqly = "SELECT idUsuari FROM usuari WHERE correu = '" . $email . "' and password='".$psswd."';";
 		$resultat = $conn->query($sqly);
     		if ($resultat){
         		while($row = $resultat->fetch_array()){
