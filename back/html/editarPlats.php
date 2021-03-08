@@ -120,7 +120,7 @@ include_once 'navBar.php';
             <form>
                 <div class="form-group">
                     <select id="select" class="form-control">
-                        <option value="0">Selecciona un alergen</option>
+                        <option value="0">Selecciona un al·lergen</option>
                     </select>
                 </div>
             </form>
