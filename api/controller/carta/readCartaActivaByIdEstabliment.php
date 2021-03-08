@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-header('Access-Control-Allow-Origin: *'); 
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Credentials', 'true');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
@@ -13,23 +13,20 @@ $dbConn = $db->connect();
 
 $carta = new Carta($dbConn);
 
-$cartes = array();
 
-
-if(isset($_REQUEST["idEstabliment"])){
+if (isset($_REQUEST["idEstabliment"])) {
     $carta->setIdEstabliment($_REQUEST["idEstabliment"]);
     $result = $carta->readCartaActivaByIdEstabliment();
     while ($row = $result->fetch_assoc()) {
         $cartaActual = array(
             'idCarta' => $row['idCarta'],
-		    'nom' => $row['nom'],
+            'nom' => $row['nom'],
             'actiu' => $row['actiu']
         );
-        array_push($cartes, $cartaActual);
     }
-}else{
+} else {
     die();
 }
 
 
-echo json_encode($cartes);
+echo json_encode($cartaActual);
