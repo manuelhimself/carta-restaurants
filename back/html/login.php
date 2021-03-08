@@ -39,10 +39,8 @@ include_once 'navbarLoginRegister.php';
                     <span id="m1" class="font-weight-bold ml-3">
                     </span>
                     <div class="col-12 mb-3 mt-3" id="botons">
-                        <div class="float-right">
-                            <button id='inici' class="btn" onclick="logIn();">Inicia sessió</button>
-                            <a href="registrer.php" class="btn">Registrar-se</a>
-                        </div>
+                        <button id='inici' class="btn" onclick="logIn();">Inicia sessió</button>
+                        <a href="registrer.php" class="btn">Registrar-se</a>
                     </div>
                 </div>
             </div>
