@@ -12,7 +12,7 @@ $id = $_REQUEST['id'];
 
 
 $conn = new mysqli("localhost","root","password","restaurat");
-$query = "SELECT usuari.nom, reserva.hora, reserva.data, reserva.num_comensals 
+$query = "SELECT usuari.nom, reserva.hora, reserva.data, reserva.num_comensals, reserva.observacions 
 FROM usuari, reserva, establiment 
 where reserva.Establiment_id = establiment.id and usuari.idUsuari = reserva.Usuari_idUsuari and establiment.id = ? and reserva.data = ?;";
 $stmt = $conn->prepare($query);
@@ -27,7 +27,8 @@ while ($row = $result->fetch_assoc()) {
         'nomUsuari' => $row['nom'],
         'hora' => $row['hora'],
         'data' => $row['data'],
-        'comensals' => $row['num_comensals']
+        'comensals' => $row['num_comensals'],
+        'observacions' => $row['observacions'],
     );
     array_push($reserves, $reservaActual);
 }

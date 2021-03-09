@@ -78,7 +78,7 @@ include_once 'navBar.php';
                             <th>Nom</th>
                             <th>Hora</th>
                             <th>comensals</th>
-
+                            <th>Observacions</th>
                         </tr>
                     </thead>
                 </table>
@@ -124,6 +124,9 @@ include_once 'navBar.php';
                 },
                 {
                     data: "comensals"
+                },
+                {
+                    data: "observacions"
                 },
 
             ],
