@@ -41,5 +41,5 @@ $sql = "INSERT INTO reserva (Usuari_idUsuari,Establiment_id, data, num_comensals
 if ($conn->query($sql) === TRUE) {
     echo 'ok';
 } else {
-    echo 'error';
+    echo $conn->error;
 }
