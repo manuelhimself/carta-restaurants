@@ -13,7 +13,6 @@
             <div class="col-lg-6 col-xs-12 portal-clients links text-center">
                 <h4 class="mt-lg-0 mt-sm-3">Portal Clients</h4>
                 <ul class="m-0 p-0">
-                    <li>- <a href="#">Inicia sessió</a></li>
                     <li>- <a href="https://restaurat.me/">Cerca restaurants</a></li>
                 </ul>
             </div>
