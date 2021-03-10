@@ -313,7 +313,8 @@ $(document).ready(function () {
         $("#b1").click(function () {
             var lat = $("#x").val();
             var lng = $("#y").val();
-            console.log(lat + " " + lng);
+            console.log(lat);
+            console.log(lng);
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
