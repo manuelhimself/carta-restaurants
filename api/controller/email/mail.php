@@ -14,7 +14,13 @@ if(!empty($_REQUEST['name']) && !empty($_REQUEST['email']) && !empty($_REQUEST['
 $msg = wordwrap($msg,70);
 
 // send email
-mail($mail,$nom,$msg);
+$to = "restauratme@gmail.com";
+$subject = "My subject";
+$headers = "From:". $mail . "\r\n" .
+"CC: restauratme@gmail.com";
+
+mail($to,$subject,$msg,$headers);
+
 }
 
 ?>
