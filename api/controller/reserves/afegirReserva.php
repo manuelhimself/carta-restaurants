@@ -32,7 +32,7 @@ if (
     $_date = date("Ymd", strtotime($dia));
     $hora = $_REQUEST['hora'];
     $comensals = $_REQUEST['comensals'];
-    $observacions = $conn->real_escape_string($_REQUEST['observacions']);
+    $observacions = $_REQUEST['observacions'];
 }
 
 
