@@ -12,15 +12,10 @@ if(!empty($_REQUEST['name']) && !empty($_REQUEST['email']) && !empty($_REQUEST['
 
 // use wordwrap() if lines are longer 
 $msg = wordwrap($msg,70);
-
+$m = 'restauratme@gamil.com';
 // send email
-$to = "restauratme@gmail.com";
-$subject = "My subject";
-$headers = "From:". $mail . "\r\n" .
-"CC: restauratme@gmail.com";
-
-mail($to,$subject,$msg,$headers);
-
+$headers .= 'From: ' .$mail . "\r\n";
+mail($m,$nom,$msg,$headers);
 }
 
 ?>
