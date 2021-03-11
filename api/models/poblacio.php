@@ -37,6 +37,15 @@ class poblacio
         return $stmt->get_result();
     }
 
+    //Get pie chart data
+    public function getPieChartJson()
+    {
+        $query = "SELECT poblacio.nom, COUNT(establiment.id) AS nRestaurants FROM poblacio, establiment where poblacio.id=establiment.Poblacio_id GROUP BY poblacio.nom";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
     //GETTERS
 
     //id
