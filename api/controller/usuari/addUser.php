@@ -20,8 +20,17 @@ if ($conn->connect_error) {
     
   $sql = " INSERT INTO usuari (nom,llinatge,password,telefon,correu) VALUES ('$nom','$llinatge','$password','$telefon','$correu')";
 
+  $msg = "Benvingu@" .$nom." ". $llinatge . "a Restaura't. El seu compte sa creat correctament";
+
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+
+// send email
+mail($correu,$msg);
+
 if($conn->query($sql) === TRUE){
     echo"OK";
+
 } else{ 
   echo"ERROR";
 }
