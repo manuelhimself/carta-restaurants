@@ -15,7 +15,7 @@ if(!empty($_REQUEST['nom']) && !empty($_REQUEST['correu']) ){
     $msg = wordwrap($msg,70);
 
 // send email
-mail("$mail","My subject",$msg);
+mail($mail,"My subject",$msg);
 }
 
 ?>
